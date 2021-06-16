@@ -1,4 +1,5 @@
-<?= $this->extend('templates/header'); ?>
+<?= $this->extend('layout/template'); ?>
+
 <?= $this->section('content'); ?>
 <div class="content">
 	<div class="panel-header bg-primary-gradient">
