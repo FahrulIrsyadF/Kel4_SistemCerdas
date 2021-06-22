@@ -16,13 +16,23 @@
 					<h4 class="text-section">Data</h4>
 				</li>
 				<li class="nav-item">
-					<a data-toggle="collapse" href="#">
+					<a href="<?= base_url('testing'); ?>">
 						<i class="fas fa-database"></i>
 						<p>Data Training</p>
 					</a>
-					<a data-toggle="collapse" href="#">
+				</li>
+				</li>
+				<li class="nav-item">
+					<a href="<?= base_url('testing'); ?>">
 						<i class="fas fa-cogs"></i>
 						<p>Klasifikasi LVQ</p>
+					</a>
+				</li>
+				</li>
+				<li class="nav-item">
+					<a href="<?= base_url('testing'); ?>">
+						<i class="fas fa-diagnoses"></i>
+						<p>Data Testing</p>
 					</a>
 				</li>
 				<li class="nav-section">

@@ -1,6 +1,6 @@
 <?= $this->extend('templates/login_header'); ?>
 <?= $this->section('content'); ?>
-<div class="col-md-4 ml-auto mr-auto mt-6">
+<div class="col-md-4 ml-auto mr-auto pt-5">
     <div class="card">
         <form action="<?= base_url('auth/login') ?>" method="post">
             <?= csrf_field(); ?>
