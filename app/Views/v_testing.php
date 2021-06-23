@@ -8,14 +8,14 @@
                 <div class="card">
                     <div class="card-header">
                         <h2>Form Diagnosis Kanker Serviks</h2>
-                        <h5>*** Berikut merupakan form untuk mendiagnosis dini penyakit kanker serviks.
-                            Terdapat rentang <b>NILAI KESEHATAN</b> disetiap pertanyaan, <br> diisi sesuai pola hidup anda.</h5>
+                        <h5>*** Berikut merupakan form untuk diagnosis dini penyakit Kanker Serviks.
+                            Terdapat rentang <b>NILAI KESEHATAN</b> di setiap pertanyaan, <br> mohon pilih sesuai dengan pola hidup Anda!</h5>
                     </div>
                     <div class="card-body px-lg-5 px-1">
                         <form action="<?= base_url('proses_testing'); ?>" method="post">
                             <div class="form-group">
                                 <div>
-                                    <h4><strong>1. Bagaimana nilai kesehatan pola perilaku seksual anda?</strong></h4>
+                                    <h4><strong>1. Berapa tingkat perilaku seksual berisiko yang Anda lakukan?</strong></h4>
                                     <!-- <small class="text-muted">(skjad)</small> -->
                                     <div>
                                         <?php
@@ -29,7 +29,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>2. Bagaimana nilai kesehatan pola makan anda?</strong></h4>
+                                    <h4><strong>2. Berapa tingkat perilaku makan Anda?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -42,7 +42,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>3. Bagaimana nilai kesehatan pola kebersihan anda?</strong></h4>
+                                    <h4><strong>3. Berapa tingkat perilaku kebersihan pribadi Anda?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -55,7 +55,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>4. Bagaimana tingkatan niat anda terhadap sesuatu?</strong></h4>
+                                    <h4><strong>4. Berapa tingkat niat Anda dalam mengumpulkan sesuatu?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
@@ -68,7 +68,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>5. Bagaimana tingkatan komitmen anda terhadap sesuatu?</strong></h4>
+                                    <h4><strong>5. Berapa tingkat niat Anda dalam berkomitmen?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -81,7 +81,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>6. Bagaimana tingkatan komitmen anda terhadap sesuatu?</strong></h4>
+                                    <h4><strong>6. Berapa tingkat sikap konsistensi Anda dalam melakukan sesuatu?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
@@ -94,7 +94,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>7. Bagaimana tingkatan komitmen anda terhadap sesuatu?</strong></h4>
+                                    <h4><strong>7. Berapa tingkat sikap spontanitas Anda?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
@@ -107,7 +107,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>8. Bagaimana tingkatan komitmen anda terhadap sesuatu?</strong></h4>
+                                    <h4><strong>8. Berapa tingkat ...?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 5; $i++) { ?>
@@ -120,7 +120,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>9. Bagaimana tingkatan komitmen anda terhadap sesuatu?</strong></h4>
+                                    <h4><strong>9. Berapa tingkat norma Anda dalam pemenuhan sesuatu?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -133,7 +133,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>10. Bagaimana tingkatan komitmen anda terhadap sesuatu?</strong></h4>
+                                    <h4><strong>10. Berapa tingkat keyakinan Anda terkait kerentanan kondisi tubuh?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -146,7 +146,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>11. Bagaimana tingkatan komitmen anda terhadap sesuatu?</strong></h4>
+                                    <h4><strong>11. Berapa tingkat keyakinan Anda terkait keparahan kondisi tubuh?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
@@ -159,7 +159,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>12. Bagaimana tingkatan komitmen anda terhadap sesuatu?</strong></h4>
+                                    <h4><strong>12. Berapa tingkat motivasi Anda dalam menguatkan diri?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -172,7 +172,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>13. Bagaimana tingkatan komitmen anda terhadap sesuatu?</strong></h4>
+                                    <h4><strong>13. Berapa tingkat motivasi Anda dalam merelakan sesuatu?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -185,7 +185,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>14. Bagaimana tingkatan komitmen anda terhadap sesuatu?</strong></h4>
+                                    <h4><strong>14. Berapa tingkat dukungan sosial terkait aspek emosionalitas?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -198,7 +198,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>15. Bagaimana tingkatan komitmen anda terhadap sesuatu?</strong></h4>
+                                    <h4><strong>15. Berapa tingkat dukungan sosial terkait aspek penghargaan/apresiasi?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
@@ -211,7 +211,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>16. Bagaimana tingkatan komitmen anda terhadap sesuatu?</strong></h4>
+                                    <h4><strong>16. Berapa tingkat dukungan sosial terkait aspek instrumental?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -224,7 +224,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>17. Bagaimana tingkatan komitmen anda terhadap sesuatu?</strong></h4>
+                                    <h4><strong>17. Berapa tingkat pemberdayaan pengetahuan Anda?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -237,7 +237,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>18. Bagaimana tingkatan komitmen anda terhadap sesuatu?</strong></h4>
+                                    <h4><strong>18. Berapa tingkat pemberdayaan kemampuan Anda?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -250,7 +250,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>19. Bagaimana tingkatan komitmen anda terhadap sesuatu?</strong></h4>
+                                    <h4><strong>19. Berapa tingkat pemberdayaan keinginan Anda?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
