@@ -18,6 +18,6 @@ class Laporan extends BaseController
         ];
         $data['nomor'] = nomor($this->request->getVar('page_bootstrap'), 5);
 
-        return view('v_laporan2', $data);
+        return view('v_laporan', $data);
     }
 }
