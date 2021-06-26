@@ -4,7 +4,7 @@
 		<div class="sidebar-content">
 			<ul class="nav nav-primary">
 				<li class="nav-item active">
-					<a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+					<a href="/" aria-expanded="false">
 						<i class="fas fa-home"></i>
 						<p>Beranda</p>
 					</a>
@@ -40,7 +40,7 @@
 					<h4 class="text-section">Laporan</h4>
 				</li>
 				<li class="nav-item">
-					<a data-toggle="collapse" href="#">
+					<a href="<?= base_url('laporan'); ?>">
 						<i class="fas fa-file-contract"></i>
 						<p>Laporan Hasil</p>
 					</a>
