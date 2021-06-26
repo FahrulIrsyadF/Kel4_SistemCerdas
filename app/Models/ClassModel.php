@@ -15,4 +15,3 @@ class ClassModel extends Model
     protected $useTimestamps = false;
     protected $createdField  = 'timestamp_class';
 }
-?>
