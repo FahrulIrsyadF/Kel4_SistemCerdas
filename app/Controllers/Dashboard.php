@@ -6,6 +6,7 @@ use App\Models\LoginModel;
 
 class Dashboard extends BaseController
 {
+	protected $loginModel;
 	public function __construct()
 	{
 		$this->loginModel = new LoginModel;
@@ -23,7 +24,7 @@ class Dashboard extends BaseController
 			echo '404 belum login';
 			echo '<a href="' . base_url('auth') . '" class="btn btn-primary">Login</a>';
 		} else {
-			return view('dashboard', $data);
+			echo view('dashboard', $data);
 		}
 	}
 }

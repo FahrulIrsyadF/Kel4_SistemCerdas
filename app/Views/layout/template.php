@@ -92,6 +92,98 @@
     <!-- Atlantis DEMO methods, don't include it in your project! -->
     <script src="<?= base_url(); ?>/assets/js/setting-demo.js"></script>
     <script src="<?= base_url(); ?>/assets/js/demo.js"></script>
+    <?php
+    $db = \Config\Database::connect();
+    $umur = $db->query("SELECT age_test, COUNT(*) AS jumlah FROM test GROUP BY age_test");
+    ?>
+    <script>
+        var barChart = document.getElementById('barChart').getContext('2d');
+
+        var myBarChart = new Chart(barChart, {
+            type: 'bar',
+            data: {
+                labels: [
+                    <?php foreach ($umur->getResultArray() as $um) {
+                        echo '"' . $um['age_test'] . '",';
+                    } ?>
+                ],
+                datasets: [{
+                    label: "Umur",
+                    backgroundColor: 'rgb(23, 125, 255)',
+                    borderColor: 'rgb(23, 125, 255)',
+                    data: [
+                        <?php foreach ($umur->getResultArray() as $um) {
+                            echo $um['jumlah'] . ', ';
+                        } ?>
+                    ],
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+            }
+        });
+    </script>
+    <?php
+    $db = \Config\Database::connect();
+    $positif = $db->query("SELECT class.name_class, COUNT(*) AS presentase FROM test, class
+                            WHERE test.id_class = class.id_class
+                            GROUP BY class.id_class"); ?>
+    <script>
+        var pieChart = document.getElementById('pieChart').getContext('2d');
+
+        var myPieChart = new Chart(pieChart, {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data: [
+                        <?php foreach ($positif->getResultArray() as $pst) {
+                            echo $pst['presentase'] . ', ';
+                        } ?>
+                    ],
+                    backgroundColor: ["#f3545d", "#1d7af3"],
+                    borderWidth: 0
+                }],
+                labels: [<?php foreach ($positif->getResultArray() as $pst) {
+                                echo '"' . $pst['name_class'] . '", ';
+                            } ?>]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        fontColor: 'rgb(154, 154, 154)',
+                        fontSize: 11,
+                        usePointStyle: true,
+                        padding: 20
+                    }
+                },
+                pieceLabel: {
+                    render: 'percentage',
+                    fontColor: 'white',
+                    fontSize: 14,
+                },
+                tooltips: false,
+                layout: {
+                    padding: {
+                        left: 20,
+                        right: 20,
+                        top: 20,
+                        bottom: 20
+                    }
+                }
+            }
+        });
+    </script>
 
 </body>
 

@@ -21,13 +21,11 @@
 						<p>Data Training</p>
 					</a>
 				</li>
-				</li>
 				<li class="nav-item">
 					<a href="<?= base_url('testing'); ?>">
 						<i class="fas fa-cogs"></i>
 						<p>Klasifikasi LVQ</p>
 					</a>
-				</li>
 				</li>
 				<li class="nav-item">
 					<a href="<?= base_url('testing'); ?>">
