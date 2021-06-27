@@ -33,7 +33,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="datatable" class="display table table-hover">
+                            <table id="datatable" class="display table table-striped table-hover">
                                 <thead>
                                     <th>Data Train</th>
                                     <th>Behavior SexRisk</th>
@@ -62,11 +62,7 @@
                                                     <button type="button" data-toggle="modal" data-target="#DetailModal" title="" data-id="<?= $data['id_train'] ?>" class="btn btn-link btn-primary btn-lg" data-original-title="Detail">
                                                         <i class="fa fa-info-circle"></i>
                                                     </button>
-                                                    <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit">
-                                                        <i class="fa fa-edit"></i>
-                                                    </button>
-                                                    <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal_hapus<?= $data['id_class']; ?>"><i class="fas fa-trash"></i>
-                                                        <b> Hapus</b></button>
+                                                    <button data-tooltip="tooltip" title="Hapus Data" type="button" data-id="<?= $data['id_train'] ?>" data-link="Traiaing/delete/" data-nama=" Training <?= $data['id_train'] ?>" id="hapus_crud" class="btn btn-danger btn-sm hapus_crud"><i class="fas fa-trash"></i></button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -136,8 +132,6 @@
     $(document).ready(function() {
         var action = '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Delete"> <i class="fa fa-times"></i> </button> </div> </td>';
     });
-
-    $('#datatable').DataTable();
 </script>
 
 <?= $this->endSection(); ?>

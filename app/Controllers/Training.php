@@ -21,7 +21,7 @@ class Training extends BaseController
     {
 
         $data = [
-            'title' => 'Tabel Data Training',
+            'title' => 'Data Training',
             'train' => $this->TrainingModel->findAll(),
             'class' => $this->classModel->findAll()
         ];
@@ -38,6 +38,41 @@ class Training extends BaseController
         ];
 
         echo view('v_testing_done', $data);
+    }
+
+    public function delete($id_train)
+    {
+        $data = [
+            'title' => 'Data Training',
+            'train' => $this->TrainingModel->findAll(),
+            'class' => $this->classModel->findAll()
+        ];
+        $hapus = $this->TrainingModel->deleteData($id_train);
+        // mengirim pesan berhasil dihapus
+        if ($hapus) {
+            $this->session->set_flashdata('pesan', $this->notify('Selamat!', 'Berhasil menghapus data.', 'success', 'success'));
+            echo view('v_training', $data);
+        } else {
+            $this->session->set_flashdata('pesan', $this->notify('Perhatian!', 'Gagal menghapus data.', 'danger', 'error'));
+            echo view('v_training', $data);
+        }
+    }
+
+    function notify($title, $message, $type, $icon)
+    {
+        $pesan = "$.notify({
+            icon: 'flaticon-$icon',
+            title: '$title',
+            message: '$message',
+        },{
+            type: '$type',
+            placement: {
+                from: 'top',
+                align: 'center'
+            },
+            time: 1000,
+        });";
+        return $pesan;
     }
 
     public function create()
