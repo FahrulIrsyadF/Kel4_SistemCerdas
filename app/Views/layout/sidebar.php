@@ -16,7 +16,7 @@
 					<h4 class="text-section">Data</h4>
 				</li>
 				<li class="nav-item">
-					<a href="<?= base_url('testing'); ?>">
+					<a href="<?= base_url('training'); ?>">
 						<i class="fas fa-database"></i>
 						<p>Data Training</p>
 					</a>
