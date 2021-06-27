@@ -199,7 +199,7 @@
 
             swal({
                 title: 'Perhatian!',
-                text: "Yakin akan menghapus data " + nama + " ?",
+                text: "Yakin akan menghapus Data " + nama + " ?",
                 icon: 'warning',
                 buttons: {
                     cancel: {
