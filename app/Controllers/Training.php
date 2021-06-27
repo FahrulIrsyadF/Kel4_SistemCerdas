@@ -50,11 +50,11 @@ class Training extends BaseController
         $hapus = $this->TrainingModel->deleteData($id_train);
         // mengirim pesan berhasil dihapus
         if ($hapus) {
-            $this->session->set_flashdata('pesan', $this->notify('Selamat!', 'Berhasil menghapus data.', 'success', 'success'));
-            echo view('v_training', $data);
+            session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil menghapus data.', 'success', 'success'));
+            return redirect()->back();
         } else {
-            $this->session->set_flashdata('pesan', $this->notify('Perhatian!', 'Gagal menghapus data.', 'danger', 'error'));
-            echo view('v_training', $data);
+            session()->setFlashdata('pesan', $this->notify('Perhatian!', 'Gagal menghapus data.', 'danger', 'error'));
+            return redirect()->back();
         }
     }
 

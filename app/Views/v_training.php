@@ -1,6 +1,6 @@
 <?= $this->extend('layout/template'); ?>
 <?= $this->section('content'); ?>
-
+<?= session()->getFlashdata('pesan') ?>
 <div class="content">
     <div class="page-inner">
         <div class="page-header">
@@ -49,7 +49,7 @@
                                     <?php
                                     foreach ($train as $data) { ?>
                                         <tr>
-                                            <td width= "20"><?= $data['id_train']; ?></td>
+                                            <td width="20"><?= $data['id_train']; ?></td>
                                             <td><?= $data['tr_behaviour_sexualrisk']; ?></td>
                                             <td><?= $data['tr_behavior_eating']; ?></td>
                                             <td><?= $data['tr_behavior_personalhygine']; ?></td>
@@ -62,7 +62,7 @@
                                                     <button type="button" data-toggle="modal" data-target="#DetailModal" title="" data-id="<?= $data['id_train'] ?>" class="btn btn-info btn-sm" data-original-title="Detail">
                                                         <i class="fa fa-info"></i>
                                                     </button>
-                                                    <button data-tooltip="tooltip" title="Hapus Data" type="button" data-id="<?= $data['id_train'] ?>" data-link="Training/deleteData" data-nama=" Training <?= $data['id_train'] ?>" id="hapus_crud" class="btn btn-danger btn-sm hapus_crud"><i class="fas fa-trash"></i></button>
+                                                    <button data-tooltip="tooltip" title="Hapus Data" type="button" data-id="<?= $data['id_train'] ?>" data-link="/Training/delete/" data-nama=" Training <?= $data['id_train'] ?>" id="hapus_crud" class="btn btn-danger btn-sm hapus_crud"><i class="fas fa-trash"></i></button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -128,10 +128,12 @@
     </div>
 </div>
 
+<?= $this->endSection(); ?>
+<?= $this->section('script'); ?>
 <script>
     $(document).ready(function() {
         var action = '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Delete"> <i class="fa fa-times"></i> </button> </div> </td>';
+        <?= session()->getFlashdata('pesan'); ?>
     });
 </script>
-
 <?= $this->endSection(); ?>
