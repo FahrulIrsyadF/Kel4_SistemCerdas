@@ -23,11 +23,14 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="d-flex align-items-center">
+                        <div class="float-left">
                             <h4 class="card-title">Data Training</h4>
-                            <button class="btn btn-primary btn-round ml-auto">
-                                <i class="fa fa-plus"></i>
-                                Import Data
+                        </div>
+                        <div class="float-right">
+                            <a href="javascript:void(0)" data-toggle="modal" data-target="#modalImport" class="btn btn-round btn-primary"><i class="fas fa-plus"></i>&nbsp;&nbsp;Import Data</a>
+                            <button class="btn btn-danger btn-round ml-auto">
+                                <i class="fa fa-trash"></i>
+                                &nbsp;Hapus Semua Data
                             </button>
                         </div>
                     </div>
@@ -123,6 +126,38 @@
             </div>
             <div class="modal-footer no-bd">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalImport" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Import Data Training</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <form action="<?= base_url('/Training/prosesExcel/') ?>" enctype="multipart/form-data" method="post">
+                        <div class="form-group mx-4">
+                            <label for="exampleFormControlFile1">Pilih File Excel</label>
+                            <input type="file" name="file_excel" accept=".xlsx, .xls, .csv" class="form-control-file" id="file_excel">
+                            <button type="submit" class="btn btn-primary btn-sm mt-1"> <i class="fas fa-upload"></i>&nbsp;&nbsp;Upload File Excel</button>
+                        </div>
+                    </form>
+                </div>
+                <p class="mx-3 text-muted">Upload File Excel</p>
+                <p class="mx-3 text-muted">1. Silahkan download template Excel terlebih dahulu dengan cara klik tombol "Download" di bawah ini.</p>
+                <p class="mx-3 text-muted">2. Masukkan data training pada template Excel yang telah diunduh</p>
+                <p class="mx-3 text-muted">3. Klik tombol "Pilih File" di sebelah kiri untuk memilih file excel yang akan diunggah</p>
+                <p class="mx-3 text-muted">4. Klik tombol "Upload File Excel" untuk upload file Excel yang telah berisi data training</p><br>
+                <div class="float-right">
+                    <a href="<?= base_url('admin/c_mahasiswa/export_template') ?>" class="btn btn-success"><i class="fas fa-download"></i>&nbsp;&nbsp;Download Template Excel</a>
+                </div>
             </div>
         </div>
     </div>

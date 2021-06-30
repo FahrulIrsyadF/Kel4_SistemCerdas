@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\TrainingModel;
 use App\Models\WeightModel;
 use App\Models\ClassModel;
+use PHPExcel;
+use PHPExcel_IOFactory;
 
 class Training extends BaseController
 {
@@ -29,15 +31,62 @@ class Training extends BaseController
         echo view('v_training', $data);
     }
 
-    public function done($id)
+    public function prosesExcel()
     {
-        $data = [
-            'title' => 'Form diagnosis kanker serviks',
-            'train' => $this->trainingModel->where('id_train', $id)->findAll(),
-            'class' => $this->classModel->findAll(),
-        ];
+        $file = $this->request->getFile('file_excel');
+        $ext = $file->getClientExtension();
+        if ('csv' == $ext) {
+            $excelreader = new \PhpOffice\PhpSpreadsheet\Reader\Csv();
+        } else if ('xlsx' == $ext) {
+            $excelreader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+        } else {
+            $excelreader = new \PhpOffice\PhpSpreadsheet\Reader\Xls();
+        }
+        //baca file
+        $spreadsheet = $excelreader->load($file);
+        //ambil sheet active
+        $sheet    = $spreadsheet->getActiveSheet()->toArray();
 
-        echo view('v_testing_done', $data);
+        $i = 0;
+        //looping untuk mengambil data
+        foreach ($sheet as $data) {
+            //skip index 3 karena title excel
+            if ($i >= 4) {
+                // continue;
+                $insert = [
+                    'id_user' => 1,
+                    'tr_behaviour_sexualrisk' => $data['0'],
+                    'tr_behavior_eating' => $data['1'],
+                    'tr_behavior_personalhygine' => $data['2'],
+                    'tr_intention_aggregation' => $data['3'],
+                    'tr_intention_commitment' => $data['4'],
+                    'tr_attitude_consistency' => $data['5'],
+                    'tr_attitude_spontaneity' => $data['6'],
+                    'tr_norm_significantperson' => $data['7'],
+                    'tr_norm_fulfillment' => $data['8'],
+                    'tr_perception_vulnerability' => $data['9'],
+                    'tr_perception_severity' => $data['10'],
+                    'tr_motivation_strength' => $data['11'],
+                    'tr_motivation_willingness' => $data['12'],
+                    'tr_socialsupport_emotionality' => $data['13'],
+                    'tr_socialsupport_appreciation' => $data['14'],
+                    'tr_socialsupport_instrumental' => $data['15'],
+                    'tr_empowerment_knowledge' => $data['16'],
+                    'tr_empowerment_abilities' => $data['17'],
+                    'tr_empowerment_desires' => $data['18'],
+                    'id_class' => $data['19'],
+                    'tr_timestamp' => date('Y-m-d H:i:s')
+                ];
+                $this->TrainingModel->add($insert);
+                // dd($data);
+            }
+            // d($data);
+            // data
+            $i++;
+        }
+
+        session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil mengimport data.', 'success', 'success'));
+        // return redirect()->back();
     }
 
     public function delete($id_train)
