@@ -52,7 +52,7 @@
 					<h4 class="text-section">Informasi</h4>
 				</li>
 				<li class="nav-item">
-					<a data-toggle="collapse" href="#">
+					<a href="<?= base_url('informasi'); ?>">
 						<i class="fas fa-exclamation-circle"></i>
 						<p>Tentang LVQ</p>
 					</a>
