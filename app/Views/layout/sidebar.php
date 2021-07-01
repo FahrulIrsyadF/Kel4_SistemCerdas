@@ -22,15 +22,15 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="<?= base_url('testing'); ?>">
-						<i class="fas fa-cogs"></i>
-						<p>Klasifikasi LVQ</p>
+					<a href="<?= base_url('weight'); ?>">
+						<i class="fas fa-diagnoses"></i>
+						<p>Training</p>
 					</a>
 				</li>
 				<li class="nav-item">
 					<a href="<?= base_url('testing'); ?>">
-						<i class="fas fa-diagnoses"></i>
-						<p>Data Testing</p>
+						<i class="fas fa-cogs"></i>
+						<p>Klasifikasi LVQ</p>
 					</a>
 				</li>
 				<li class="nav-section">

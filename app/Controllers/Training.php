@@ -5,8 +5,6 @@ namespace App\Controllers;
 use App\Models\TrainingModel;
 use App\Models\WeightModel;
 use App\Models\ClassModel;
-use PHPExcel;
-use PHPExcel_IOFactory;
 
 class Training extends BaseController
 {
@@ -80,13 +78,11 @@ class Training extends BaseController
                 $this->TrainingModel->add($insert);
                 // dd($data);
             }
-            // d($data);
-            // data
             $i++;
         }
 
         session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil mengimport data.', 'success', 'success'));
-        // return redirect()->back();
+        return redirect()->back();
     }
 
     public function delete($id_train)
