@@ -51,6 +51,9 @@ class Training extends BaseController
             //skip index 3 karena title excel
             if ($i >= 4) {
                 // continue;
+                $classDatabase = $this->classModel->where('code_class', $data['19'])->findAll();
+                // dd($classDatabase[0]['code_class']);
+                $classDatabase = $classDatabase[0]['id_class'];
                 $insert = [
                     'id_user' => 1,
                     'tr_behaviour_sexualrisk' => $data['0'],
@@ -72,7 +75,7 @@ class Training extends BaseController
                     'tr_empowerment_knowledge' => $data['16'],
                     'tr_empowerment_abilities' => $data['17'],
                     'tr_empowerment_desires' => $data['18'],
-                    'id_class' => $data['19'],
+                    'id_class' => $classDatabase,
                     'tr_timestamp' => date('Y-m-d H:i:s')
                 ];
                 $this->TrainingModel->add($insert);

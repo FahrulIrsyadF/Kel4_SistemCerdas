@@ -20,7 +20,8 @@ class Testing extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Form diagnosis kanker serviks'
+            'title' => 'Form diagnosis kanker serviks',
+            'weight' => $this->weightModel->where('status_weight', 1)->find(),
         ];
 
         echo view('v_testing', $data);
@@ -96,48 +97,93 @@ class Testing extends BaseController
 
             // mengambil weight terpilih
             $weight = $this->weightModel->where('status_weight', 1)->find();
-            echo '<pre>';
-            print_r($weight); 
-            $status_weight = $weight[0]['status_weight']; 
-            $wa_behaviour_sexualrisk = $weight[0]['wa_behaviour_sexualrisk'];
-            $wa_behavior_eating = $weight[0]['wa_behavior_eating'];
-            $wa_behavior_personalhygine = $weight[0]['wa_behavior_personalhygine'];
-            $wa_intention_aggregation = $weight[0]['wa_intention_aggregation'];
-            $wa_intention_commitment = $weight[0]['wa_intention_commitment'];
-            $wa_attitude_consistency = $weight[0]['wa_attitude_consistency'];
-            $wa_attitude_spontaneity = $weight[0]['wa_attitude_spontaneity'];
-            $wa_norm_significantperson = $weight[0]['wa_norm_significantperson'];
-            $wa_norm_fulfillment = $weight[0]['wa_norm_fulfillment'];
-            $wa_perception_vulnerability = $weight[0]['wa_perception_vulnerability'];
-            $wa_perception_severity = $weight[0]['wa_perception_severity'];
-            $wa_motivation_strength = $weight[0]['wa_motivation_strength'];
-            $wa_motivation_willingness = $weight[0]['wa_motivation_willingness'];
-            $wa_socialsupport_emotionality = $weight[0]['wa_socialsupport_emotionality'];
-            $wa_socialsupport_appreciation = $weight[0]['wa_socialsupport_appreciation'];
-            $wa_socialsupport_instrumental = $weight[0]['wa_socialsupport_instrumental'];
-            $wa_empowerment_knowledge = $weight[0]['wa_empowerment_knowledge'];
-            $wa_empowerment_abilities = $weight[0]['wa_empowerment_abilities'];
-            $wa_empowerment_desires = $weight[0]['wa_empowerment_desires'];
+            
+            $status_weight = doubleval($weight[0]['status_weight']);
+            $wa_behaviour_sexualrisk = doubleval($weight[0]['wa_behaviour_sexualrisk']);
+            $wa_behavior_eating = doubleval($weight[0]['wa_behavior_eating']);
+            $wa_behavior_personalhygine = doubleval($weight[0]['wa_behavior_personalhygine']);
+            $wa_intention_aggregation = doubleval($weight[0]['wa_intention_aggregation']);
+            $wa_intention_commitment = doubleval($weight[0]['wa_intention_commitment']);
+            $wa_attitude_consistency = doubleval($weight[0]['wa_attitude_consistency']);
+            $wa_attitude_spontaneity = doubleval($weight[0]['wa_attitude_spontaneity']);
+            $wa_norm_significantperson = doubleval($weight[0]['wa_norm_significantperson']);
+            $wa_norm_fulfillment = doubleval($weight[0]['wa_norm_fulfillment']);
+            $wa_perception_vulnerability = doubleval($weight[0]['wa_perception_vulnerability']);
+            $wa_perception_severity = doubleval($weight[0]['wa_perception_severity']);
+            $wa_motivation_strength = doubleval($weight[0]['wa_motivation_strength']);
+            $wa_motivation_willingness = doubleval($weight[0]['wa_motivation_willingness']);
+            $wa_socialsupport_emotionality = doubleval($weight[0]['wa_socialsupport_emotionality']);
+            $wa_socialsupport_appreciation = doubleval($weight[0]['wa_socialsupport_appreciation']);
+            $wa_socialsupport_instrumental = doubleval($weight[0]['wa_socialsupport_instrumental']);
+            $wa_empowerment_knowledge = doubleval($weight[0]['wa_empowerment_knowledge']);
+            $wa_empowerment_abilities = doubleval($weight[0]['wa_empowerment_abilities']);
+            $wa_empowerment_desires = doubleval($weight[0]['wa_empowerment_desires']);
 
-            $wb_behaviour_sexualrisk = $weight[0]['wb_behaviour_sexualrisk'];
-            $wb_behavior_eating = $weight[0]['wb_behavior_eating'];
-            $wb_behavior_personalhygine = $weight[0]['wb_behavior_personalhygine'];
-            $wb_intention_aggregation = $weight[0]['wb_intention_aggregation'];
-            $wb_intention_commitment = $weight[0]['wb_intention_commitment'];
-            $wb_attitude_consistency = $weight[0]['wb_attitude_consistency'];
-            $wb_attitude_spontaneity = $weight[0]['wb_attitude_spontaneity'];
-            $wb_norm_significantperson = $weight[0]['wb_norm_significantperson'];
-            $wb_norm_fulfillment = $weight[0]['wb_norm_fulfillment'];
-            $wb_perception_vulnerability = $weight[0]['wb_perception_vulnerability'];
-            $wb_perception_severity = $weight[0]['wb_perception_severity'];
-            $wb_motivation_strength = $weight[0]['wb_motivation_strength'];
-            $wb_motivation_willingness = $weight[0]['wb_motivation_willingness'];
-            $wb_socialsupport_emotionality = $weight[0]['wb_socialsupport_emotionality'];
-            $wb_socialsupport_appreciation = $weight[0]['wb_socialsupport_appreciation'];
-            $wb_socialsupport_instrumental = $weight[0]['wb_socialsupport_instrumental'];
-            $wb_empowerment_knowledge = $weight[0]['wb_empowerment_knowledge'];
-            $wb_empowerment_abilities = $weight[0]['wb_empowerment_abilities'];
-            $wb_empowerment_desires = $weight[0]['wb_empowerment_desires'];
+            $wb_behaviour_sexualrisk = doubleval($weight[0]['wb_behaviour_sexualrisk']);
+            $wb_behavior_eating = doubleval($weight[0]['wb_behavior_eating']);
+            $wb_behavior_personalhygine = doubleval($weight[0]['wb_behavior_personalhygine']);
+            $wb_intention_aggregation = doubleval($weight[0]['wb_intention_aggregation']);
+            $wb_intention_commitment = doubleval($weight[0]['wb_intention_commitment']);
+            $wb_attitude_consistency = doubleval($weight[0]['wb_attitude_consistency']);
+            $wb_attitude_spontaneity = doubleval($weight[0]['wb_attitude_spontaneity']);
+            $wb_norm_significantperson = doubleval($weight[0]['wb_norm_significantperson']);
+            $wb_norm_fulfillment = doubleval($weight[0]['wb_norm_fulfillment']);
+            $wb_perception_vulnerability = doubleval($weight[0]['wb_perception_vulnerability']);
+            $wb_perception_severity = doubleval($weight[0]['wb_perception_severity']);
+            $wb_motivation_strength = doubleval($weight[0]['wb_motivation_strength']);
+            $wb_motivation_willingness = doubleval($weight[0]['wb_motivation_willingness']);
+            $wb_socialsupport_emotionality = doubleval($weight[0]['wb_socialsupport_emotionality']);
+            $wb_socialsupport_appreciation = doubleval($weight[0]['wb_socialsupport_appreciation']);
+            $wb_socialsupport_instrumental = doubleval($weight[0]['wb_socialsupport_instrumental']);
+            $wb_empowerment_knowledge = doubleval($weight[0]['wb_empowerment_knowledge']);
+            $wb_empowerment_abilities = doubleval($weight[0]['wb_empowerment_abilities']);
+            $wb_empowerment_desires = doubleval($weight[0]['wb_empowerment_desires']);
+
+            // =============================
+
+            $weight_arr = [
+            'wa_behaviour_sexualrisk' => $wa_behaviour_sexualrisk,
+            'wa_behavior_eating' => $wa_behavior_eating,
+            'wa_behavior_personalhygine' => $wa_behavior_personalhygine,
+            'wa_intention_aggregation' => $wa_intention_aggregation,
+            'wa_intention_commitment' => $wa_intention_commitment,
+            'wa_attitude_consistency' => $wa_attitude_consistency,
+            'wa_attitude_spontaneity' => $wa_attitude_spontaneity,
+            'wa_norm_significantperson' => $wa_norm_significantperson,
+            'wa_norm_fulfillment' => $wa_norm_fulfillment,
+            'wa_perception_vulnerability' => $wa_perception_vulnerability,
+            'wa_perception_severity' => $wa_perception_severity,
+            'wa_motivation_strength' => $wa_motivation_strength,
+            'wa_motivation_willingness' => $wa_motivation_willingness,
+            'wa_socialsupport_emotionality' => $wa_socialsupport_emotionality,
+            'wa_socialsupport_appreciation' => $wa_socialsupport_appreciation,
+            'wa_socialsupport_instrumental' => $wa_socialsupport_instrumental,
+            'wa_empowerment_knowledge' => $wa_empowerment_knowledge,
+            'wa_empowerment_abilities' => $wa_empowerment_abilities,
+            'wa_empowerment_desires' => $wa_empowerment_desires,
+
+            'wb_behaviour_sexualrisk' => $wb_behaviour_sexualrisk,
+            'wb_behavior_eating' => $wb_behavior_eating,
+            'wb_behavior_personalhygine' => $wb_behavior_personalhygine,
+            'wb_intention_aggregation' => $wb_intention_aggregation,
+            'wb_intention_commitment' => $wb_intention_commitment,
+            'wb_attitude_consistency' => $wb_attitude_consistency,
+            'wb_attitude_spontaneity' => $wb_attitude_spontaneity,
+            'wb_norm_significantperson' => $wb_norm_significantperson,
+            'wb_norm_fulfillment' => $wb_norm_fulfillment,
+            'wb_perception_vulnerability' => $wb_perception_vulnerability,
+            'wb_perception_severity' => $wb_perception_severity,
+            'wb_motivation_strength' => $wb_motivation_strength,
+            'wb_motivation_willingness' => $wb_motivation_willingness,
+            'wb_socialsupport_emotionality' => $wb_socialsupport_emotionality,
+            'wb_socialsupport_appreciation' => $wb_socialsupport_appreciation,
+            'wb_socialsupport_instrumental' => $wb_socialsupport_instrumental,
+            'wb_empowerment_knowledge' => $wb_empowerment_knowledge,
+            'wb_empowerment_abilities' => $wb_empowerment_abilities,
+            'wb_empowerment_desires' => $wb_empowerment_desires,
+            ];
+
+            d($weight_arr);
 
             $result_a = sqrt(
                             pow(($test_behaviour_sexualrisk - $wa_behaviour_sexualrisk) , 2) + 
@@ -185,45 +231,8 @@ class Testing extends BaseController
             echo '<br>';
             echo $result_b;
             echo '<br>';
-            // echo $wa_behaviour_sexualrisk . ' + ' . $test_behaviour_sexualrisk;
-            // echo '<br>';
-            // echo $wa_behavior_eating . ' + ' . $test_behavior_eating;
-            // echo '<br>';
-            // echo $wa_behavior_personalhygine . ' + ' . $test_behavior_personalhygine;
-            // echo '<br>';
-            // echo $wa_intention_aggregation . ' + ' . $test_intention_aggregation;
-            // echo '<br>';
-            // echo $wa_intention_commitment . ' + ' . $test_intention_commitment;
-            // echo '<br>';
-            // echo $wa_attitude_consistency . ' + ' . $test_attitude_consistency;
-            // echo '<br>';
-            // echo $wa_attitude_spontaneity . ' + ' . $test_attitude_spontaneity;
-            // echo '<br>';
-            // echo $wa_norm_significantperson . ' + ' . $test_norm_significantperson;
-            // echo '<br>';
-            // echo $wa_norm_fulfillment . ' + ' . $test_norm_fulfillment;
-            // echo '<br>';
-            // echo $wa_perception_vulnerability . ' + ' . $test_perception_vulnerability;
-            // echo '<br>';
-            // echo $wa_perception_severity . ' + ' . $test_perception_severity;
-            // echo '<br>';
-            // echo $wa_motivation_strength . ' + ' . $test_motivation_strength;
-            // echo '<br>';
-            // echo $wa_motivation_willingness . ' + ' . $test_motivation_willingness;
-            // echo '<br>';
-            // echo $wa_socialsupport_emotionality . ' + ' . $test_socialsupport_emotionality;
-            // echo '<br>';
-            // echo $wa_socialsupport_appreciation . ' + ' . $test_socialsupport_appreciation;
-            // echo '<br>';
-            // echo $wa_socialsupport_instrumental . ' + ' . $test_socialsupport_instrumental;
-            // echo '<br>';
-            // echo $wa_empowerment_knowledge . ' + ' . $test_empowerment_knowledge;
-            // echo '<br>';
-            // echo $wa_empowerment_abilities . ' + ' . $test_empowerment_abilities;
-            // echo '<br>';
-            // echo $wa_empowerment_desires . ' + ' . $test_empowerment_desires;
-            // echo '<br>';
-            if ($result_a > $result_b) {
+            
+            if ($result_a < $result_b) {
                 $class = $this->classModel->where('code_class', 1)->findAll();
                 $class = $class[0]['id_class'];
             }else{
@@ -262,8 +271,7 @@ class Testing extends BaseController
                 'result_b' => $result_b,
             ];
 
-            // echo '<pre>';
-            // print_r($insert); exit;
+            // dd($insert);
             $this->testingModel->insert($insert);
             $id = $this->testingModel->getInsertID();
             return redirect()->to("/testing/done/$id"); 
