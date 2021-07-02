@@ -2,21 +2,24 @@
 
 namespace App\Controllers;
 
-// use App\Models\LoginModel;
+use App\Models\ClassModel;
+use App\Models\TestingModel;
 
 class Laporan extends BaseController
 {
+    public function __construct()
+    {
+        $this->TestingModel = new TestingModel;
+        $this->classModel = new ClassModel;
+    }
+
     public function index()
     {
-        $pager = \Config\Services::pager();
-        $model = new \App\Models\TestingModel();
-
         $data = [
             'title' => 'Laporan Hasil',
-            'class' => $model->paginate(5, 'bootstrap'),
-            'pager' => $model->pager
+            'test' => $this->TestingModel->findAll(),
+            'class' => $this->classModel->findAll()
         ];
-        $data['nomor'] = nomor($this->request->getVar('page_bootstrap'), 5);
 
         return view('v_laporan', $data);
     }
