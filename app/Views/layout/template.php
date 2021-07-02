@@ -222,7 +222,38 @@
         });
     </script>
 
-<script>
+    <script type="text/javascript">
+        var nama = "Training";
+        var link = "/Training/deleteAll/";
+
+        function deleteAllD() {
+
+            swal({
+                title: 'Perhatian!',
+                text: "Yakin akan menghapus Data " + nama + " ?",
+                icon: 'warning',
+                buttons: {
+                    cancel: {
+                        visible: true,
+                        text: 'Tidak',
+                        className: 'btn btn-danger'
+                    },
+                    confirm: {
+                        text: 'Ya',
+                        className: 'btn btn-success'
+                    }
+                }
+            }).then((willDeleteD) => {
+                if (willDeleteD) {
+                    window.location.href = "<?= base_url() ?>" + link;
+                } else {
+                    swal.close();
+                }
+            });
+        }
+    </script>
+
+    <script>
         $('#datatable').on('click', '.active_status', function() {
             var id = $(this).data('id');
             var link = $(this).data('link');

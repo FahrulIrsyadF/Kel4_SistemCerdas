@@ -106,6 +106,26 @@ class Training extends BaseController
         }
     }
 
+    public function deleteAll()
+    {
+        $data = [
+            'title' => 'Data Training',
+            'train' => $this->TrainingModel->findAll(),
+            'class' => $this->classModel->findAll()
+        ];
+        $db = \Config\Database::connect();
+        $builder= $db->table('train');
+        $hapus = $builder->emptyTable('train');
+        // mengirim pesan berhasil dihapus
+        if ($hapus) {
+            session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil menghapus data.', 'success', 'success'));
+            return redirect()->back();
+        } else {
+            session()->setFlashdata('pesan', $this->notify('Perhatian!', 'Gagal menghapus data.', 'danger', 'error'));
+            return redirect()->back();
+        }
+    }
+
     function notify($title, $message, $type, $icon)
     {
         $pesan = "$.notify({

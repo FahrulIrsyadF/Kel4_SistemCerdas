@@ -28,10 +28,10 @@
                         </div>
                         <div class="float-right">
                             <a href="javascript:void(0)" data-toggle="modal" data-target="#modalImport" class="btn btn-round btn-primary"><i class="fas fa-plus"></i>&nbsp;&nbsp;Import Data</a>
-                            <button class="btn btn-danger btn-round ml-auto">
+                            <a href="javascript:void(0)" onclick="deleteAllD()" class="btn btn-danger btn-round ml-auto">
                                 <i class="fa fa-trash"></i>
                                 &nbsp;Hapus Semua Data
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -88,91 +88,99 @@
 foreach ($train as $data) { ?>
     <!-- Modal Detail -->
     <div class="modal fade" id="DetailModal<?= $data['id_train'] ?>" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header no-bd">
                     <h3 class="modal-title">
                         <span class="fw-mediumbold">
-                            Detail Hasil Klasifikasi</span>
+                            Detail Data Training</span>
                     </h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="" method="">
-                        <h3 class="small">ID Train: <?= $data['id_train']; ?></h3>
-                        <div class="row">
-                            <div class="form-group mx-6">
-                                <div class="form-group">
-                                    <label>Norm_SignificantPerson</label>
-                                    <input id="" type="text" class="form-control" value="<?= $data['tr_norm_significantperson']; ?>">
+                    <form role="form">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <b>ID Train: </b> <span class="badge badge-primary text-bold"><?= $data['id_train'] ?></span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group float-right mx-6">
-                                <div class="form-group">
-                                    <label>Socialsupport_Emotionality</label>
-                                    <input id="" type="text" class="form-control" value="<?= $data['tr_socialsupport_emotionality']; ?>">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <table id="result" class="display table table-bordered table-hover">
+                                            <thead class="thead-light text-bold">
+                                                <th>Risk</th>
+                                                <th>Nilai</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Norm Significant Person</td>
+                                                    <td><?= $data['tr_norm_significantperson'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Norm Fulfillment</td>
+                                                    <td><?= $data['tr_norm_fulfillment'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Perception Vulnerability</td>
+                                                    <td><?= $data['tr_perception_vulnerability'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Perception Severity</td>
+                                                    <td><?= $data['tr_perception_severity'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Motivation Strength</td>
+                                                    <td><?= $data['tr_motivation_strength'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Motivation Willingness</td>
+                                                    <td><?= $data['tr_motivation_willingness'] ?></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group mx-6">
-                                <div class="form-group">
-                                    <label>Norm_Fulfillment</label>
-                                    <input id="" type="text" class="form-control" value="<?= $data['tr_norm_fulfillment']; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group float-right mx-6">
-                                <div class="form-group">
-                                    <label>Socialsupport_Appreciation</label>
-                                    <input id="" type="text" class="form-control" value="<?= $data['tr_socialsupport_appreciation']; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group mx-6">
-                                <div class="form-group">
-                                    <label>Perception_Vulnerability</label>
-                                    <input id="" type="text" class="form-control" value="<?= $data['tr_perception_vulnerability']; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group float-right mx-6">
-                                <div class="form-group">
-                                    <label>Socialsupport_Instrumental</label>
-                                    <input id="" type="text" class="form-control" value="<?= $data['tr_socialsupport_instrumental']; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group mx-6">
-                                <div class="form-group">
-                                    <label>Perception_Severity</label>
-                                    <input id="" type="text" class="form-control" value="<?= $data['tr_perception_severity']; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group float-right mx-6">
-                                <div class="form-group">
-                                    <label>Empowerment_Knowledge</label>
-                                    <input id="" type="text" class="form-control" value="<?= $data['tr_empowerment_knowledge']; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group mx-6">
-                                <div class="form-group">
-                                    <label>Motivation_Strength</label>
-                                    <input id="" type="text" class="form-control" value="<?= $data['tr_motivation_strength']; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group float-right mx-6">
-                                <div class="form-group">
-                                    <label>Empowerment_Abilities</label>
-                                    <input id="" type="text" class="form-control" value="<?= $data['tr_empowerment_abilities']; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group mx-6">
-                                <div class="form-group">
-                                    <label>Motivation_Willingness</label>
-                                    <input id="" type="text" class="form-control" value="<?= $data['tr_motivation_willingness']; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group float-right mx-6">
-                                <div class="form-group">
-                                    <label>Empowerment_Desires</label>
-                                    <input id="" type="text" class="form-control" value="<?= $data['tr_empowerment_desires']; ?>">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <table id="result" class="display table table-bordered table-hover">
+                                            <thead class="thead-light text-bold">
+                                                <th>Risk</th>
+                                                <th>Nilai</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Social Support Emotionality</td>
+                                                    <td><?= $data['tr_socialsupport_emotionality'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Social Support Appreciation</td>
+                                                    <td><?= $data['tr_socialsupport_appreciation'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Social Support Instrumental</td>
+                                                    <td><?= $data['tr_socialsupport_instrumental'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Empowerment Knowledge</td>
+                                                    <td><?= $data['tr_empowerment_knowledge'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Empowerment Abilities</td>
+                                                    <td><?= $data['tr_empowerment_abilities'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Empowerment Desires</td>
+                                                    <td><?= $data['tr_empowerment_desires'] ?></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>

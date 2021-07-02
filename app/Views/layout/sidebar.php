@@ -4,10 +4,28 @@
 		<div class="sidebar-content">
 			<ul class="nav nav-primary">
 				<?php if (session()->get('username') == NULL) { ?>
+					<li class="nav-section">
+						<span class="sidebar-mini-icon">
+							<i class="fa fa-ellipsis-h"></i>
+						</span>
+						<h4 class="text-section">Klasifikasi</h4>
+					</li>
 					<li class="nav-item">
 						<a href="<?= base_url('testing'); ?>">
 							<i class="fas fa-cogs"></i>
 							<p>Klasifikasi LVQ</p>
+						</a>
+					</li>
+					<li class="nav-section">
+						<span class="sidebar-mini-icon">
+							<i class="fa fa-ellipsis-h"></i>
+						</span>
+						<h4 class="text-section">Informasi</h4>
+					</li>
+					<li class="nav-item">
+						<a href="<?= base_url('informasi'); ?>">
+							<i class="fas fa-exclamation-circle"></i>
+							<p>Tentang LVQ</p>
 						</a>
 					</li>
 				<?php } else { ?>
@@ -21,7 +39,7 @@
 						<span class="sidebar-mini-icon">
 							<i class="fa fa-ellipsis-h"></i>
 						</span>
-						<h4 class="text-section">Data</h4>
+						<h4 class="text-section">Klasifikasi</h4>
 					</li>
 					<li class="nav-item">
 						<a href="<?= base_url('training'); ?>">
