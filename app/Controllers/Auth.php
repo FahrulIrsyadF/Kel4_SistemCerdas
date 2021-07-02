@@ -45,7 +45,7 @@ class Auth extends BaseController
                     'username' => $login['nama_user']
                 ];
                 session()->set($data);
-                return redirect()->to('/');
+                return redirect()->to('/dashboard');
             } else {
                 session()->setFlashdata('password', '<small class="form-text text-danger">
                 Password salah

@@ -21,8 +21,7 @@ class Dashboard extends BaseController
 		];
 
 		if ($username == NULL) {
-			echo '404 belum login';
-			echo '<a href="' . base_url('auth') . '" class="btn btn-primary">Login</a>';
+			return redirect()->to('/auth');
 		} else {
 			echo view('dashboard', $data);
 		}

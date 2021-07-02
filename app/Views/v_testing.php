@@ -8,18 +8,19 @@
                 <div class="card">
                     <div class="card-header">
                         <h2>Form Diagnosis Kanker Serviks</h2>
-                        <h5>*** Berikut merupakan form untuk diagnosis dini penyakit Kanker Serviks, dengan akurasi <strong> <?=substr($weight[0]['prosentase'], 0, 5)?>%.</strong>
+                        <h5>*** Berikut merupakan form untuk diagnosis dini penyakit Kanker Serviks, dengan akurasi <strong> <?= substr($weight[0]['prosentase'], 0, 5) ?>%.</strong>
                             Terdapat rentang <b>NILAI KESEHATAN</b> di setiap pertanyaan, <br> mohon pilih sesuai dengan pola hidup Anda!</h5>
+
                     </div>
                     <div class="card-body px-lg-5 px-1">
                         <form action="<?= base_url('testing/create'); ?>" method="post">
                             <div class="form-group">
                                 <label for="name">Nama Anda:</label>
-                                <input required type="text" name="name"  id="name" class="form-control" placeholder="Masukkan nama lengkap anda">
+                                <input required type="text" name="name" id="name" class="form-control" placeholder="Masukkan nama lengkap anda">
                             </div>
                             <div class="form-group">
                                 <label for="age">Usia Anda:</label>
-                                <input required type="number" name="age"  id="age" class="form-control w-50" placeholder="Masukkan usia anda">
+                                <input required type="number" name="age" id="age" class="form-control w-50" placeholder="Masukkan usia anda">
                             </div>
                             <div class="form-group">
                                 <div>
