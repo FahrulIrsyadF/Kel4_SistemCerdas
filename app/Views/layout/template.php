@@ -222,6 +222,38 @@
         });
     </script>
 
+<script>
+        $('#datatable').on('click', '.active_status', function() {
+            var id = $(this).data('id');
+            var link = $(this).data('link');
+            var nama = $(this).data('nama');
+
+            swal({
+                title: 'Perhatian!',
+                text: "Yakin akan mengaktifkan " + nama + " ?",
+                icon: 'warning',
+                buttons: {
+                    cancel: {
+                        visible: true,
+                        text: 'Tidak',
+                        className: 'btn btn-danger'
+                    },
+                    confirm: {
+                        text: 'Ya',
+                        className: 'btn btn-success'
+                    }
+                }
+            }).then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = "<?= base_url() ?>" + link + id;
+                } else {
+                    swal.close();
+                }
+            });
+
+        });
+    </script>
+
 </body>
 
 </html>
