@@ -191,6 +191,12 @@
     </script>
 
     <script>
+        $(document).ready(function() {
+            $('[data-tooltip="tooltip"]').tooltip();
+        });
+    </script>
+
+    <script>
         $('#datatable, #delete').on('click', '.hapus_crud', function() {
             var id = $(this).data('id');
             var link = $(this).data('link');
@@ -230,7 +236,7 @@
 
             swal({
                 title: 'Perhatian!',
-                text: "Yakin akan menghapus Data " + nama + " ?",
+                text: "Yakin akan menghapus semua Data " + nama + " ?",
                 icon: 'warning',
                 buttons: {
                     cancel: {

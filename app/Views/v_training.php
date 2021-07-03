@@ -66,7 +66,7 @@
                                                 } ?></td>
                                             <td>
                                                 <div class="form-button-action">
-                                                    <button type="button" data-toggle="modal" data-target="#DetailModal<?= $data['id_train'] ?>" title="" class="btn btn-info btn-sm" data-original-title="Detail">
+                                                    <button type="button" data-toggle="modal" data-tooltip="tooltip" title="Detail Data" data-target="#DetailModal<?= $data['id_train'] ?>" title="" class="btn btn-info btn-sm" data-original-title="Detail">
                                                         <i class="fa fa-info"></i>
                                                     </button>&nbsp;
                                                     <button data-tooltip="tooltip" title="Hapus Data" type="button" data-id="<?= $data['id_train'] ?>" data-link="/Training/delete/" data-nama=" Training <?= $data['id_train'] ?>" id="hapus_crud" class="btn btn-danger btn-sm hapus_crud"><i class="fas fa-trash"></i></button>

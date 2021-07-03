@@ -19,7 +19,6 @@ class Training extends BaseController
 
     public function index()
     {
-
         $data = [
             'title' => 'Data Training',
             'train' => $this->TrainingModel->findAll(),

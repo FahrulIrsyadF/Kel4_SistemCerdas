@@ -8,24 +8,24 @@
 						<span class="sidebar-mini-icon">
 							<i class="fa fa-ellipsis-h"></i>
 						</span>
-						<h4 class="text-section">Klasifikasi</h4>
+						<h4 class="text-section">Beranda</h4>
 					</li>
 					<li class="nav-item">
-						<a href="<?= base_url('testing'); ?>">
-							<i class="fas fa-cogs"></i>
-							<p>Klasifikasi LVQ</p>
+						<a href="<?= base_url('informasi'); ?>">
+							<i class="fas fa-exclamation-circle"></i>
+							<p>Beranda</p>
 						</a>
 					</li>
 					<li class="nav-section">
 						<span class="sidebar-mini-icon">
 							<i class="fa fa-ellipsis-h"></i>
 						</span>
-						<h4 class="text-section">Informasi</h4>
+						<h4 class="text-section">Klasifikasi</h4>
 					</li>
 					<li class="nav-item">
-						<a href="<?= base_url('informasi'); ?>">
-							<i class="fas fa-exclamation-circle"></i>
-							<p>Tentang LVQ</p>
+						<a href="<?= base_url('testing'); ?>">
+							<i class="fas fa-cogs"></i>
+							<p>Klasifikasi LVQ</p>
 						</a>
 					</li>
 				<?php } else { ?>
