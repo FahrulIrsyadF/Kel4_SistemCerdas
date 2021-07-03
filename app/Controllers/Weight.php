@@ -28,6 +28,44 @@ class Weight extends BaseController
         echo view('v_weight', $data);
     }
 
+    public function active($id)
+    {
+        $update = [
+            'status_weight' => 1
+        ];
+
+        $this->weightModel->nonactive();
+        $this->weightModel->update($id, $update);
+        session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil mengaktifkan data.', 'success', 'success'));
+        return redirect()->to("/weight"); 
+
+    }
+
+    public function delete($id)
+    {
+        $this->weightModel->delete(['id' => $id]);
+        session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil menghapus data.', 'success', 'success'));
+        return redirect()->to("/weight"); 
+
+    }
+
+    function notify($title, $message, $type, $icon)
+    {
+        $pesan = "$.notify({
+            icon: 'flaticon-$icon',
+            title: '$title',
+            message: '$message',
+        },{
+            type: '$type',
+            placement: {
+                from: 'top',
+                align: 'center'
+            },
+            time: 1000,
+        });";
+        return $pesan;
+    }
+
     public function latih()
     {
         d($this->request->getPost());
