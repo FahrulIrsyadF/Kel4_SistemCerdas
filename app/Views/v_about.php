@@ -9,6 +9,25 @@
                     <div class="card-header">
                         <div class="d-flex align-items-center">
                             <b>
+                                <h4 class="card-title">Kanker Serviks</h4>
+                            </b>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p style="text-align:justify">Kanker serviks merupakan keganasan yang berasal dari serviks.
+                            Serviks merupakan sepertiga bagian bawah uterus, berbentuk silindris, menonjol dan berhubungan dengan vagina melalui ostium uteri eksternum.
+                            Penyebab kanker serviks diketahui adalah virus HPV (<i>Human Papilloma Virus</i>) sub tipe onkogenik, terutama sub tipe 16 dan 18.
+                            Adapun faktor risiko terjadinya kanker serviks antara lain:
+                            aktivitas seksual pada usia muda, berhubungan seksual dengan <i>multipartner</i>, merokok, mempunyai anak banyak,
+                            sosial ekonomi rendah, pemakaian pil KB (dengan HPV negatif atau positif), penyakit menular seksual, dan gangguan imunitas.
+                        </p>
+                        <p style="text-align:right">Source: <a href="http://kanker.kemkes.go.id/guidelines/PPKServiks.pdf" target="_BLANK">Kanker Serviks</a> (Diakses pada 03 Juli 2021)</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <b>
                                 <h4 class="card-title">Learning Vector Quantization</h4>
                             </b>
                         </div>
@@ -62,7 +81,7 @@
                                 Sulit dalam menentukan jumlah codebook vector untuk masalah yang diselesaikan
                             </li>
                         </ol>
-                        <p style="text-align:right">Source: <a href="https://garudacyber.co.id/artikel/1420-kelebihan-dan-kekurangan-learning-vector-quantization" target="_BLANK">Kelebihan dan Kekurangan LVQ</a> (Diakses pada 30 Juni, 2021)</p>
+                        <p style="text-align:right">Source: <a href="https://garudacyber.co.id/artikel/1420-kelebihan-dan-kekurangan-learning-vector-quantization" target="_BLANK">Kelebihan dan Kekurangan LVQ</a> (Diakses pada 30 Juni 2021)</p>
                     </div>
                 </div>
                 <div class="card">
