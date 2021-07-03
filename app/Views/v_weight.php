@@ -113,6 +113,7 @@
                                     <option value="1000">1000</option>
                                     <option value="1500">1500</option>
                                     <option value="3000">3000</option>
+                                    <option value="5000">5000</option>
                                     <option value="10000">10000</option>
                                 </select>
                             </div>
@@ -120,7 +121,7 @@
                         <div class="col-md-6">
                             <div class="form-group form-group-default mx-0">
                                 <label>Alpha</label>
-                                <input id="alpha" type="number" name="alpha" pattern="^(?:0*(?:\.\d+)?|1(\.0*)?)$" class="form-control" value="0.00" step="0.01" max="1.00" placeholder="Masukkan nilai antara 0.0 - 0.1" required>
+                                <input id="alpha" type="number" name="alpha" pattern="^(?:0*(?:\.\d+)?|1(\.0*)?)$" class="form-control" value="0.00" step="0.01" min="0" max="1.00" placeholder="Masukkan nilai antara 0.0 - 0.1" required>
                             </div>
                         </div>
                     </div>
