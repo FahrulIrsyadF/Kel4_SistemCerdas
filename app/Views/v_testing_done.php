@@ -10,7 +10,7 @@
                         <h2 class="text-center">Hasil Klasifikasi</h2>
                     </div>
                     <?php foreach ($test as $dataTest) { ?>
-                    <div class="card-body px-lg-5 px-1 row text-justify">
+                    <div class="card-body px-lg-5 px-5 row text-justify">
                         <h5>*** Berikut merupakan hasil klasifikasi dini penyakit kanker serviks.
                             Klasifikasi dilakukan menggunakan algoritma <strong>LVQ (Learning Vector Quantization)</strong> yang telah mencapai keakuratan kinerja hingga <strong>83%</strong>.</h5>
                         <hr>

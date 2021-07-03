@@ -1,4 +1,5 @@
-# CodeIgniter 4 Framework
+# CodeIgniter 4 Framework -Proyek Sistem Cerdas
+Klasifikasi Dini Kanker Serviks menggunakan Metode Learning Vector Quantization
 
 ## What is CodeIgniter?
 
