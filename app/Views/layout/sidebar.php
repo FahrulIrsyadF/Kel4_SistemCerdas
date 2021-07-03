@@ -10,9 +10,9 @@
 						</span>
 						<h4 class="text-section">Beranda</h4>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item active">
 						<a href="<?= base_url('informasi'); ?>">
-							<i class="fas fa-exclamation-circle"></i>
+							<i class="fas fa-home"></i>
 							<p>Beranda</p>
 						</a>
 					</li>
