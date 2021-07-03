@@ -39,6 +39,7 @@
                                     <th>Tanggal</th>
                                     <th>Max Epoch</th>
                                     <th>ALpha</th>
+                                    <th>Akurasi</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </thead>
@@ -50,6 +51,7 @@
                                             <td><?= $data['datetime_weight']; ?></td>
                                             <td><?= $data['max_epoch']; ?></td>
                                             <td><?= $data['alpha']; ?></td>
+                                            <td><?=substr($data['prosentase'], 0, 5) ?>%</td>
                                             <td>
                                                 <?php if ($data['status_weight'] == 1){ ?>
                                                 <span class="badge badge-pill badge-danger px-3">Aktif</span>
