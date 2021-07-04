@@ -43,7 +43,8 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                                 </thead>
                                 <tbody>
                                     <?php
-                                    foreach ($test->getResultArray() as $data) { ?>
+                                    foreach ($test->getResultArray() as $data) {
+                                        $id_test = $data['id_test']; ?>
                                         <tr>
                                             <td><?= $data['id_test']; ?></td>
                                             <td><?= $data['name_test']; ?></td>
@@ -51,7 +52,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                                             <td><?= $data['name_class']; ?></td>
                                             <td>
                                                 <button class="badge bg-success text-white" data-toggle="modal" data-target="#modal-detail<?= $data['id_test']; ?>"><b><i class="fas fa-info-circle"></i> Detail</b></button>&nbsp;&nbsp;
-                                                <button class="badge bg-primary text-white"><b><i class="fas fa-print"></i> Print</b></button>
+                                                <a href="<?= base_url('laporan/printDetail/' . $id_test) ?>" class="badge bg-primary text-white"><b><i class="fas fa-print"></i> Print</b></a>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -203,7 +204,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                                         <tbody>
                                             <tr>
                                                 <td>Behavior Sexual Risk</td>
-                                                <td><?= $test_behaviour_sexualrisk ?></td>
+                                                <td><?= $test_behaviour_sexualrisk; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Behavior Eating</td>

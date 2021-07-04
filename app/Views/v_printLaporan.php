@@ -14,9 +14,7 @@
     $jam = date("H:i:s");
     echo "| Pukul : <b>" . $jam . " " . "</b>";
     $a = date("H"); ?>
-    <h3>
-        <center>Jumlah User Testing Berdasarkan Umur</center>
-    </h3>
+    <h3 style="text-align:center">Jumlah User Testing Berdasarkan Umur</h3>
     <table border="1" cellspacing="0" cellpadding="5" width="100%">
         <thead>
             <tr>
@@ -32,8 +30,8 @@
             $umur = $db->query("SELECT age_test, COUNT(*) AS jumlah FROM test GROUP BY age_test");
             foreach ($umur->getResultArray() as $um) { ?>
                 <tr>
-                    <td>
-                        <center><?= $nomor++; ?></center>
+                    <td style="text-align:center">
+                        <?= $nomor++; ?>
                     </td>
                     <td>
                         <?= $um['age_test']; ?>
@@ -46,9 +44,7 @@
         </tbody>
     </table>
     <br><br>
-    <h3>
-        <center>Klasifikasi Berdasarkan Jumlah User Testing</center>
-    </h3>
+    <h3 style="text-align:center">Klasifikasi Berdasarkan Jumlah User Testing</h3>
     <table border="1" cellspacing="0" cellpadding="5" width="100%">
         <thead>
             <tr>
@@ -64,8 +60,8 @@
                                         WHERE test.id_class = class.id_class GROUP BY class.id_class");
             foreach ($klasifikasi->getResultArray() as $kls) { ?>
                 <tr>
-                    <td>
-                        <center><?= $nomor++; ?></center>
+                    <td style="text-align:center">
+                        <?= $nomor++; ?>
                     </td>
                     <td>
                         <?= $kls['name_class']; ?>

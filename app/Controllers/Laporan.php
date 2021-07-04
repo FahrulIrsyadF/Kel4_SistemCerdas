@@ -34,4 +34,16 @@ class Laporan extends BaseController
 
         return view('v_laporan');
     }
+
+    public function printDetail($id_test)
+    {
+        //dd($id_test);
+        $dompdf = new \Dompdf\Dompdf();
+        $dompdf->loadHtml(view('v_printDetail', $data = ['id_test' => $id_test]));
+        $dompdf->setPaper('A4', 'potrait');
+        $dompdf->render();
+        $dompdf->stream();
+
+        return view('v_laporan');
+    }
 }
