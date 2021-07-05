@@ -1,10 +1,9 @@
 <?= $this->extend('layout/template'); ?>
 <?= $this->section('content'); ?>
-<?= session()->getFlashdata('pesan') ?>
 <div class="content">
     <div class="page-inner">
         <div class="page-header">
-            <h4 class="page-title">Data Training</h4>
+            <h4 class="page-title">Data Latih</h4>
             <ul class="breadcrumbs">
                 <li class="nav-home">
                     <a href="/dashboard">
@@ -15,7 +14,7 @@
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="#">Data Training</a>
+                    <a href="#">Data Latih</a>
                 </li>
             </ul>
         </div>
@@ -24,7 +23,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <h4 class="card-title">Data Training</h4>
+                            <h4 class="card-title">Data Latih</h4>
                         </div>
                         <div class="float-right">
                             <a href="javascript:void(0)" data-toggle="modal" data-target="#modalImport" class="btn btn-round btn-primary"><i class="fas fa-plus"></i>&nbsp;&nbsp;Import Data</a>
@@ -32,9 +31,19 @@
                                 <i class="fa fa-trash"></i>
                                 &nbsp;Hapus Semua Data
                             </a>
+                            <button class="btn btn-info btn-round ml-auto" type="button" data-toggle="collapse" data-target="#info" aria-expanded="false" aria-controls="collapseExample">
+                                <i class="fa fa-info-circle mr-1"></i>Informasi
+                            </button>
                         </div>
                     </div>
                     <div class="card-body">
+                        <div class="collapse px-3 pb-3" id="info">
+                            <h5>Informasi :</h5>
+                            <h5>Di bawah ini merupakan kumpulan data latih klasifikasi kanker serviks. Ada 19 parameter atau atribut penelitian yang digunakan</h5>
+                            <h5 class="text-left"><strong>6 atribut yang ditampilkan di bawah ini hanyalah atribut acak yang ditampilkan dan tidak ada perlakuan khusus terhadap atribut tersebut</strong> </h5>
+                            <h5>Tekan tombol Aksi <span class="text-primary">Detail (warna biru)</span> untuk melihat semua data pada semua atribut selain 6 atribut yang ditampilkan,</h5>
+                            <h5>Tekan tombol Aksi <span class="text-danger">Hapus (warna merah)</span> untuk menghapus data</h5>
+                        </div>
                         <div class="table-responsive">
                             <table id="datatable" class="display table table-striped table-hover">
                                 <thead>
@@ -44,7 +53,6 @@
                                     <th>Intention Aggregation</th>
                                     <th>Intention Commitment</th>
                                     <th>Attitude Consistency</th>
-                                    <th>Attitude Spontaneity</th>
                                     <th>Kelas</th>
                                     <th>Aksi</th>
                                 </thead>
@@ -58,11 +66,10 @@
                                             <td><?= $data['tr_intention_aggregation']; ?></td>
                                             <td><?= $data['tr_intention_commitment']; ?></td>
                                             <td><?= $data['tr_attitude_consistency']; ?></td>
-                                            <td><?= $data['tr_attitude_spontaneity']; ?></td>
                                             <td><?php if ($data['id_class'] == 1) {
-                                                    echo 'Positif';
+                                                    echo '<span class="badge badge-danger">Positif</span>';
                                                 } else {
-                                                    echo 'Negatif';
+                                                    echo '<span class="badge badge-primary">Negatif</span>';
                                                 } ?></td>
                                             <td>
                                                 <div class="form-button-action">
@@ -118,6 +125,10 @@ foreach ($train as $data) { ?>
                                                 <th>Nilai</th>
                                             </thead>
                                             <tbody>
+                                                <tr>
+                                                    <td>Attitude Spontaneity</td>
+                                                    <td><?= $data['tr_attitude_spontaneity']; ?></td>
+                                                </tr>
                                                 <tr>
                                                     <td>Norm Significant Person</td>
                                                     <td><?= $data['tr_norm_significantperson'] ?></td>

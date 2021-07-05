@@ -23,15 +23,27 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="d-flex align-items-center">
+                        <div class="float-left">
                             <h4 class="card-title">Data Bobot</h4>
+                        </div>
+                        <div class="float-right">
                             <button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#TambahModal" title="Tambah latih data klasifikasi">
                                 <i class="fa fa-plus mr-2"></i>
                                 Latih Data
                             </button>
+                            <button class="btn btn-info btn-round ml-auto" type="button" data-toggle="collapse" data-target="#info" aria-expanded="false" aria-controls="collapseExample">
+                                <i class="fa fa-info-circle mr-1"></i>Informasi
+                            </button>
                         </div>
                     </div>
                     <div class="card-body">
+                        <div class="collapse px-3 pb-3" id="info">
+                            <h5>Informasi :</h5>
+                            <h5>Di bawah ini merupakan kumpulan data bobot yang dapat digunakan untuk perhitungan klasifikasi kanker serviks</h5>
+                            <h5>Tekan tombol Status <span class="text-primary">Aktifkan (warna biru)</span> untuk mengaktifkan bobot yang akan dipakai pada perhitungan klasifikasi kanker serviks,</h5>
+                            <h5>Tekan tombol Aksi <span class="text-primary">Detail (warna biru)</span> untuk menampilkan detail bobot,</h5>
+                            <h5>Tekan tombol Aksi <span class="text-danger">Hapus (warna merah)</span> untuk menghapus data</h5>
+                        </div>
                         <div class="table-responsive">
                             <table id="datatable" class="display table table-striped table-hover">
                                 <thead>
@@ -51,13 +63,13 @@
                                             <td><?= $data['datetime_weight']; ?></td>
                                             <td><?= $data['max_epoch']; ?></td>
                                             <td><?= $data['alpha']; ?></td>
-                                            <td><?=substr($data['prosentase'], 0, 5) ?>%</td>
+                                            <td><?= substr($data['prosentase'], 0, 5) ?>%</td>
                                             <td>
-                                                <?php if ($data['status_weight'] == 1){ ?>
-                                                <span class="badge badge-pill badge-danger px-3">Aktif</span>
-                                                <?php }else{ ?>
-                                                <button data-id="<?= $data['id_weight'] ?>" data-link="/weight/active/" data-nama=" Bobot ini" class="btn btn-primary btn-sm active_status">Aktifkan</button>
-                                                <?php }?>
+                                                <?php if ($data['status_weight'] == 1) { ?>
+                                                    <span class="badge badge-pill badge-danger px-3">Aktif</span>
+                                                <?php } else { ?>
+                                                    <button data-id="<?= $data['id_weight'] ?>" data-link="/weight/active/" data-nama=" Bobot ini" class="btn btn-primary btn-sm active_status">Aktifkan</button>
+                                                <?php } ?>
                                             </td>
                                             <td>
                                                 <div class="form-button-action">
@@ -92,13 +104,13 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?=base_url()?>/weight/latih" method="post">
-            <div class="modal-body">
+            <form action="<?= base_url() ?>/weight/latih" method="post">
+                <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group form-group-default">
                                 <label>Tanggal</label>
-                                <input id="datetime" type="text" name="datetime" readonly value="<?=date('Y-m-d H:i:s')?>" class="form-control" required>
+                                <input id="datetime" type="text" name="datetime" readonly value="<?= date('Y-m-d H:i:s') ?>" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -128,11 +140,11 @@
                             </div>
                         </div>
                     </div>
-            </div>
-            <div class="modal-footer no-bd">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
+                </div>
+                <div class="modal-footer no-bd">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
             </form>
         </div>
     </div>
@@ -230,11 +242,11 @@ foreach ($weight as $rowWeight) { ?>
                                                 <tr>
                                                     <td>Status</td>
                                                     <td>
-                                                    <?php if ($data['status_weight'] == 1){ ?>
-                                                        <span class="badge badge-pill badge-danger px-3">Aktif</span>
-                                                        <?php }else{ ?>
-                                                        <span class="badge badge-pill badge-danger px-3">Nonaktif</span>
-                                                        <?php }?>
+                                                        <?php if ($data['status_weight'] == 1) { ?>
+                                                            <span class="badge badge-pill badge-danger px-3">Aktif</span>
+                                                        <?php } else { ?>
+                                                            <span class="badge badge-pill badge-danger px-3">Nonaktif</span>
+                                                        <?php } ?>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -343,7 +355,7 @@ foreach ($weight as $rowWeight) { ?>
                                                 <th>Nilai</th>
                                             </thead>
                                             <tbody>
-                                            <tr>
+                                                <tr>
                                                     <td>Behavior Sexual Risk</td>
                                                     <td><?= $rowWeight['wb_behaviour_sexualrisk'] ?></td>
                                                 </tr>

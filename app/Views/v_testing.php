@@ -116,7 +116,7 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>8. Berapa tingkat ...?</strong></h4>
+                                    <h4><strong>8. Berapa tingkat norma Anda kepada orang yang penting bagi Anda?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 5; $i++) { ?>
