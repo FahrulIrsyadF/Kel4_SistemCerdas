@@ -1,6 +1,5 @@
 <?= $this->extend('templates/login_header'); ?>
 <?= $this->section('content'); ?>
-<?= session()->getFlashdata('pesan') ?>
 <div class="col-md-4 ml-auto mr-auto pt-5">
     <div class="card">
         <form action="<?= base_url('auth/login') ?>" method="post">

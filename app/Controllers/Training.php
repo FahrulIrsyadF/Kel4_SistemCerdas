@@ -17,6 +17,12 @@ class Training extends BaseController
         $this->weightModel = new WeightModel;
         $this->classModel = new ClassModel;
         $this->loginModel = new LoginModel;
+
+        $username = $this->loginModel->where(['nama_user' => session()->get('username')])->first();
+        if ($username == NULL) {
+            session()->setFlashdata('pesan', $this->notify('Peringatan!', 'Untuk mengakses halaman data training, login terlebih dahulu!', 'warning', 'error'));
+            return redirect()->to("/auth");
+        }
     }
 
     public function index()
@@ -28,12 +34,7 @@ class Training extends BaseController
             'class' => $this->classModel->findAll()
         ];
 
-
-        if ($username == NULL) {
-            return redirect()->to('/auth');
-        } else {
-            echo view('v_training', $data);
-        }
+        echo view('v_training', $data);
     }
 
     public function prosesExcel()

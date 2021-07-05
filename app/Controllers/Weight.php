@@ -17,23 +17,22 @@ class Weight extends BaseController
         $this->weightModel = new WeightModel;
         $this->classModel = new ClassModel;
         $this->loginModel = new LoginModel;
+
+        $username = $this->loginModel->where(['nama_user' => session()->get('username')])->first();
+        if ($username == NULL) {
+            session()->setFlashdata('pesan', $this->notify('Peringatan!', 'Untuk mengakses halaman training, login terlebih dahulu!', 'warning', 'error'));
+            return redirect()->to("/auth");
+        }
     }
 
     public function index()
     {
-
-        $username = $this->loginModel->where(['nama_user' => session()->get('username')])->first();
         $data = [
             'title' => 'Data Klasifikasi LVQ',
             'weight' => $this->weightModel->findAll(),
         ];
 
-        if ($username == NULL) {
-            session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil mengaktifkan data.', 'success', 'success'));
-            return redirect()->to("/auth");
-        } else {
-            echo view('v_weight', $data);
-        }
+        echo view('v_weight', $data);
     }
 
     public function active($id)

@@ -13,6 +13,12 @@ class Laporan extends BaseController
         $this->TestingModel = new TestingModel;
         $this->classModel = new ClassModel;
         $this->loginModel = new LoginModel;
+
+        $username = $this->loginModel->where(['nama_user' => session()->get('username')])->first();
+        if ($username == NULL) {
+            session()->setFlashdata('pesan', $this->notify('Peringatan!', 'Untuk mengakses halaman laporan, login terlebih dahulu!', 'warning', 'error'));
+            return redirect()->to("/auth");
+        }
     }
 
     public function index()
@@ -24,12 +30,7 @@ class Laporan extends BaseController
             'class' => $this->classModel->findAll()
         ];
 
-
-        if ($username == NULL) {
-            return redirect()->to('/auth');
-        } else {
-            echo view('v_laporan', $data);
-        }
+        echo view('v_laporan', $data);
     }
 
     public function printPDF()
@@ -53,5 +54,22 @@ class Laporan extends BaseController
         $dompdf->stream();
 
         return view('v_laporan');
+    }
+
+    function notify($title, $message, $type, $icon)
+    {
+        $pesan = "$.notify({
+            icon: 'flaticon-$icon',
+            title: '$title',
+            message: '$message',
+        },{
+            type: '$type',
+            placement: {
+                from: 'top',
+                align: 'center'
+            },
+            time: 1000,
+        });";
+        return $pesan;
     }
 }

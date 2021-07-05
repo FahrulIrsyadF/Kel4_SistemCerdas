@@ -25,7 +25,7 @@
 <script src="<?= base_url(); ?>/assets/js/plugin/datatables/datatables.min.js"></script>
 
 <!-- Bootstrap Notify -->
-<!-- <script src="<?= base_url(); ?>/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script> -->
+<script src="<?= base_url(); ?>/assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
 
 <!-- jQuery Vector Maps -->
 <script src="<?= base_url(); ?>/assets/js/plugin/jqvmap/jquery.vmap.min.js"></script>
@@ -37,9 +37,7 @@
 <!-- Atlantis JS -->
 <script src="<?= base_url(); ?>/assets/js/atlantis.min.js"></script>
 
-<!-- Atlantis DEMO methods, don't include it in your project! -->
-<script src="<?= base_url(); ?>/assets/js/setting-demo.js"></script>
-<script src="<?= base_url(); ?>/assets/js/demo.js"></script>
+<?= $this->renderSection('script'); ?>
 
 </body>
 
