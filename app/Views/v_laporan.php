@@ -53,7 +53,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                                             <td><?= $data['name_class']; ?></td>
                                             <td>
                                                 <button class="badge btn-info text-white" data-toggle="modal" data-target="#modal-detail<?= $data['id_test']; ?>"><b><i class="fas fa-info-circle"></i> Detail</b></button>&nbsp;&nbsp;
-                                                <a href="<?= base_url('laporan/printDetail/' . $id_test) ?>" class="badge bg-primary text-white"><b><i class="fas fa-print"></i> Cetail</b></a>
+                                                <a href="<?= base_url('laporan/printDetail/' . $id_test) ?>" class="badge bg-primary text-white"><b><i class="fas fa-print"></i> Cetak</b></a>
                                                 <button type="button" data-id="<?= $id_test ?>" data-link="/laporan/delete/" data-nama=" Uji ini" id="hapus_crud" class="badge bg-danger text-white hapus_crud"><b><i class="fas fa-trash"></i> Hapus</b></button>
                                             </td>
                                         </tr>
@@ -176,7 +176,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                                     <b>Status:</b> <?php if ($status == 'Positif') : ?>
                                         <span class="badge badge-danger text-bold"><?= $status; ?> </span>
                                     <?php else : ?>
-                                        <span class="badge badge-success text-bold"><?= $status; ?> </span>
+                                        <span class="badge badge-primary text-bold"><?= $status; ?> </span>
                                     <?php endif; ?>
                                 </div>
                             </div>
