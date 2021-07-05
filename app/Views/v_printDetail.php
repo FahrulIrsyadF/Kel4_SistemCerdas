@@ -28,7 +28,7 @@
                 <td>: <?= $data['age_test']; ?></td>
             </tr>
             <tr>
-                <td><b>Status</b></td>
+                <td><b>Kelas</b></td>
                 <td>: <?= $data['name_class']; ?></td>
             </tr>
         </table> <br>

@@ -38,7 +38,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                                     <th>No</th>
                                     <th>Nama</th>
                                     <th>Umur</th>
-                                    <th>Status</th>
+                                    <th>Kelas</th>
                                     <th>Aksi</th>
                                 </thead>
                                 <tbody>
@@ -104,7 +104,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                             <table id="datatable" class="display table table-hover">
                                 <thead class="thead-dark">
                                     <th>No</th>
-                                    <th>Status</th>
+                                    <th>Kelas</th>
                                     <th>Jumlah</th>
                                 </thead>
                                 <tbody>
@@ -131,7 +131,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
     $id = $data['id_test'];
     $nama = $data['name_test'];
     $umur = $data['age_test'];
-    $status = $data['name_class'];
+    $kelas = $data['name_class'];
     $test_behaviour_sexualrisk = $data['ts_behaviour_sexualrisk'];
     $test_behavior_eating = $data['ts_behavior_eating'];
     $test_behavior_personalhygine = $data['ts_behavior_personalhygine'];
@@ -173,10 +173,10 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <b>Status:</b> <?php if ($status == 'Positif') : ?>
-                                        <span class="badge badge-danger text-bold"><?= $status; ?> </span>
+                                    <b>Kelas:</b> <?php if ($kelas == 'Positif') : ?>
+                                        <span class="badge badge-danger text-bold"><?= $kelas; ?> </span>
                                     <?php else : ?>
-                                        <span class="badge badge-primary text-bold"><?= $status; ?> </span>
+                                        <span class="badge badge-primary text-bold"><?= $kelas; ?> </span>
                                     <?php endif; ?>
                                 </div>
                             </div>

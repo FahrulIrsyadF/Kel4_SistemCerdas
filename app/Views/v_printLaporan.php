@@ -49,7 +49,7 @@
         <thead>
             <tr>
                 <th>No.</th>
-                <th>Klasifikasi</th>
+                <th>Kelas</th>
                 <th>Jumlah</th>
             </tr>
         </thead>
