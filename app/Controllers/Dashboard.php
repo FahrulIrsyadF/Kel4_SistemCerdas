@@ -17,7 +17,7 @@ class Dashboard extends BaseController
 		$username = $this->loginModel->where(['nama_user' => session()->get('username')])->first();
 		$data = [
 			'nama' => $username,
-			'title' => 'Dashboard'
+			'title' => 'Dashboard Deteksi Dini Kanker Serviks'
 		];
 
 		if ($username == NULL) {

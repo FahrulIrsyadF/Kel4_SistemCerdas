@@ -13,17 +13,23 @@ class Laporan extends BaseController
         $this->TestingModel = new TestingModel;
         $this->classModel = new ClassModel;
         $this->loginModel = new LoginModel;
+    }
 
-        $username = $this->loginModel->where(['nama_user' => session()->get('username')])->first();
-        if ($username == NULL) {
-            session()->setFlashdata('pesan', $this->notify('Peringatan!', 'Untuk mengakses halaman laporan, login terlebih dahulu!', 'warning', 'error'));
-            return redirect()->to("/auth");
-        }
+    public function delete($id)
+    {
+        $this->TestingModel->delete(['id' => $id]);
+        session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil menghapus data.', 'success', 'success'));
+        return redirect()->to("/laporan");
     }
 
     public function index()
     {
         $username = $this->loginModel->where(['nama_user' => session()->get('username')])->first();
+        if ($username == NULL) {
+            session()->setFlashdata('pesan', $this->notify('Peringatan!', 'Untuk mengakses halaman laporan, login terlebih dahulu!', 'warning', 'error'));
+            return redirect()->to("/auth");
+        }
+        
         $data = [
             'title' => 'Laporan Hasil',
             'test' => $this->TestingModel->findAll(),

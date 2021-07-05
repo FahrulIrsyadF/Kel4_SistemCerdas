@@ -18,18 +18,18 @@ class Training extends BaseController
         $this->classModel = new ClassModel;
         $this->loginModel = new LoginModel;
 
-        $username = $this->loginModel->where(['nama_user' => session()->get('username')])->first();
-        if ($username == NULL) {
-            session()->setFlashdata('pesan', $this->notify('Peringatan!', 'Untuk mengakses halaman data training, login terlebih dahulu!', 'warning', 'error'));
-            return redirect()->to("/auth");
-        }
     }
 
     public function index()
     {
         $username = $this->loginModel->where(['nama_user' => session()->get('username')])->first();
+        if ($username == NULL) {
+            session()->setFlashdata('pesan', $this->notify('Peringatan!', 'Untuk mengakses halaman data training, login terlebih dahulu!', 'warning', 'error'));
+            return redirect()->to("/auth");
+        }
+        
         $data = [
-            'title' => 'Data Training',
+            'title' => 'Data Latih',
             'train' => $this->TrainingModel->findAll(),
             'class' => $this->classModel->findAll()
         ];
@@ -99,7 +99,7 @@ class Training extends BaseController
     public function delete($id_train)
     {
         $data = [
-            'title' => 'Data Training',
+            'title' => 'Data Latih',
             'train' => $this->TrainingModel->findAll(),
             'class' => $this->classModel->findAll()
         ];
@@ -117,7 +117,7 @@ class Training extends BaseController
     public function deleteAll()
     {
         $data = [
-            'title' => 'Data Training',
+            'title' => 'Data Latih',
             'train' => $this->TrainingModel->findAll(),
             'class' => $this->classModel->findAll()
         ];

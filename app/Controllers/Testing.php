@@ -30,7 +30,7 @@ class Testing extends BaseController
     public function done($id)
     {
         $data = [
-            'title' => 'Form diagnosis kanker serviks',
+            'title' => 'Hasil diagnosis kanker serviks',
             'test' => $this->testingModel->where('id_test', $id)->findAll(),
             'class' => $this->classModel->findAll(),
         ];

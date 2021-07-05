@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title><?= $title; ?></title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-    <link rel="icon" href="<?= base_url(); ?>/assets/img/icon.ico" type="image/x-icon" />
+    <link rel="icon" href="<?= base_url(); ?>/assets/img/icon2.png" type="image/x-icon" />
 
     <!-- Fonts and icons -->
     <script src="<?= base_url(); ?>/assets/js/plugin/webfont/webfont.min.js"></script>
@@ -96,39 +96,42 @@
     $umur = $db->query("SELECT age_test, COUNT(*) AS jumlah FROM test GROUP BY age_test");
     ?>
     <script>
-        var barChart = document.getElementById('barChart').getContext('2d');
+        if($("#barChart").length > 0){
+            var barChart = document.getElementById('barChart').getContext('2d');
 
-        var myBarChart = new Chart(barChart, {
-            type: 'bar',
-            data: {
-                labels: [
-                    <?php foreach ($umur->getResultArray() as $um) {
-                        echo '"' . $um['age_test'] . '",';
-                    } ?>
-                ],
-                datasets: [{
-                    label: "Umur",
-                    backgroundColor: 'rgb(23, 125, 255)',
-                    borderColor: 'rgb(23, 125, 255)',
-                    data: [
+            var myBarChart = new Chart(barChart, {
+                type: 'bar',
+                data: {
+                    labels: [
                         <?php foreach ($umur->getResultArray() as $um) {
-                            echo $um['jumlah'] . ', ';
+                            echo '"' . $um['age_test'] . '",';
                         } ?>
                     ],
-                }],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
+                    datasets: [{
+                        label: "Umur",
+                        backgroundColor: 'rgb(23, 125, 255)',
+                        borderColor: 'rgb(23, 125, 255)',
+                        data: [
+                            <?php foreach ($umur->getResultArray() as $um) {
+                                echo $um['jumlah'] . ', ';
+                            } ?>
+                        ],
+                    }],
                 },
-            }
-        });
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                }
+            });
+        }
+        
     </script>
     <?php
     $db = \Config\Database::connect();
@@ -136,52 +139,54 @@
                             WHERE test.id_class = class.id_class
                             GROUP BY class.id_class"); ?>
     <script>
-        var pieChart = document.getElementById('pieChart').getContext('2d');
+        if($("#pieChart").length > 0){
+            var pieChart = document.getElementById('pieChart').getContext('2d');
 
-        var myPieChart = new Chart(pieChart, {
-            type: 'pie',
-            data: {
-                datasets: [{
-                    data: [
-                        <?php foreach ($positif->getResultArray() as $pst) {
-                            echo $pst['presentase'] . ', ';
-                        } ?>
-                    ],
-                    backgroundColor: ["#f3545d", "#1d7af3"],
-                    borderWidth: 0
-                }],
-                labels: [<?php foreach ($positif->getResultArray() as $pst) {
-                                echo '"' . $pst['name_class'] . '", ';
-                            } ?>]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        fontColor: 'rgb(154, 154, 154)',
-                        fontSize: 11,
-                        usePointStyle: true,
-                        padding: 20
-                    }
+            var myPieChart = new Chart(pieChart, {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [
+                            <?php foreach ($positif->getResultArray() as $pst) {
+                                echo $pst['presentase'] . ', ';
+                            } ?>
+                        ],
+                        backgroundColor: ["#f3545d", "#1d7af3"],
+                        borderWidth: 0
+                    }],
+                    labels: [<?php foreach ($positif->getResultArray() as $pst) {
+                                    echo '"' . $pst['name_class'] . '", ';
+                                } ?>]
                 },
-                pieceLabel: {
-                    render: 'percentage',
-                    fontColor: 'white',
-                    fontSize: 14,
-                },
-                tooltips: false,
-                layout: {
-                    padding: {
-                        left: 20,
-                        right: 20,
-                        top: 20,
-                        bottom: 20
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            fontColor: 'rgb(154, 154, 154)',
+                            fontSize: 11,
+                            usePointStyle: true,
+                            padding: 20
+                        }
+                    },
+                    pieceLabel: {
+                        render: 'percentage',
+                        fontColor: 'white',
+                        fontSize: 14,
+                    },
+                    tooltips: false,
+                    layout: {
+                        padding: {
+                            left: 20,
+                            right: 20,
+                            top: 20,
+                            bottom: 20
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
     </script>
 
     <script>
@@ -220,6 +225,35 @@
             }).then((willDelete) => {
                 if (willDelete) {
                     window.location.href = "<?= base_url() ?>" + link + id;
+                } else {
+                    swal.close();
+                }
+            });
+
+        });
+    </script>
+
+<script>
+        $('#logout').on('click', function() {
+
+            swal({
+                title: 'Perhatian!',
+                text: "Apakah anda yakin ingin logout ?",
+                icon: 'warning',
+                buttons: {
+                    cancel: {
+                        visible: true,
+                        text: 'Tidak',
+                        className: 'btn btn-danger'
+                    },
+                    confirm: {
+                        text: 'Ya',
+                        className: 'btn btn-success'
+                    }
+                }
+            }).then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = "<?= base_url('auth/logout') ?>";
                 } else {
                     swal.close();
                 }

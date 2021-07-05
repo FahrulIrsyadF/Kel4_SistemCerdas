@@ -3,7 +3,7 @@
     <div class="logo-header" data-background-color="blue">
 
         <a href="#" class="logo" style="color: white;">
-            Kelompok 4
+            KANKER SERVIKS
         </a>
         <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
@@ -24,21 +24,10 @@
         <div class="container-fluid">
             <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
                 <?php if (session()->get('username') == NULL) { ?>
-                    <a href="<?= base_url('auth'); ?>" class="btn btn-success font-weight-bold" type="button">Login</a>
+                    <a href="<?= base_url('auth'); ?>" class="btn btn-light font-weight-bold" type="button">Login</a>
                 <?php } else { ?>
                     <li class="nav-item dropdown hidden-caret">
-                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
-                            <div class="avatar-sm">
-                                <img src="<?= base_url(); ?>/assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
-                            </div>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user animated fadeIn">
-                            <div class="dropdown-user-scroll scrollbar-outer">
-                                <li>
-                                    <a class="dropdown-item" href="<?= base_url('auth/logout'); ?>">Logout</a>
-                                </li>
-                            </div>
-                        </ul>
+                        
                     </li>
                 <?php } ?>
             </ul>

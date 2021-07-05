@@ -18,17 +18,19 @@ class Weight extends BaseController
         $this->classModel = new ClassModel;
         $this->loginModel = new LoginModel;
 
+        
+    }
+
+    public function index()
+    {
         $username = $this->loginModel->where(['nama_user' => session()->get('username')])->first();
         if ($username == NULL) {
             session()->setFlashdata('pesan', $this->notify('Peringatan!', 'Untuk mengakses halaman training, login terlebih dahulu!', 'warning', 'error'));
             return redirect()->to("/auth");
         }
-    }
 
-    public function index()
-    {
         $data = [
-            'title' => 'Data Klasifikasi LVQ',
+            'title' => 'Data Bobot',
             'weight' => $this->weightModel->findAll(),
         ];
 
@@ -79,6 +81,7 @@ class Weight extends BaseController
         $max_epoch = $this->request->getPost('max_epoch');
         $classPerhitungan = 0;
 
+        set_time_limit(600);
         // Perulangan iterasi sesuai nilai max epoch
         for ($i = 1; $i <= $max_epoch; $i++) :
             $train = $this->TrainingModel->findAll();

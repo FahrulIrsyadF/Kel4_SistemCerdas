@@ -128,8 +128,6 @@
                                     <option value="1000">1000</option>
                                     <option value="1500">1500</option>
                                     <option value="3000">3000</option>
-                                    <option value="5000">5000</option>
-                                    <option value="10000">10000</option>
                                 </select>
                             </div>
                         </div>

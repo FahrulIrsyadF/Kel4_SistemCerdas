@@ -56,4 +56,21 @@ class BaseController extends Controller
 		//--------------------------------------------------------------------
 		// E.g.: $this->session = \Config\Services::session();
 	}
+
+	function notify($title, $message, $type, $icon)
+    {
+        $pesan = "$.notify({
+            icon: 'flaticon-$icon',
+            title: '$title',
+            message: '$message',
+        },{
+            type: '$type',
+            placement: {
+                from: 'top',
+                align: 'center'
+            },
+            time: 1000,
+        });";
+        return $pesan;
+    }
 }

@@ -84,6 +84,12 @@
 							<p>Tentang LVQ</p>
 						</a>
 					</li>
+					<li  id="logout" class="nav-item <?= ($request->uri->getSegment(1) == 'logout') ? 'active' : '' ?>">
+						<a>
+							<i class="fa fa-sign-out-alt"></i>
+							<p>Logout</p>
+						</a>
+					</li>
 				<?php } ?>
 			</ul>
 		</div>
