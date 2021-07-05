@@ -45,13 +45,13 @@
 					<li class="nav-item <?= ($request->uri->getSegment(1) == 'training') ? 'active' : '' ?>">
 						<a href="<?= base_url('training'); ?>">
 							<i class="fas fa-database"></i>
-							<p>Data Training</p>
+							<p>Data Latih</p>
 						</a>
 					</li>
 					<li class="nav-item <?= ($request->uri->getSegment(1) == 'weight') ? 'active' : '' ?>">
 						<a href="<?= base_url('weight'); ?>">
 							<i class="fas fa-diagnoses"></i>
-							<p>Training</p>
+							<p>Data Bobot</p>
 						</a>
 					</li>
 					<li class="nav-item <?= ($request->uri->getSegment(1) == 'testing') ? 'active' : '' ?>">
@@ -84,10 +84,10 @@
 							<p>Tentang LVQ</p>
 						</a>
 					</li>
-					<li  id="logout" class="nav-item <?= ($request->uri->getSegment(1) == 'logout') ? 'active' : '' ?>">
+					<li id="logout" class="nav-item <?= ($request->uri->getSegment(1) == 'logout') ? 'active' : '' ?>">
 						<a>
 							<i class="fa fa-sign-out-alt"></i>
-							<p>Logout</p>
+							<p>Keluar</p>
 						</a>
 					</li>
 				<?php } ?>

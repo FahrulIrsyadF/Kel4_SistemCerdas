@@ -39,7 +39,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                                     <th>Nama</th>
                                     <th>Umur</th>
                                     <th>Status</th>
-                                    <th>Action</th>
+                                    <th>Aksi</th>
                                 </thead>
                                 <tbody>
                                     <?php
@@ -52,7 +52,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                                             <td><?= $data['age_test']; ?></td>
                                             <td><?= $data['name_class']; ?></td>
                                             <td>
-                                                <button class="badge bg-success text-white" data-toggle="modal" data-target="#modal-detail<?= $data['id_test']; ?>"><b><i class="fas fa-info-circle"></i> Detail</b></button>&nbsp;&nbsp;
+                                                <button class="badge btn-info text-white" data-toggle="modal" data-target="#modal-detail<?= $data['id_test']; ?>"><b><i class="fas fa-info-circle"></i> Detail</b></button>&nbsp;&nbsp;
                                                 <a href="<?= base_url('laporan/printDetail/' . $id_test) ?>" class="badge bg-primary text-white"><b><i class="fas fa-print"></i> Print</b></a>
                                                 <button type="button" data-id="<?= $id_test ?>" data-link="/laporan/delete/" data-nama=" Uji ini" id="hapus_crud" class="badge bg-danger text-white hapus_crud"><b><i class="fas fa-trash"></i> Delete</b></button>
                                             </td>

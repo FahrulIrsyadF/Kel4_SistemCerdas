@@ -11,16 +11,11 @@
     $db = \Config\Database::connect();
     $test = $db->query("SELECT * FROM test, class WHERE id_test = $id_test AND test.id_class = class.id_class");
 
-    date_default_timezone_set('Asia/Jakarta');
-    $tanggal = mktime(date("m"), date("d"), date("Y"));
-    echo "Tanggal : <b>" . date("d-M-Y", $tanggal) . "</b> ";
-    $jam = date("H:i:s");
-    echo "| Pukul : <b>" . $jam . " " . "</b>";
-    $a = date("H");
-
     foreach ($test->getResultArray() as $data) {
+        $time = $data['ts_timestamp'];
         $id_test = $data['id_test'];
-        echo "| ID Tes : <b>" . $id_test . "" . "</b>"; ?>
+        echo "Waktu Tes : <b>" . date('d-M-Y', strtotime($time)) . "</b>" . " - <b>" . date('H:i:s', strtotime($time)) . "</b>";
+        echo " | ID Tes : <b>" . $id_test . "</b>"; ?>
         <br><br>
         <h3 style="text-align:center">Laporan Hasil Klasifikasi Kanker Serviks</h3>
         <table>
@@ -121,6 +116,9 @@
             </tbody>
         <?php } ?>
         </table>
+        <script>
+            window.print();
+        </script>
 </body>
 
 </html>

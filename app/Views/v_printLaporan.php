@@ -15,7 +15,7 @@
     echo "| Pukul : <b>" . $jam . " " . "</b>";
     $a = date("H"); ?>
     <h3 style="text-align:center">Jumlah User Testing Berdasarkan Umur</h3>
-    <table border="1" cellspacing="0" cellpadding="5" width="100%">
+    <table border="1" cellspacing="0" cellpadding="5" width="80%">
         <thead>
             <tr>
                 <th>No.</th>
@@ -73,6 +73,9 @@
             <?php } ?>
         </tbody>
     </table>
+    <script>
+        window.print();
+    </script>
 </body>
 
 </html>

@@ -29,7 +29,7 @@ class Laporan extends BaseController
             session()->setFlashdata('pesan', $this->notify('Peringatan!', 'Untuk mengakses halaman laporan, login terlebih dahulu!', 'warning', 'error'));
             return redirect()->to("/auth");
         }
-        
+
         $data = [
             'title' => 'Laporan Hasil',
             'test' => $this->TestingModel->findAll(),
@@ -41,25 +41,26 @@ class Laporan extends BaseController
 
     public function printPDF()
     {
-        $dompdf = new \Dompdf\Dompdf();
-        $dompdf->loadHtml(view('v_printLaporan'));
-        $dompdf->setPaper('A4', 'landscape');
-        $dompdf->render();
-        $dompdf->stream();
+        // $dompdf = new \Dompdf\Dompdf();
+        // $dompdf->loadHtml(view('v_printLaporan'));
+        // $dompdf->setPaper('A4', 'landscape');
+        // $dompdf->render();
+        // $dompdf->stream();
 
-        return view('v_laporan');
+        return view('v_printLaporan');
     }
 
     public function printDetail($id_test)
     {
         //dd($id_test);
-        $dompdf = new \Dompdf\Dompdf();
-        $dompdf->loadHtml(view('v_printDetail', $data = ['id_test' => $id_test]));
-        $dompdf->setPaper('A4', 'potrait');
-        $dompdf->render();
-        $dompdf->stream();
+        // $dompdf = new \Dompdf\Dompdf();
+        // $dompdf->loadHtml(view('v_printDetail', $data = ['id_test' => $id_test]));
+        // $dompdf->setPaper('A4', 'potrait');
+        // $dompdf->render();
+        // $dompdf->stream();
 
-        return view('v_laporan');
+        $data = ['id_test' => $id_test];
+        return view('v_printDetail', $data);
     }
 
     function notify($title, $message, $type, $icon)
