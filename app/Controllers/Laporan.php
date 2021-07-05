@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ClassModel;
 use App\Models\TestingModel;
+use App\Models\LoginModel;
 
 class Laporan extends BaseController
 {
@@ -11,17 +12,24 @@ class Laporan extends BaseController
     {
         $this->TestingModel = new TestingModel;
         $this->classModel = new ClassModel;
+        $this->loginModel = new LoginModel;
     }
 
     public function index()
     {
+        $username = $this->loginModel->where(['nama_user' => session()->get('username')])->first();
         $data = [
             'title' => 'Laporan Hasil',
             'test' => $this->TestingModel->findAll(),
             'class' => $this->classModel->findAll()
         ];
 
-        return view('v_laporan', $data);
+
+        if ($username == NULL) {
+            return redirect()->to('/auth');
+        } else {
+            echo view('v_laporan', $data);
+        }
     }
 
     public function printPDF()

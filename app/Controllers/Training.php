@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\TrainingModel;
 use App\Models\WeightModel;
 use App\Models\ClassModel;
+use App\Models\LoginModel;
 
 class Training extends BaseController
 {
@@ -15,17 +16,24 @@ class Training extends BaseController
         $this->TrainingModel = new TrainingModel;
         $this->weightModel = new WeightModel;
         $this->classModel = new ClassModel;
+        $this->loginModel = new LoginModel;
     }
 
     public function index()
     {
+        $username = $this->loginModel->where(['nama_user' => session()->get('username')])->first();
         $data = [
             'title' => 'Data Training',
             'train' => $this->TrainingModel->findAll(),
             'class' => $this->classModel->findAll()
         ];
 
-        echo view('v_training', $data);
+
+        if ($username == NULL) {
+            return redirect()->to('/auth');
+        } else {
+            echo view('v_training', $data);
+        }
     }
 
     public function prosesExcel()
@@ -113,7 +121,7 @@ class Training extends BaseController
             'class' => $this->classModel->findAll()
         ];
         $db = \Config\Database::connect();
-        $builder= $db->table('train');
+        $builder = $db->table('train');
         $hapus = $builder->emptyTable('train');
         // mengirim pesan berhasil dihapus
         if ($hapus) {

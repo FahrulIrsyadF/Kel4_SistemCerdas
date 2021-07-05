@@ -1,5 +1,6 @@
 <?= $this->extend('templates/login_header'); ?>
 <?= $this->section('content'); ?>
+<?= session()->getFlashdata('pesan') ?>
 <div class="col-md-4 ml-auto mr-auto pt-5">
     <div class="card">
         <form action="<?= base_url('auth/login') ?>" method="post">
@@ -25,4 +26,12 @@
         </form>
     </div>
 </div>
+<?= $this->endSection(); ?>
+<?= $this->section('script'); ?>
+<script>
+    $(document).ready(function() {
+        var action = '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Delete"> <i class="fa fa-times"></i> </button> </div> </td>';
+        <?= session()->getFlashdata('pesan'); ?>
+    });
+</script>
 <?= $this->endSection(); ?>

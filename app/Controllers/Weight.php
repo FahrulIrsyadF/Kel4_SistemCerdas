@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\TrainingModel;
 use App\Models\WeightModel;
 use App\Models\ClassModel;
+use App\Models\LoginModel;
 
 class Weight extends BaseController
 {
@@ -15,17 +16,24 @@ class Weight extends BaseController
         $this->TrainingModel = new TrainingModel;
         $this->weightModel = new WeightModel;
         $this->classModel = new ClassModel;
+        $this->loginModel = new LoginModel;
     }
 
     public function index()
     {
 
+        $username = $this->loginModel->where(['nama_user' => session()->get('username')])->first();
         $data = [
             'title' => 'Data Klasifikasi LVQ',
             'weight' => $this->weightModel->findAll(),
         ];
 
-        echo view('v_weight', $data);
+        if ($username == NULL) {
+            session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil mengaktifkan data.', 'success', 'success'));
+            return redirect()->to("/auth");
+        } else {
+            echo view('v_weight', $data);
+        }
     }
 
     public function active($id)
@@ -37,16 +45,14 @@ class Weight extends BaseController
         $this->weightModel->nonactive();
         $this->weightModel->update($id, $update);
         session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil mengaktifkan data.', 'success', 'success'));
-        return redirect()->to("/weight"); 
-
+        return redirect()->to("/weight");
     }
 
     public function delete($id)
     {
         $this->weightModel->delete(['id' => $id]);
         session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil menghapus data.', 'success', 'success'));
-        return redirect()->to("/weight"); 
-
+        return redirect()->to("/weight");
     }
 
     function notify($title, $message, $type, $icon)
@@ -75,12 +81,12 @@ class Weight extends BaseController
         $classPerhitungan = 0;
 
         // Perulangan iterasi sesuai nilai max epoch
-        for ($i=1; $i <= $max_epoch; $i++) :
+        for ($i = 1; $i <= $max_epoch; $i++) :
             $train = $this->TrainingModel->findAll();
             $numrow = $this->TrainingModel->countAll();
             $j = 1;
             // Perulangan sesuai banyaknya baris data pada dataset
-            foreach ($train as $row ) :
+            foreach ($train as $row) :
                 $tr_behaviour_sexualrisk = $row['tr_behaviour_sexualrisk'];
                 $tr_behavior_eating = $row['tr_behavior_eating'];
                 $tr_behavior_personalhygine = $row['tr_behavior_personalhygine'];
@@ -106,104 +112,106 @@ class Weight extends BaseController
                 $classDatabase = $classDatabase[0]['code_class'];
 
                 // Perulangan dilakukan selama iterasi kurang dari max_epoch dan baris data latih belum sama dengan total data latih
-                if(($i < $max_epoch) || ($j < $numrow)){
+                if (($i < $max_epoch) || ($j < $numrow)) {
                     // Ketika iterasi pertama dan baris data pertama, random antara 0 dan 1 pada weight
-                    if(($i == 1) && ($j == 1)){
-                        $wa_behaviour_sexualrisk = rand(0,1);
-                        $wa_behavior_eating = rand(0,1);
-                        $wa_behavior_personalhygine = rand(0,1);
-                        $wa_intention_aggregation = rand(0,1);
-                        $wa_intention_commitment = rand(0,1);
-                        $wa_attitude_consistency = rand(0,1);
-                        $wa_attitude_spontaneity = rand(0,1);
-                        $wa_norm_significantperson = rand(0,1);
-                        $wa_norm_fulfillment = rand(0,1);
-                        $wa_perception_vulnerability = rand(0,1);
-                        $wa_perception_severity = rand(0,1);
-                        $wa_motivation_strength = rand(0,1);
-                        $wa_motivation_willingness = rand(0,1);
-                        $wa_socialsupport_emotionality = rand(0,1);
-                        $wa_socialsupport_appreciation = rand(0,1);
-                        $wa_socialsupport_instrumental = rand(0,1);
-                        $wa_empowerment_knowledge = rand(0,1);
-                        $wa_empowerment_abilities = rand(0,1);
-                        $wa_empowerment_desires = rand(0,1);
-                        
-                        $wb_behaviour_sexualrisk = rand(0,1);
-                        $wb_behavior_eating = rand(0,1);
-                        $wb_behavior_personalhygine = rand(0,1);
-                        $wb_intention_aggregation = rand(0,1);
-                        $wb_intention_commitment = rand(0,1);
-                        $wb_attitude_consistency = rand(0,1);
-                        $wb_attitude_spontaneity = rand(0,1);
-                        $wb_norm_significantperson = rand(0,1);
-                        $wb_norm_fulfillment = rand(0,1);
-                        $wb_perception_vulnerability = rand(0,1);
-                        $wb_perception_severity = rand(0,1);
-                        $wb_motivation_strength = rand(0,1);
-                        $wb_motivation_willingness = rand(0,1);
-                        $wb_socialsupport_emotionality = rand(0,1);
-                        $wb_socialsupport_appreciation = rand(0,1);
-                        $wb_socialsupport_instrumental = rand(0,1);
-                        $wb_empowerment_knowledge = rand(0,1);
-                        $wb_empowerment_abilities = rand(0,1);
-                        $wb_empowerment_desires = rand(0,1);
+                    if (($i == 1) && ($j == 1)) {
+                        $wa_behaviour_sexualrisk = rand(0, 1);
+                        $wa_behavior_eating = rand(0, 1);
+                        $wa_behavior_personalhygine = rand(0, 1);
+                        $wa_intention_aggregation = rand(0, 1);
+                        $wa_intention_commitment = rand(0, 1);
+                        $wa_attitude_consistency = rand(0, 1);
+                        $wa_attitude_spontaneity = rand(0, 1);
+                        $wa_norm_significantperson = rand(0, 1);
+                        $wa_norm_fulfillment = rand(0, 1);
+                        $wa_perception_vulnerability = rand(0, 1);
+                        $wa_perception_severity = rand(0, 1);
+                        $wa_motivation_strength = rand(0, 1);
+                        $wa_motivation_willingness = rand(0, 1);
+                        $wa_socialsupport_emotionality = rand(0, 1);
+                        $wa_socialsupport_appreciation = rand(0, 1);
+                        $wa_socialsupport_instrumental = rand(0, 1);
+                        $wa_empowerment_knowledge = rand(0, 1);
+                        $wa_empowerment_abilities = rand(0, 1);
+                        $wa_empowerment_desires = rand(0, 1);
+
+                        $wb_behaviour_sexualrisk = rand(0, 1);
+                        $wb_behavior_eating = rand(0, 1);
+                        $wb_behavior_personalhygine = rand(0, 1);
+                        $wb_intention_aggregation = rand(0, 1);
+                        $wb_intention_commitment = rand(0, 1);
+                        $wb_attitude_consistency = rand(0, 1);
+                        $wb_attitude_spontaneity = rand(0, 1);
+                        $wb_norm_significantperson = rand(0, 1);
+                        $wb_norm_fulfillment = rand(0, 1);
+                        $wb_perception_vulnerability = rand(0, 1);
+                        $wb_perception_severity = rand(0, 1);
+                        $wb_motivation_strength = rand(0, 1);
+                        $wb_motivation_willingness = rand(0, 1);
+                        $wb_socialsupport_emotionality = rand(0, 1);
+                        $wb_socialsupport_appreciation = rand(0, 1);
+                        $wb_socialsupport_instrumental = rand(0, 1);
+                        $wb_empowerment_knowledge = rand(0, 1);
+                        $wb_empowerment_abilities = rand(0, 1);
+                        $wb_empowerment_desires = rand(0, 1);
                     }
 
                     // Perhitungan bobot pada kelas positif
                     $result_a = sqrt(
-                        pow(($tr_behaviour_sexualrisk - $wa_behaviour_sexualrisk), 2) + 
-                        pow(($tr_behavior_eating - $wa_behavior_eating), 2) +
-                        pow(($tr_behavior_personalhygine - $wa_behavior_personalhygine),  2) +
-                        pow(($tr_intention_aggregation - $wa_behavior_eating),  2) +
-                        pow(($tr_intention_commitment - $wa_intention_commitment),  2) +
-                        pow(($tr_attitude_consistency - $wa_attitude_consistency),  2) +
-                        pow(($tr_attitude_spontaneity - $wa_attitude_spontaneity),  2) +
-                        pow(($tr_norm_significantperson - $wa_norm_significantperson),  2) +
-                        pow(($tr_norm_fulfillment - $wa_norm_fulfillment),  2) +
-                        pow(($tr_perception_vulnerability - $wa_perception_vulnerability),  2) +
-                        pow(($tr_perception_severity - $wa_perception_severity),  2) +
-                        pow(($tr_motivation_strength - $wa_motivation_strength),  2) +
-                        pow(($tr_motivation_willingness - $wa_motivation_willingness),  2) +
-                        pow(($tr_socialsupport_emotionality - $wa_socialsupport_emotionality),  2) +
-                        pow(($tr_socialsupport_appreciation - $wa_socialsupport_appreciation) , 2) + 
-                        pow(($tr_socialsupport_instrumental - $wa_socialsupport_instrumental),  2) +
-                        pow(($tr_empowerment_knowledge - $wa_empowerment_knowledge),  2) +
-                        pow(($tr_empowerment_abilities - $wa_empowerment_abilities),  2) +
-                        pow(($tr_empowerment_desires - $wa_empowerment_desires),  2));
+                        pow(($tr_behaviour_sexualrisk - $wa_behaviour_sexualrisk), 2) +
+                            pow(($tr_behavior_eating - $wa_behavior_eating), 2) +
+                            pow(($tr_behavior_personalhygine - $wa_behavior_personalhygine),  2) +
+                            pow(($tr_intention_aggregation - $wa_behavior_eating),  2) +
+                            pow(($tr_intention_commitment - $wa_intention_commitment),  2) +
+                            pow(($tr_attitude_consistency - $wa_attitude_consistency),  2) +
+                            pow(($tr_attitude_spontaneity - $wa_attitude_spontaneity),  2) +
+                            pow(($tr_norm_significantperson - $wa_norm_significantperson),  2) +
+                            pow(($tr_norm_fulfillment - $wa_norm_fulfillment),  2) +
+                            pow(($tr_perception_vulnerability - $wa_perception_vulnerability),  2) +
+                            pow(($tr_perception_severity - $wa_perception_severity),  2) +
+                            pow(($tr_motivation_strength - $wa_motivation_strength),  2) +
+                            pow(($tr_motivation_willingness - $wa_motivation_willingness),  2) +
+                            pow(($tr_socialsupport_emotionality - $wa_socialsupport_emotionality),  2) +
+                            pow(($tr_socialsupport_appreciation - $wa_socialsupport_appreciation), 2) +
+                            pow(($tr_socialsupport_instrumental - $wa_socialsupport_instrumental),  2) +
+                            pow(($tr_empowerment_knowledge - $wa_empowerment_knowledge),  2) +
+                            pow(($tr_empowerment_abilities - $wa_empowerment_abilities),  2) +
+                            pow(($tr_empowerment_desires - $wa_empowerment_desires),  2)
+                    );
 
                     // Perhitungan bobot pada kelas negatif
                     $result_b = sqrt(
-                        pow(($tr_behaviour_sexualrisk - $wb_behaviour_sexualrisk), 2) + 
-                        pow(($tr_behavior_eating - $wb_behavior_eating), 2) +
-                        pow(($tr_behavior_personalhygine - $wb_behavior_personalhygine), 2) +
-                        pow(($tr_intention_aggregation - $wb_behavior_eating), 2) +
-                        pow(($tr_intention_commitment - $wb_intention_commitment), 2) +
-                        pow(($tr_attitude_consistency - $wb_attitude_consistency), 2) +
-                        pow(($tr_attitude_spontaneity - $wb_attitude_spontaneity), 2) +
-                        pow(($tr_norm_significantperson - $wb_norm_significantperson), 2) +
-                        pow(($tr_norm_fulfillment - $wb_norm_fulfillment), 2) +
-                        pow(($tr_perception_vulnerability - $wb_perception_vulnerability), 2) +
-                        pow(($tr_perception_severity - $wb_perception_severity), 2) +
-                        pow(($tr_motivation_strength - $wb_motivation_strength), 2) +
-                        pow(($tr_motivation_willingness - $wb_motivation_willingness), 2) +
-                        pow(($tr_socialsupport_emotionality - $wb_socialsupport_emotionality), 2) +
-                        pow(($tr_socialsupport_appreciation - $wb_socialsupport_appreciation) ,2) + 
-                        pow(($tr_socialsupport_instrumental - $wb_socialsupport_instrumental), 2) +
-                        pow(($tr_empowerment_knowledge - $wb_empowerment_knowledge), 2) +
-                        pow(($tr_empowerment_abilities - $wb_empowerment_abilities), 2) +
-                        pow(($tr_empowerment_desires - $wb_empowerment_desires), 2));
+                        pow(($tr_behaviour_sexualrisk - $wb_behaviour_sexualrisk), 2) +
+                            pow(($tr_behavior_eating - $wb_behavior_eating), 2) +
+                            pow(($tr_behavior_personalhygine - $wb_behavior_personalhygine), 2) +
+                            pow(($tr_intention_aggregation - $wb_behavior_eating), 2) +
+                            pow(($tr_intention_commitment - $wb_intention_commitment), 2) +
+                            pow(($tr_attitude_consistency - $wb_attitude_consistency), 2) +
+                            pow(($tr_attitude_spontaneity - $wb_attitude_spontaneity), 2) +
+                            pow(($tr_norm_significantperson - $wb_norm_significantperson), 2) +
+                            pow(($tr_norm_fulfillment - $wb_norm_fulfillment), 2) +
+                            pow(($tr_perception_vulnerability - $wb_perception_vulnerability), 2) +
+                            pow(($tr_perception_severity - $wb_perception_severity), 2) +
+                            pow(($tr_motivation_strength - $wb_motivation_strength), 2) +
+                            pow(($tr_motivation_willingness - $wb_motivation_willingness), 2) +
+                            pow(($tr_socialsupport_emotionality - $wb_socialsupport_emotionality), 2) +
+                            pow(($tr_socialsupport_appreciation - $wb_socialsupport_appreciation), 2) +
+                            pow(($tr_socialsupport_instrumental - $wb_socialsupport_instrumental), 2) +
+                            pow(($tr_empowerment_knowledge - $wb_empowerment_knowledge), 2) +
+                            pow(($tr_empowerment_abilities - $wb_empowerment_abilities), 2) +
+                            pow(($tr_empowerment_desires - $wb_empowerment_desires), 2)
+                    );
 
                     // Menentukan siapakah pemenangnya
                     if ($result_a < $result_b) {
                         $classPerhitungan = 1;
-                    }else{
+                    } else {
                         $classPerhitungan = 0;
                     }
 
                     // Update weight
                     // Jika kelas pada perhitungan sebelumnya didapatkan positif, maka akan diupdate weight positif. Update weight memanggil fungsi hitungWeigth()
-                    if($classPerhitungan == 1){
+                    if ($classPerhitungan == 1) {
                         $wa_behaviour_sexualrisk = $this->hitungWeight($classPerhitungan, $classDatabase, $wa_behaviour_sexualrisk, $tr_behaviour_sexualrisk, $alpha);
                         $wa_behavior_eating = $this->hitungWeight($classPerhitungan, $classDatabase, $wa_behavior_eating, $tr_behavior_eating, $alpha);
                         $wa_behavior_personalhygine = $this->hitungWeight($classPerhitungan, $classDatabase, $wa_behavior_personalhygine, $tr_behavior_personalhygine, $alpha);
@@ -222,8 +230,8 @@ class Weight extends BaseController
                         $wa_socialsupport_instrumental = $this->hitungWeight($classPerhitungan, $classDatabase, $wa_socialsupport_instrumental, $tr_socialsupport_instrumental, $alpha);
                         $wa_empowerment_knowledge = $this->hitungWeight($classPerhitungan, $classDatabase, $wa_empowerment_knowledge, $tr_empowerment_knowledge, $alpha);
                         $wa_empowerment_abilities = $this->hitungWeight($classPerhitungan, $classDatabase, $wa_empowerment_abilities, $tr_empowerment_abilities, $alpha);
-                        $wa_empowerment_desires = $this->hitungWeight($classPerhitungan, $classDatabase, $wa_empowerment_desires, $tr_empowerment_desires, $alpha);   
-                    } else { 
+                        $wa_empowerment_desires = $this->hitungWeight($classPerhitungan, $classDatabase, $wa_empowerment_desires, $tr_empowerment_desires, $alpha);
+                    } else {
                         // Jika kelas perhitungan negatif maka weight yang diupdate adalah weight negatif
                         $wb_behaviour_sexualrisk = $this->hitungWeight($classPerhitungan, $classDatabase, $wb_behaviour_sexualrisk, $tr_behaviour_sexualrisk, $alpha);
                         $wb_behavior_eating = $this->hitungWeight($classPerhitungan, $classDatabase, $wb_behavior_eating, $tr_behavior_eating, $alpha);
@@ -297,13 +305,13 @@ class Weight extends BaseController
                     // echo '<pre>';
                     // print_r($datamonitor);
                     // echo '<br>';
-                    
 
-                // Ketika iterasi terakhir dan baris data terakhir pada data latih, maka akan didapatkan nilai weight terbaik
-                }else{
+
+                    // Ketika iterasi terakhir dan baris data terakhir pada data latih, maka akan didapatkan nilai weight terbaik
+                } else {
                     // Mencari prosentase akurasi algoritma
                     $akurasi = 0;
-                    foreach ($train as $rowTrain ) :
+                    foreach ($train as $rowTrain) :
                         // Menyimpan nilai tiap attribut pada dataset/database latih
                         $latih_behaviour_sexualrisk = $rowTrain['tr_behaviour_sexualrisk'];
                         $latih_behavior_eating = $rowTrain['tr_behavior_eating'];
@@ -327,52 +335,54 @@ class Weight extends BaseController
 
                         // Menghitungnya dengan weight terbaik setelah keseluruhan iterasi
                         $result_aLatih = sqrt(
-                            pow(($latih_behaviour_sexualrisk - $wa_behaviour_sexualrisk) , 2) + 
-                            pow(($latih_behavior_eating - $wa_behavior_eating),  2) +
-                            pow(($latih_behavior_personalhygine - $wa_behavior_personalhygine),  2) +
-                            pow(($latih_intention_aggregation - $wa_behavior_eating),  2) +
-                            pow(($latih_intention_commitment - $wa_intention_commitment),  2) +
-                            pow(($latih_attitude_consistency - $wa_attitude_consistency),  2) +
-                            pow(($latih_attitude_spontaneity - $wa_attitude_spontaneity),  2) +
-                            pow(($latih_norm_significantperson - $wa_norm_significantperson),  2) +
-                            pow(($latih_norm_fulfillment - $wa_norm_fulfillment),  2) +
-                            pow(($latih_perception_vulnerability - $wa_perception_vulnerability),  2) +
-                            pow(($latih_perception_severity - $wa_perception_severity),  2) +
-                            pow(($latih_motivation_strength - $wa_motivation_strength),  2) +
-                            pow(($latih_motivation_willingness - $wa_motivation_willingness),  2) +
-                            pow(($latih_socialsupport_emotionality - $wa_socialsupport_emotionality),  2) +
-                            pow(($latih_socialsupport_appreciation - $wa_socialsupport_appreciation) , 2) + 
-                            pow(($latih_socialsupport_instrumental - $wa_socialsupport_instrumental),  2) +
-                            pow(($latih_empowerment_knowledge - $wa_empowerment_knowledge),  2) +
-                            pow(($latih_empowerment_abilities - $wa_empowerment_abilities),  2) +
-                            pow(($latih_empowerment_desires - $wa_empowerment_desires),  2));
+                            pow(($latih_behaviour_sexualrisk - $wa_behaviour_sexualrisk), 2) +
+                                pow(($latih_behavior_eating - $wa_behavior_eating),  2) +
+                                pow(($latih_behavior_personalhygine - $wa_behavior_personalhygine),  2) +
+                                pow(($latih_intention_aggregation - $wa_behavior_eating),  2) +
+                                pow(($latih_intention_commitment - $wa_intention_commitment),  2) +
+                                pow(($latih_attitude_consistency - $wa_attitude_consistency),  2) +
+                                pow(($latih_attitude_spontaneity - $wa_attitude_spontaneity),  2) +
+                                pow(($latih_norm_significantperson - $wa_norm_significantperson),  2) +
+                                pow(($latih_norm_fulfillment - $wa_norm_fulfillment),  2) +
+                                pow(($latih_perception_vulnerability - $wa_perception_vulnerability),  2) +
+                                pow(($latih_perception_severity - $wa_perception_severity),  2) +
+                                pow(($latih_motivation_strength - $wa_motivation_strength),  2) +
+                                pow(($latih_motivation_willingness - $wa_motivation_willingness),  2) +
+                                pow(($latih_socialsupport_emotionality - $wa_socialsupport_emotionality),  2) +
+                                pow(($latih_socialsupport_appreciation - $wa_socialsupport_appreciation), 2) +
+                                pow(($latih_socialsupport_instrumental - $wa_socialsupport_instrumental),  2) +
+                                pow(($latih_empowerment_knowledge - $wa_empowerment_knowledge),  2) +
+                                pow(($latih_empowerment_abilities - $wa_empowerment_abilities),  2) +
+                                pow(($latih_empowerment_desires - $wa_empowerment_desires),  2)
+                        );
 
                         $result_bLatih = sqrt(
-                            pow(($latih_behaviour_sexualrisk - $wb_behaviour_sexualrisk) ,2) + 
-                            pow(($latih_behavior_eating - $wb_behavior_eating), 2) +
-                            pow(($latih_behavior_personalhygine - $wb_behavior_personalhygine), 2) +
-                            pow(($latih_intention_aggregation - $wb_behavior_eating), 2) +
-                            pow(($latih_intention_commitment - $wb_intention_commitment), 2) +
-                            pow(($latih_attitude_consistency - $wb_attitude_consistency), 2) +
-                            pow(($latih_attitude_spontaneity - $wb_attitude_spontaneity), 2) +
-                            pow(($latih_norm_significantperson - $wb_norm_significantperson), 2) +
-                            pow(($latih_norm_fulfillment - $wb_norm_fulfillment), 2) +
-                            pow(($latih_perception_vulnerability - $wb_perception_vulnerability), 2) +
-                            pow(($latih_perception_severity - $wb_perception_severity), 2) +
-                            pow(($latih_motivation_strength - $wb_motivation_strength), 2) +
-                            pow(($latih_motivation_willingness - $wb_motivation_willingness), 2) +
-                            pow(($latih_socialsupport_emotionality - $wb_socialsupport_emotionality), 2) +
-                            pow(($latih_socialsupport_appreciation - $wb_socialsupport_appreciation) ,2) + 
-                            pow(($latih_socialsupport_instrumental - $wb_socialsupport_instrumental), 2) +
-                            pow(($latih_empowerment_knowledge - $wb_empowerment_knowledge), 2) +
-                            pow(($latih_empowerment_abilities - $wb_empowerment_abilities), 2) +
-                            pow(($latih_empowerment_desires - $wb_empowerment_desires), 2));
-                        
+                            pow(($latih_behaviour_sexualrisk - $wb_behaviour_sexualrisk), 2) +
+                                pow(($latih_behavior_eating - $wb_behavior_eating), 2) +
+                                pow(($latih_behavior_personalhygine - $wb_behavior_personalhygine), 2) +
+                                pow(($latih_intention_aggregation - $wb_behavior_eating), 2) +
+                                pow(($latih_intention_commitment - $wb_intention_commitment), 2) +
+                                pow(($latih_attitude_consistency - $wb_attitude_consistency), 2) +
+                                pow(($latih_attitude_spontaneity - $wb_attitude_spontaneity), 2) +
+                                pow(($latih_norm_significantperson - $wb_norm_significantperson), 2) +
+                                pow(($latih_norm_fulfillment - $wb_norm_fulfillment), 2) +
+                                pow(($latih_perception_vulnerability - $wb_perception_vulnerability), 2) +
+                                pow(($latih_perception_severity - $wb_perception_severity), 2) +
+                                pow(($latih_motivation_strength - $wb_motivation_strength), 2) +
+                                pow(($latih_motivation_willingness - $wb_motivation_willingness), 2) +
+                                pow(($latih_socialsupport_emotionality - $wb_socialsupport_emotionality), 2) +
+                                pow(($latih_socialsupport_appreciation - $wb_socialsupport_appreciation), 2) +
+                                pow(($latih_socialsupport_instrumental - $wb_socialsupport_instrumental), 2) +
+                                pow(($latih_empowerment_knowledge - $wb_empowerment_knowledge), 2) +
+                                pow(($latih_empowerment_abilities - $wb_empowerment_abilities), 2) +
+                                pow(($latih_empowerment_desires - $wb_empowerment_desires), 2)
+                        );
+
                         // Mengambil id class berdasarkan kode kelas yang diperoleh
                         if ($result_aLatih < $result_bLatih) {
                             $classLatih = $this->classModel->where('code_class', 1)->findAll();
                             $classLatih = $classLatih[0]['id_class'];
-                        }else{
+                        } else {
                             $classLatih = $this->classModel->where('code_class', 0)->findAll();
                             $classLatih = $classLatih[0]['id_class'];
                         }
@@ -434,11 +444,11 @@ class Weight extends BaseController
                     ];
 
                     // dd($insert);
-        
+
                     // echo '<pre>';
                     // print_r($insert); exit;
                     $this->weightModel->insert($insert);
-                    return redirect()->to("/weight"); 
+                    return redirect()->to("/weight");
                 }
 
                 // echo 'iterasi ke ' . $i . ' - datalatih ke ' . $j . ' - result a = ' . $result_a . ' - result b = ' . $result_b;
@@ -454,12 +464,11 @@ class Weight extends BaseController
     public function hitungWeight($ClassPerhitunganSebelumnya, $ClassDatasetSebelumnya, $weightSebelumnya, $weightDataset, $alpha)
     {
         if ($ClassDatasetSebelumnya == $ClassPerhitunganSebelumnya) {
-            $resultWeight = $weightSebelumnya + ( $alpha * ( $weightDataset - $weightSebelumnya) );
-        }else{
-            $resultWeight = $weightSebelumnya - ( $alpha * ( $weightDataset - $weightSebelumnya) );
+            $resultWeight = $weightSebelumnya + ($alpha * ($weightDataset - $weightSebelumnya));
+        } else {
+            $resultWeight = $weightSebelumnya - ($alpha * ($weightDataset - $weightSebelumnya));
         }
 
         return $resultWeight;
     }
-
 }

@@ -65,4 +65,21 @@ class Auth extends BaseController
         session()->destroy(true);
         return redirect()->to('/auth');
     }
+
+    function notify($title, $message, $type, $icon)
+    {
+        $pesan = "$.notify({
+            icon: 'flaticon-$icon',
+            title: '$title',
+            message: '$message',
+        },{
+            type: '$type',
+            placement: {
+                from: 'top',
+                align: 'center'
+            },
+            time: 1000,
+        });";
+        return $pesan;
+    }
 }
