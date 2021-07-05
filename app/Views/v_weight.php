@@ -38,18 +38,23 @@
                     </div>
                     <div class="card-body">
                         <div class="collapse px-3 pb-3" id="info">
-                            <h5>Informasi :</h5>
-                            <h5>Di bawah ini merupakan kumpulan data bobot yang dapat digunakan untuk perhitungan klasifikasi kanker serviks</h5>
-                            <h5>Tekan tombol Status <span class="text-primary">Aktifkan (warna biru)</span> untuk mengaktifkan bobot yang akan dipakai pada perhitungan klasifikasi kanker serviks,</h5>
-                            <h5>Tekan tombol Aksi <span class="text-primary">Detail (warna biru)</span> untuk menampilkan detail bobot,</h5>
-                            <h5>Tekan tombol Aksi <span class="text-danger">Hapus (warna merah)</span> untuk menghapus data</h5>
+                            <h5>
+                                <strong>Informasi :</strong>
+                            </h5>
+                            <p class="mx-3 text-muted">1. Di bawah ini merupakan kumpulan data bobot yang dapat digunakan untuk perhitungan klasifikasi kanker serviks.</p>
+                            <p class="mx-3 text-muted">2. Tekan tombol &nbsp;&nbsp; <button data-nama=" Bobot ini" class="btn btn-primary btn-sm active_status">Aktifkan</button> &nbsp;&nbsp;
+                                pada kolom Status untuk mengaktifkan bobot yang akan dipakai pada perhitungan klasifikasi kanker serviks.</p>
+                            <p class="mx-3 text-muted">3. Tekan tombol &nbsp;&nbsp; <button type="button" data-tooltip="tooltip" title="Detail Data" class="btn btn-info btn-sm"><i class="fa fa-info"></i></button>&nbsp;&nbsp;
+                                pada kolom Aksi untuk menampilkan detail bobot.</p>
+                            <p class="mx-3 text-muted">4. Tekan tombol &nbsp;&nbsp; <button data-tooltip="tooltip" title="Hapus Data" type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>&nbsp;&nbsp;
+                                pada kolom Aksi untuk menghapus data.</p>
                         </div>
                         <div class="table-responsive">
                             <table id="datatable" class="display table table-striped table-hover">
                                 <thead>
                                     <th>No</th>
                                     <th>Tanggal</th>
-                                    <th>Max Epoch</th>
+                                    <th>Maks. Iterasi (Epoch)</th>
                                     <th>Alpha</th>
                                     <th>Akurasi</th>
                                     <th>Status</th>
@@ -66,9 +71,9 @@
                                             <td><?= substr($data['prosentase'], 0, 5) ?>%</td>
                                             <td>
                                                 <?php if ($data['status_weight'] == 1) { ?>
-                                                    <span class="badge badge-pill badge-danger px-3">Aktif</span>
+                                                    <span class="badge badge-pill badge-danger px-3"><b>Aktif</b></span>
                                                 <?php } else { ?>
-                                                    <button data-id="<?= $data['id_weight'] ?>" data-link="/weight/active/" data-nama=" Bobot ini" class="btn btn-primary btn-sm active_status">Aktifkan</button>
+                                                    <button data-id="<?= $data['id_weight'] ?>" data-link="/weight/active/" data-nama=" Bobot ini" class="btn btn-primary btn-sm active_status"><b>Aktifkan</b></button>
                                                 <?php } ?>
                                             </td>
                                             <td>
@@ -115,7 +120,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-group-default mx-0">
-                                <label>Max Iterasi / Epoch</label>
+                                <label>Maks. Iterasi (Epoch)</label>
                                 <select class="form-control" name="max_epoch" id="max_epoch" required>
                                     <option value="">-- Pilih Maksimum Iterasi --</option>
                                     <option value="10">10</option>
@@ -140,7 +145,7 @@
                     </div>
                 </div>
                 <div class="modal-footer no-bd">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
@@ -172,7 +177,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-group-default mx-0">
-                                <label>Max Epoch</label>
+                                <label>Maks. Iterasi (Epoch)</label>
                                 <input id="umur" type="text" readonly class="form-control">
                             </div>
                         </div>
@@ -192,7 +197,7 @@
                 </form>
             </div>
             <div class="modal-footer no-bd">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
             </div>
         </div>
     </div>
@@ -230,7 +235,7 @@ foreach ($weight as $rowWeight) { ?>
                                                     <td><?= $rowWeight['datetime_weight'] ?></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Max Epoch</td>
+                                                    <td>Maks. Iterasi (Epoch)</td>
                                                     <td><?= $rowWeight['max_epoch'] ?></td>
                                                 </tr>
                                                 <tr>
@@ -261,7 +266,7 @@ foreach ($weight as $rowWeight) { ?>
                                     <div class="form-group">
                                         <table id="result" class="display table table-bordered-bd-info table-hover">
                                             <thead class="bg-info text-light text-bold text-center">
-                                                <th>Bobot kelas Positif</th>
+                                                <th>Bobot Kelas Positif</th>
                                                 <th>Nilai</th>
                                             </thead>
                                             <tbody>
@@ -349,7 +354,7 @@ foreach ($weight as $rowWeight) { ?>
                                     <div class="form-group">
                                         <table id="result" class="display table table-bordered-bd-success table-hover">
                                             <thead class="bg-success text-light text-bold text-center">
-                                                <th>Bobot kelas Negatif</th>
+                                                <th>Bobot Kelas Negatif</th>
                                                 <th>Nilai</th>
                                             </thead>
                                             <tbody>
@@ -438,7 +443,7 @@ foreach ($weight as $rowWeight) { ?>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
                 </div>
             </div>
         </div>

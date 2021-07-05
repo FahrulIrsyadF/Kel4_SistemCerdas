@@ -15,13 +15,6 @@ class Laporan extends BaseController
         $this->loginModel = new LoginModel;
     }
 
-    public function delete($id)
-    {
-        $this->TestingModel->delete(['id' => $id]);
-        session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil menghapus data.', 'success', 'success'));
-        return redirect()->to("/laporan");
-    }
-
     public function index()
     {
         $username = $this->loginModel->where(['nama_user' => session()->get('username')])->first();
@@ -37,6 +30,13 @@ class Laporan extends BaseController
         ];
 
         echo view('v_laporan', $data);
+    }
+
+    public function delete($id)
+    {
+        $this->TestingModel->delete(['id' => $id]);
+        session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil menghapus data.', 'success', 'success'));
+        return redirect()->to("/laporan");
     }
 
     public function printPDF()

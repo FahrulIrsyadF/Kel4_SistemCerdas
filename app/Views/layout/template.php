@@ -96,7 +96,7 @@
     $umur = $db->query("SELECT age_test, COUNT(*) AS jumlah FROM test GROUP BY age_test");
     ?>
     <script>
-        if($("#barChart").length > 0){
+        if ($("#barChart").length > 0) {
             var barChart = document.getElementById('barChart').getContext('2d');
 
             var myBarChart = new Chart(barChart, {
@@ -131,7 +131,6 @@
                 }
             });
         }
-        
     </script>
     <?php
     $db = \Config\Database::connect();
@@ -139,7 +138,7 @@
                             WHERE test.id_class = class.id_class
                             GROUP BY class.id_class"); ?>
     <script>
-        if($("#pieChart").length > 0){
+        if ($("#pieChart").length > 0) {
             var pieChart = document.getElementById('pieChart').getContext('2d');
 
             var myPieChart = new Chart(pieChart, {
@@ -233,12 +232,12 @@
         });
     </script>
 
-<script>
+    <script>
         $('#logout').on('click', function() {
 
             swal({
                 title: 'Perhatian!',
-                text: "Apakah anda yakin ingin logout ?",
+                text: "Apakah anda yakin ingin keluar ?",
                 icon: 'warning',
                 buttons: {
                     cancel: {
@@ -263,7 +262,7 @@
     </script>
 
     <script type="text/javascript">
-        var nama = "Training";
+        var nama = "Latih";
         var link = "/Training/deleteAll/";
 
         function deleteAllD() {

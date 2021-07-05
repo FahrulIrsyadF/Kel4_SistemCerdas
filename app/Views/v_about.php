@@ -37,7 +37,7 @@
                             aktivitas seksual pada usia muda, berhubungan seksual dengan <i>multipartner</i>, merokok, mempunyai anak banyak,
                             sosial ekonomi rendah, pemakaian pil KB (dengan HPV negatif atau positif), penyakit menular seksual, dan gangguan imunitas.
                         </p>
-                        <p style="text-align:right">Source: <a href="http://kanker.kemkes.go.id/guidelines/PPKServiks.pdf" target="_BLANK">Kanker Serviks</a> (Diakses pada 03 Juli 2021)</p>
+                        <p style="text-align:right">Sumber: <a href="http://kanker.kemkes.go.id/guidelines/PPKServiks.pdf" target="_BLANK">Kanker Serviks</a> (Diakses pada 03 Juli 2021)</p>
                     </div>
                 </div>
                 <div class="card">
@@ -55,7 +55,7 @@
                             Jika dua vektor <i>input</i> mendekati sama, maka lapisan kompetitif akan meletakkan kedua vektor <i>input</i> tersebut ke dalam kelas yang sama.
                             Tujuan dari algoritma ini adalah untuk mendekati distribusi kelas vektor untuk meminimalkan kesalahan dalam pengklasifikasian.
                         </p>
-                        <p style="text-align:right">Source: <a href="https://garudacyber.co.id/artikel/530-pengertian-dan-penerapan-metode-learning-vector-quantization" target="_BLANK">Pengertian Algoritma LVQ</a> (Diakses pada 30 Juni 2021)</p>
+                        <p style="text-align:right">Sumber: <a href="https://garudacyber.co.id/artikel/530-pengertian-dan-penerapan-metode-learning-vector-quantization" target="_BLANK">Pengertian Algoritma LVQ</a> (Diakses pada 30 Juni 2021)</p>
                     </div>
                 </div>
                 <div class="card">
@@ -97,7 +97,7 @@
                                 Sulit dalam menentukan jumlah codebook vector untuk masalah yang diselesaikan
                             </li>
                         </ol>
-                        <p style="text-align:right">Source: <a href="https://garudacyber.co.id/artikel/1420-kelebihan-dan-kekurangan-learning-vector-quantization" target="_BLANK">Kelebihan dan Kekurangan LVQ</a> (Diakses pada 30 Juni 2021)</p>
+                        <p style="text-align:right">Sumber: <a href="https://garudacyber.co.id/artikel/1420-kelebihan-dan-kekurangan-learning-vector-quantization" target="_BLANK">Kelebihan dan Kekurangan LVQ</a> (Diakses pada 30 Juni 2021)</p>
                     </div>
                 </div>
                 <div class="card">
@@ -140,7 +140,7 @@
                                 ||x-wj||, jarak Euclidean antara vektor masukan dan vektor bobot untuk unit keluaran ke-j. <br>
                             </li>
                         </ol>
-                        <p style="text-align:right">Source: <a href="https://garudacyber.co.id/artikel/530-pengertian-dan-penerapan-metode-learning-vector-quantization" target="_BLANK">Langkah Algoritma LVQ</a> (Diakses pada 30 Juni 2021)</p>
+                        <p style="text-align:right">Sumber: <a href="https://garudacyber.co.id/artikel/530-pengertian-dan-penerapan-metode-learning-vector-quantization" target="_BLANK">Langkah Algoritma LVQ</a> (Diakses pada 30 Juni 2021)</p>
                     </div>
                 </div>
             </div>

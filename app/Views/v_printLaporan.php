@@ -3,19 +3,19 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Print Laporan</title>
+    <title>Cetak Laporan</title>
 </head>
 
 <body>
     <?php
     date_default_timezone_set('Asia/Jakarta');
     $tanggal = mktime(date("m"), date("d"), date("Y"));
-    echo "Tanggal : <b>" . date("d-M-Y", $tanggal) . "</b> ";
+    echo "Tanggal: <b>" . date("d-M-Y", $tanggal) . "</b> ";
     $jam = date("H:i:s");
-    echo "| Pukul : <b>" . $jam . " " . "</b>";
+    echo "| Pukul: <b>" . $jam . " " . "</b>";
     $a = date("H"); ?>
     <h3 style="text-align:center">Jumlah User Testing Berdasarkan Umur</h3>
-    <table border="1" cellspacing="0" cellpadding="5" width="80%">
+    <table border="1" cellspacing="0" cellpadding="5" width="100%">
         <thead>
             <tr>
                 <th>No.</th>

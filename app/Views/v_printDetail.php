@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Print Laporan</title>
+    <title>Cetak Detail</title>
 </head>
 
 <body>
@@ -14,10 +14,10 @@
     foreach ($test->getResultArray() as $data) {
         $time = $data['ts_timestamp'];
         $id_test = $data['id_test'];
-        echo "Waktu Tes : <b>" . date('d-M-Y', strtotime($time)) . "</b>" . " - <b>" . date('H:i:s', strtotime($time)) . "</b>";
-        echo " | ID Tes : <b>" . $id_test . "</b>"; ?>
+        echo "Waktu Tes: <b>" . date('d-M-Y', strtotime($time)) . "</b>" . " - <b>" . date('H:i:s', strtotime($time)) . "</b>";
+        echo " | ID Tes: <b>" . $id_test . "</b>"; ?>
         <br><br>
-        <h3 style="text-align:center">Laporan Hasil Klasifikasi Kanker Serviks</h3>
+        <h3 style="text-align:center">Hasil Klasifikasi Kanker Serviks</h3>
         <table>
             <tr>
                 <td><b>Nama</b></td>
@@ -34,7 +34,7 @@
         </table> <br>
         <table border="1" cellspacing="0" cellpadding="5" width="100%">
             <tr>
-                <td><b>Risk</b></td>
+                <td><b>Risiko</b></td>
                 <td><b>Nilai</b></td>
             </tr>
             <tr>

@@ -30,7 +30,7 @@
 						</a>
 					</li>
 				<?php } else { ?>
-					<li class="nav-item">
+					<li class="nav-item <?= ($request->uri->getSegment(1) == 'dashboard') ? 'active' : '' ?>">
 						<a href="<?= base_url('dashboard'); ?>" aria-expanded="false">
 							<i class="fas fa-home"></i>
 							<p>Beranda</p>

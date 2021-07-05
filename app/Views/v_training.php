@@ -26,7 +26,7 @@
                             <h4 class="card-title">Data Latih</h4>
                         </div>
                         <div class="float-right">
-                            <a href="javascript:void(0)" data-toggle="modal" data-target="#modalImport" class="btn btn-round btn-primary"><i class="fas fa-plus"></i>&nbsp;&nbsp;Import Data</a>
+                            <a href="javascript:void(0)" data-toggle="modal" data-target="#modalImport" class="btn btn-round btn-primary"><i class="fas fa-plus"></i>&nbsp;&nbsp;Impor Data</a>
                             <a href="javascript:void(0)" onclick="deleteAllD()" class="btn btn-danger btn-round ml-auto">
                                 <i class="fa fa-trash"></i>
                                 &nbsp;Hapus Semua Data
@@ -38,11 +38,15 @@
                     </div>
                     <div class="card-body">
                         <div class="collapse px-3 pb-3" id="info">
-                            <h5>Informasi :</h5>
-                            <h5>Di bawah ini merupakan kumpulan data latih klasifikasi kanker serviks. Ada 19 parameter atau atribut penelitian yang digunakan</h5>
-                            <h5 class="text-left"><strong>6 atribut yang ditampilkan di bawah ini hanyalah atribut acak yang ditampilkan dan tidak ada perlakuan khusus terhadap atribut tersebut</strong> </h5>
-                            <h5>Tekan tombol Aksi <span class="text-primary">Detail (warna biru)</span> untuk melihat semua data pada semua atribut selain 6 atribut yang ditampilkan,</h5>
-                            <h5>Tekan tombol Aksi <span class="text-danger">Hapus (warna merah)</span> untuk menghapus data</h5>
+                            <h5>
+                                <strong>Informasi :</strong>
+                            </h5>
+                            <p class="mx-3 text-muted">1. Di bawah ini merupakan kumpulan data latih klasifikasi kanker serviks. Ada 19 parameter atau atribut peneliian yang digunakan.</p>
+                            <p class="mx-3 text-muted">2. <strong>6 atribut yang ditampilkan di bawah ini hanyalah atribut acak yang ditampilkan dan tidak ada perlakuan khusus terhadap atribut tersebut.</strong> </p>
+                            <p class="mx-3 text-muted">3. Tekan tombol &nbsp;&nbsp; <button type="button" data-tooltip="tooltip" title="Detail Data" class="btn btn-info btn-sm"><i class="fa fa-info"></i></button>&nbsp;&nbsp;
+                                pada kolom Aksi untuk melihat detail semua data atribut selain 6 atribut yang ditampilkan.</p>
+                            <p class="mx-3 text-muted">4. Tekan tombol &nbsp;&nbsp; <button data-tooltip="tooltip" title="Hapus Data" type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>&nbsp;&nbsp;
+                                pada kolom Aksi untuk menghapus data.</p>
                         </div>
                         <div class="table-responsive">
                             <table id="datatable" class="display table table-striped table-hover">
@@ -67,9 +71,9 @@
                                             <td><?= $data['tr_intention_commitment']; ?></td>
                                             <td><?= $data['tr_attitude_consistency']; ?></td>
                                             <td><?php if ($data['id_class'] == 1) {
-                                                    echo '<span class="badge badge-danger">Positif</span>';
+                                                    echo '<span class="badge badge-danger"><b>Positif</b></span>';
                                                 } else {
-                                                    echo '<span class="badge badge-primary">Negatif</span>';
+                                                    echo '<span class="badge badge-primary"><b>Negatif</b></span>';
                                                 } ?></td>
                                             <td>
                                                 <div class="form-button-action">
@@ -100,7 +104,7 @@ foreach ($train as $data) { ?>
                 <div class="modal-header no-bd">
                     <h3 class="modal-title">
                         <span class="fw-mediumbold">
-                            Detail Data Training</span>
+                            Detail Data Latih</span>
                     </h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -112,7 +116,7 @@ foreach ($train as $data) { ?>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <b>ID Train: </b> <span class="badge badge-primary text-bold"><?= $data['id_train'] ?></span>
+                                        <b>ID Latih: </b> <span class="badge badge-primary text-bold"><?= $data['id_train'] ?></span>
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +125,7 @@ foreach ($train as $data) { ?>
                                     <div class="form-group">
                                         <table id="result" class="display table table-bordered table-hover">
                                             <thead class="thead-light text-bold">
-                                                <th>Risk</th>
+                                                <th>Risiko</th>
                                                 <th>Nilai</th>
                                             </thead>
                                             <tbody>
@@ -161,7 +165,7 @@ foreach ($train as $data) { ?>
                                     <div class="form-group">
                                         <table id="result" class="display table table-bordered table-hover">
                                             <thead class="thead-light text-bold">
-                                                <th>Risk</th>
+                                                <th>Risiko</th>
                                                 <th>Nilai</th>
                                             </thead>
                                             <tbody>
@@ -198,7 +202,7 @@ foreach ($train as $data) { ?>
                     </form>
                 </div>
                 <div class="modal-footer no-bd">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
                 </div>
             </div>
         </div>
@@ -209,7 +213,7 @@ foreach ($train as $data) { ?>
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Import Data Training</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Impor Data Latih</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -220,17 +224,19 @@ foreach ($train as $data) { ?>
                         <div class="form-group mx-4">
                             <label for="exampleFormControlFile1">Pilih File Excel</label>
                             <input type="file" name="file_excel" accept=".xlsx, .xls, .csv" class="form-control-file" id="file_excel">
-                            <button type="submit" class="btn btn-primary btn-sm mt-1"> <i class="fas fa-upload"></i>&nbsp;&nbsp;Upload File Excel</button>
+                            <button type="submit" class="btn btn-primary btn-sm mt-1"> <i class="fas fa-upload"></i>&nbsp;&nbsp;Unggah File Excel</button>
                         </div>
                     </form>
-                </div>
-                <p class="mx-3 text-muted">Upload File Excel</p>
-                <p class="mx-3 text-muted">1. Silahkan download template Excel terlebih dahulu dengan cara klik tombol "Download" di bawah ini.</p>
-                <p class="mx-3 text-muted">2. Masukkan data training pada template Excel yang telah diunduh</p>
-                <p class="mx-3 text-muted">3. Klik tombol "Pilih File" di sebelah kiri untuk memilih file excel yang akan diunggah</p>
-                <p class="mx-3 text-muted">4. Klik tombol "Upload File Excel" untuk upload file Excel yang telah berisi data training</p><br>
+                </div> <br>
+                <h5 class="mx-3 text-muted"><strong>Panduan mengunggah <i>File Excel</i>:</strong></h5>
+                <ol>
+                    <li>Silahkan unduh <i>Template Excel</i> terlebih dahulu dengan cara klik tombol "Unduh Template Excel" di bawah ini.</li>
+                    <li>Masukkan data latih pada <i>Template Excel</i> yang telah diunduh</li>
+                    <li>Klik tombol "Pilih File" di sebelah kiri untuk memilih <i>File Excel</i> yang akan diunggah</li>
+                    <li>Klik tombol "Unggah File Excel" untuk unggah <i>File Excel</i> yang telah berisi data latih</li>
+                </ol><br>
                 <div class="float-right">
-                    <a href="<?= base_url('admin/c_mahasiswa/export_template') ?>" class="btn btn-success"><i class="fas fa-download"></i>&nbsp;&nbsp;Download Template Excel</a>
+                    <a href="<?= base_url('admin/c_mahasiswa/export_template') ?>" class="btn btn-success"><i class="fas fa-download"></i>&nbsp;&nbsp;Unduh Template Excel</a>
                 </div>
             </div>
         </div>
