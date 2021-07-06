@@ -35,6 +35,9 @@
                                             </label>
                                         <?php } ?>
                                     </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat jarang hingga ke sangat sering"</small>
+                                    </div>
                                 </div>
                                 <br>
                                 <div>
@@ -47,6 +50,9 @@
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
+                                    </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
                                 </div>
                                 <br>
@@ -61,10 +67,13 @@
                                             </label>
                                         <?php } ?>
                                     </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
+                                    </div>
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>4. Berapa tingkat niat Anda dalam mengumpulkan sesuatu?</strong></h4>
+                                    <h4><strong>4. Berapa tingkat niat Anda dalam mengumpulkan/mengoleksi sesuatu/barang?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
@@ -73,6 +82,9 @@
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
+                                    </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
                                 </div>
                                 <br>
@@ -87,6 +99,9 @@
                                             </label>
                                         <?php } ?>
                                     </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
+                                    </div>
                                 </div>
                                 <br>
                                 <div>
@@ -100,10 +115,13 @@
                                             </label>
                                         <?php } ?>
                                     </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
+                                    </div>
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>7. Berapa tingkat sikap spontanitas Anda?</strong></h4>
+                                    <h4><strong>7. Berapa tingkat sikap spontanitas Anda dalam menyikapi suatu hal pada kegiatan sehari - hari?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
@@ -112,6 +130,9 @@
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
+                                    </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
                                 </div>
                                 <br>
@@ -126,10 +147,13 @@
                                             </label>
                                         <?php } ?>
                                     </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
+                                    </div>
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>9. Berapa tingkat norma Anda dalam pemenuhan sesuatu?</strong></h4>
+                                    <h4><strong>9. Berapa tingkat perhatian Anda dalam pemenuhan norma yang berlaku?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -138,6 +162,9 @@
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
+                                    </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
                                 </div>
                                 <br>
@@ -152,6 +179,9 @@
                                             </label>
                                         <?php } ?>
                                     </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat tidak yakin hingga ke sangat yakin"</small>
+                                    </div>
                                 </div>
                                 <br>
                                 <div>
@@ -164,6 +194,9 @@
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
+                                    </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat tidak yakin hingga ke sangat yakin"</small>
                                     </div>
                                 </div>
                                 <br>
@@ -178,6 +211,9 @@
                                             </label>
                                         <?php } ?>
                                     </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
+                                    </div>
                                 </div>
                                 <br>
                                 <div>
@@ -191,10 +227,13 @@
                                             </label>
                                         <?php } ?>
                                     </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
+                                    </div>
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>14. Berapa tingkat dukungan sosial terkait aspek emosionalitas?</strong></h4>
+                                    <h4><strong>14. Berapa tingkat dukungan sosial terkait aspek emosionalitas dalam lingkungan anda?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -204,10 +243,13 @@
                                             </label>
                                         <?php } ?>
                                     </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
+                                    </div>
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>15. Berapa tingkat dukungan sosial terkait aspek penghargaan/apresiasi?</strong></h4>
+                                    <h4><strong>15. Berapa tingkat dukungan sosial terkait aspek penghargaan/apresiasi dalam lingkungan anda?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
@@ -217,10 +259,13 @@
                                             </label>
                                         <?php } ?>
                                     </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
+                                    </div>
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>16. Berapa tingkat dukungan sosial terkait aspek instrumental?</strong></h4>
+                                    <h4><strong>16. Berapa tingkat dukungan sosial terkait aspek instrumental dalam lingkungan anda?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -230,10 +275,13 @@
                                             </label>
                                         <?php } ?>
                                     </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
+                                    </div>
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>17. Berapa tingkat pemberdayaan pengetahuan Anda?</strong></h4>
+                                    <h4><strong>17. Berapa tingkat perhatian anda dalam memberdayakan pengetahuan/wawasan?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -243,10 +291,13 @@
                                             </label>
                                         <?php } ?>
                                     </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
+                                    </div>
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>18. Berapa tingkat pemberdayaan kemampuan Anda?</strong></h4>
+                                    <h4><strong>18. Berapa tingkat perhatian anda dalam memberdayakan/mengasah kemampuan/<i>skill</i>?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -256,10 +307,13 @@
                                             </label>
                                         <?php } ?>
                                     </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
+                                    </div>
                                 </div>
                                 <br>
                                 <div>
-                                    <h4><strong>19. Berapa tingkat pemberdayaan keinginan Anda?</strong></h4>
+                                    <h4><strong>19. Berapa tingkat perhatian anda dalam memberdayakan/memenuhi keinginan Anda?</strong></h4>
                                     <div>
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
@@ -268,6 +322,9 @@
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
+                                    </div>
+                                    <div class="text-small text-muted">
+                                        <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
                                 </div>
                                 <br>
