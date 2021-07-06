@@ -79,7 +79,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                                                         <i class="fa fa-info"></i>
                                                     </button>&nbsp;
                                                     <button data-tooltip="tooltip" title="Hapus Data" type="button" data-id="<?= $id_test ?>" data-link="/laporan/delete/" data-nama=" Uji ini" id="hapus_crud" class="btn btn-danger btn-sm hapus_crud"><i class="fas fa-trash"></i></button>&nbsp;
-                                                    <a type="button" href="<?= base_url('laporan/printDetail/' . $id_test) ?>" class="btn btn-primary btn-sm"><i class="fas fa-print"></i></a>
+                                                    <a data-tooltip="tooltip" title="Cetak Data" type="button" href="<?= base_url('laporan/printDetail/' . $id_test) ?>" class="btn btn-primary btn-sm"><i class="fas fa-print"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
