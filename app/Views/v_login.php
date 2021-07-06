@@ -5,7 +5,7 @@
         <form action="<?= base_url('auth/login') ?>" method="post">
             <?= csrf_field(); ?>
             <div class="card-body">
-                <h1 class="card-title font-weight-bold text-center">KLASIFIKASI KANKER</h1>
+                <a href="<?=base_url('/')?>"><h1 class="card-title font-weight-bold text-center">KLASIFIKASI KANKER</h1></a>
                 <hr>
                 <div class="card-title font-weight-bold text-center">Login Admin</div>
                 <div class="form-group">

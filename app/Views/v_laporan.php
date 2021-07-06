@@ -77,8 +77,8 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                                                 <div class="form-button-action">
                                                     <button type="button" data-toggle="modal" data-tooltip="tooltip" title="Detail Data" data-target="#modal-detail<?= $data['id_test']; ?>" title="" class="btn btn-info btn-sm" data-original-title="Detail">
                                                         <i class="fa fa-info"></i>
-                                                    </button>&nbsp;
-                                                    <button data-tooltip="tooltip" title="Hapus Data" type="button" data-id="<?= $id_test ?>" data-link="/laporan/delete/" data-nama=" Uji ini" id="hapus_crud" class="btn btn-danger btn-sm hapus_crud"><i class="fas fa-trash"></i></button>&nbsp;
+                                                    </button>
+                                                    <button data-tooltip="tooltip" title="Hapus Data" type="button" data-id="<?= $id_test ?>" data-link="/laporan/delete/" data-nama=" Uji ini" id="hapus_crud" class="btn btn-danger btn-sm hapus_crud"><i class="fas fa-trash"></i></button>
                                                     <a type="button" href="<?= base_url('laporan/printDetail/' . $id_test) ?>" class="btn btn-primary btn-sm"><i class="fas fa-print"></i></a>
                                                 </div>
                                             </td>
