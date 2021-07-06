@@ -17,8 +17,6 @@ class Weight extends BaseController
         $this->weightModel = new WeightModel;
         $this->classModel = new ClassModel;
         $this->loginModel = new LoginModel;
-
-        
     }
 
     public function index()
