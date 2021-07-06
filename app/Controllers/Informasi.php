@@ -7,7 +7,7 @@ class Informasi extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Informasi'
+            'title' => 'Deteksi Dini Kanker Serviks Menggunakan Metode LVQ'
         ];
         return view('v_about', $data);
     }

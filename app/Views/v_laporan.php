@@ -65,7 +65,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                                     foreach ($test->getResultArray() as $data) {
                                         $id_test = $data['id_test']; ?>
                                         <tr>
-                                            <td><?= $i++; ?></td>
+                                            <td><?= $i++; ?>.</td>
                                             <td><?= $data['name_test']; ?></td>
                                             <td><?= $data['age_test']; ?></td>
                                             <td><?php if ($data['id_class'] == 1) {
@@ -75,11 +75,11 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                                                 } ?></td>
                                             <td>
                                                 <div class="form-button-action">
-                                                    <button type="button" data-toggle="modal" data-tooltip="tooltip" title="Detail Data" data-target="#modal-detail<?= $data['id_test']; ?>" title="" class="btn btn-info btn-sm" data-original-title="Detail">
+                                                    <button type="button" data-toggle="modal" data-tooltip="tooltip" title="Detail Data" data-target="#modal-detail<?= $data['id_test']; ?>" title="" class="btn btn-info btn-sm mr-2" data-original-title="Detail">
                                                         <i class="fa fa-info"></i>
                                                     </button>
-                                                    <button data-tooltip="tooltip" title="Hapus Data" type="button" data-id="<?= $id_test ?>" data-link="/laporan/delete/" data-nama=" Uji ini" id="hapus_crud" class="btn btn-danger btn-sm hapus_crud"><i class="fas fa-trash"></i></button>
-                                                    <a type="button" href="<?= base_url('laporan/printDetail/' . $id_test) ?>" class="btn btn-primary btn-sm"><i class="fas fa-print"></i></a>
+                                                    <button data-tooltip="tooltip" title="Hapus Data" type="button" data-id="<?= $id_test ?>" data-link="/laporan/delete/" data-nama=" Uji ini" id="hapus_crud" class="btn btn-danger btn-sm hapus_crud mr-2"><i class="fas fa-trash"></i></button>
+                                                    <a data-tooltip="tooltip" title="Cetak Data" type="button" href="<?= base_url('laporan/printDetail/' . $id_test) ?>" class="btn btn-primary btn-sm"><i class="fas fa-print"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -111,7 +111,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                                     $nomor = 1;
                                     foreach ($umur->getResultArray() as $um) { ?>
                                         <tr>
-                                            <td><?= $nomor++; ?></td>
+                                            <td><?= $nomor++; ?>.</td>
                                             <td><?= $um['age_test']; ?></td>
                                             <td><?= $um['jumlah']; ?></td>
                                         </tr>
@@ -138,7 +138,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                                     $nomor = 1;
                                     foreach ($klasifikasi->getResultArray() as $kls) { ?>
                                         <tr>
-                                            <td><?= $nomor++; ?></td>
+                                            <td><?= $nomor++; ?>.</td>
                                             <td><?= $kls['name_class']; ?></td>
                                             <td><?= $kls['jumlah']; ?></td>
                                         </tr>

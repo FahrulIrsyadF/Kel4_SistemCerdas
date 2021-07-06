@@ -61,10 +61,10 @@
                                     <th>Aksi</th>
                                 </thead>
                                 <tbody>
-                                    <?php
+                                    <?php $i = 1;
                                     foreach ($weight as $data) { ?>
                                         <tr>
-                                            <td width="20"><?= $data['id_weight']; ?></td>
+                                            <td width="20"><?= $i++; ?>.</td>
                                             <td><?= $data['datetime_weight']; ?></td>
                                             <td><?= $data['max_epoch']; ?></td>
                                             <td><?= $data['alpha']; ?></td>

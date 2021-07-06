@@ -30,7 +30,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="behavior_sexualrisk" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="behavior_sexualrisk" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -46,7 +46,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="behavior_eating" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="behavior_eating" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -62,7 +62,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="behavior_personalHygine" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="behavior_personalHygine" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -78,7 +78,7 @@
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="intention_aggregation" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="intention_aggregation" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -94,7 +94,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="intention_commitment" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="intention_commitment" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -110,7 +110,7 @@
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="attitude_consistency" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="attitude_consistency" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -126,7 +126,7 @@
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="attitude_spontaneity" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="attitude_spontaneity" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -142,7 +142,7 @@
                                         <?php
                                         for ($i = 1; $i <= 5; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="norm_significantPerson" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="norm_significantPerson" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -158,7 +158,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="norm_fulfillment" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="norm_fulfillment" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -174,7 +174,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="perception_vulnerability" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="perception_vulnerability" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -190,7 +190,7 @@
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="perception_severity" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="perception_severity" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -206,7 +206,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="motivation_strength" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="motivation_strength" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -222,7 +222,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="motivation_willingness" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="motivation_willingness" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -238,7 +238,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="socialSupport_emotionality" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="socialSupport_emotionality" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -254,7 +254,7 @@
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="socialSupport_appreciation" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="socialSupport_appreciation" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -270,7 +270,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="socialSupport_instrumental" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="socialSupport_instrumental" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -286,7 +286,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="empowerment_knowledge" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="empowerment_knowledge" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -302,7 +302,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="empowerment_abilities" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="empowerment_abilities" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -318,7 +318,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" name="empowerment_desires" value="<?= $i; ?>">
+                                                <input class="form-radio-input" type="radio" required name="empowerment_desires" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>

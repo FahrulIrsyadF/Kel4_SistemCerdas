@@ -16,7 +16,7 @@
                     </div>
                     <div class="card-body px-lg-5 px-5 row text-justify no-bd">
                         <h5>Berikut merupakan hasil klasifikasi dini penyakit kanker serviks.
-                            Klasifikasi dilakukan menggunakan algoritma <strong>LVQ (Learning Vector Quantization)</strong> yang telah mencapai keakuratan kinerja hingga <strong>83%</strong>.</h5>
+                            Klasifikasi dilakukan menggunakan algoritma <strong>LVQ (Learning Vector Quantization)</strong> yang telah mencapai keakuratan kinerja hingga <strong><?= substr($weight[0]['prosentase'], 0, 5) ?>%</strong>.</h5>
                         <hr>
                         <table class="table table-borderless">
                             <tr>
