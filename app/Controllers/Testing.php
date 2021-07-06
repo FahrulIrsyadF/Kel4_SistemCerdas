@@ -33,6 +33,7 @@ class Testing extends BaseController
             'title' => 'Hasil diagnosis kanker serviks',
             'test' => $this->testingModel->where('id_test', $id)->findAll(),
             'class' => $this->classModel->findAll(),
+            'weight' => $this->weightModel->where('status_weight', 1)->find()
         ];
 
         echo view('v_testing_done', $data);
@@ -44,7 +45,7 @@ class Testing extends BaseController
         $validation =  \Config\Services::validation();
         $validation->setRules(['name' => 'required']);
         $validation->setRules(['age' => 'required']);
-        
+
         $validation->setRules(['behavior_sexualrisk' => 'required']);
         $validation->setRules(['behavior_eating' => 'required']);
         $validation->setRules(['behavior_personalHygine' => 'required']);
@@ -67,14 +68,14 @@ class Testing extends BaseController
         $isDataValid = $validation->withRequest($this->request)->run();
 
         // jika data valid, lakukan perhitungan
-        if($isDataValid){
+        if ($isDataValid) {
             echo '<pre>';
             print_r($_POST);
 
             // menyimpan variabel testing
             $test_name = $this->request->getPost('name');
             $test_age = $this->request->getPost('age');
-            
+
             $test_behaviour_sexualrisk = $this->request->getPost('behavior_sexualrisk');
             $test_behavior_eating = $this->request->getPost('behavior_eating');
             $test_behavior_personalhygine = $this->request->getPost('behavior_personalHygine');
@@ -97,7 +98,7 @@ class Testing extends BaseController
 
             // mengambil weight terpilih
             $weight = $this->weightModel->where('status_weight', 1)->find();
-            
+
             $status_weight = doubleval($weight[0]['status_weight']);
             $wa_behaviour_sexualrisk = doubleval($weight[0]['wa_behaviour_sexualrisk']);
             $wa_behavior_eating = doubleval($weight[0]['wa_behavior_eating']);
@@ -142,106 +143,108 @@ class Testing extends BaseController
             // =============================
 
             $weight_arr = [
-            'wa_behaviour_sexualrisk' => $wa_behaviour_sexualrisk,
-            'wa_behavior_eating' => $wa_behavior_eating,
-            'wa_behavior_personalhygine' => $wa_behavior_personalhygine,
-            'wa_intention_aggregation' => $wa_intention_aggregation,
-            'wa_intention_commitment' => $wa_intention_commitment,
-            'wa_attitude_consistency' => $wa_attitude_consistency,
-            'wa_attitude_spontaneity' => $wa_attitude_spontaneity,
-            'wa_norm_significantperson' => $wa_norm_significantperson,
-            'wa_norm_fulfillment' => $wa_norm_fulfillment,
-            'wa_perception_vulnerability' => $wa_perception_vulnerability,
-            'wa_perception_severity' => $wa_perception_severity,
-            'wa_motivation_strength' => $wa_motivation_strength,
-            'wa_motivation_willingness' => $wa_motivation_willingness,
-            'wa_socialsupport_emotionality' => $wa_socialsupport_emotionality,
-            'wa_socialsupport_appreciation' => $wa_socialsupport_appreciation,
-            'wa_socialsupport_instrumental' => $wa_socialsupport_instrumental,
-            'wa_empowerment_knowledge' => $wa_empowerment_knowledge,
-            'wa_empowerment_abilities' => $wa_empowerment_abilities,
-            'wa_empowerment_desires' => $wa_empowerment_desires,
+                'wa_behaviour_sexualrisk' => $wa_behaviour_sexualrisk,
+                'wa_behavior_eating' => $wa_behavior_eating,
+                'wa_behavior_personalhygine' => $wa_behavior_personalhygine,
+                'wa_intention_aggregation' => $wa_intention_aggregation,
+                'wa_intention_commitment' => $wa_intention_commitment,
+                'wa_attitude_consistency' => $wa_attitude_consistency,
+                'wa_attitude_spontaneity' => $wa_attitude_spontaneity,
+                'wa_norm_significantperson' => $wa_norm_significantperson,
+                'wa_norm_fulfillment' => $wa_norm_fulfillment,
+                'wa_perception_vulnerability' => $wa_perception_vulnerability,
+                'wa_perception_severity' => $wa_perception_severity,
+                'wa_motivation_strength' => $wa_motivation_strength,
+                'wa_motivation_willingness' => $wa_motivation_willingness,
+                'wa_socialsupport_emotionality' => $wa_socialsupport_emotionality,
+                'wa_socialsupport_appreciation' => $wa_socialsupport_appreciation,
+                'wa_socialsupport_instrumental' => $wa_socialsupport_instrumental,
+                'wa_empowerment_knowledge' => $wa_empowerment_knowledge,
+                'wa_empowerment_abilities' => $wa_empowerment_abilities,
+                'wa_empowerment_desires' => $wa_empowerment_desires,
 
-            'wb_behaviour_sexualrisk' => $wb_behaviour_sexualrisk,
-            'wb_behavior_eating' => $wb_behavior_eating,
-            'wb_behavior_personalhygine' => $wb_behavior_personalhygine,
-            'wb_intention_aggregation' => $wb_intention_aggregation,
-            'wb_intention_commitment' => $wb_intention_commitment,
-            'wb_attitude_consistency' => $wb_attitude_consistency,
-            'wb_attitude_spontaneity' => $wb_attitude_spontaneity,
-            'wb_norm_significantperson' => $wb_norm_significantperson,
-            'wb_norm_fulfillment' => $wb_norm_fulfillment,
-            'wb_perception_vulnerability' => $wb_perception_vulnerability,
-            'wb_perception_severity' => $wb_perception_severity,
-            'wb_motivation_strength' => $wb_motivation_strength,
-            'wb_motivation_willingness' => $wb_motivation_willingness,
-            'wb_socialsupport_emotionality' => $wb_socialsupport_emotionality,
-            'wb_socialsupport_appreciation' => $wb_socialsupport_appreciation,
-            'wb_socialsupport_instrumental' => $wb_socialsupport_instrumental,
-            'wb_empowerment_knowledge' => $wb_empowerment_knowledge,
-            'wb_empowerment_abilities' => $wb_empowerment_abilities,
-            'wb_empowerment_desires' => $wb_empowerment_desires,
+                'wb_behaviour_sexualrisk' => $wb_behaviour_sexualrisk,
+                'wb_behavior_eating' => $wb_behavior_eating,
+                'wb_behavior_personalhygine' => $wb_behavior_personalhygine,
+                'wb_intention_aggregation' => $wb_intention_aggregation,
+                'wb_intention_commitment' => $wb_intention_commitment,
+                'wb_attitude_consistency' => $wb_attitude_consistency,
+                'wb_attitude_spontaneity' => $wb_attitude_spontaneity,
+                'wb_norm_significantperson' => $wb_norm_significantperson,
+                'wb_norm_fulfillment' => $wb_norm_fulfillment,
+                'wb_perception_vulnerability' => $wb_perception_vulnerability,
+                'wb_perception_severity' => $wb_perception_severity,
+                'wb_motivation_strength' => $wb_motivation_strength,
+                'wb_motivation_willingness' => $wb_motivation_willingness,
+                'wb_socialsupport_emotionality' => $wb_socialsupport_emotionality,
+                'wb_socialsupport_appreciation' => $wb_socialsupport_appreciation,
+                'wb_socialsupport_instrumental' => $wb_socialsupport_instrumental,
+                'wb_empowerment_knowledge' => $wb_empowerment_knowledge,
+                'wb_empowerment_abilities' => $wb_empowerment_abilities,
+                'wb_empowerment_desires' => $wb_empowerment_desires,
             ];
 
             d($weight_arr);
 
             $result_a = sqrt(
-                            pow(($test_behaviour_sexualrisk - $wa_behaviour_sexualrisk) , 2) + 
-                            pow(($test_behavior_eating - $wa_behavior_eating),  2) +
-                            pow(($test_behavior_personalhygine - $wa_behavior_personalhygine),  2) +
-                            pow(($test_intention_aggregation - $wa_behavior_eating),  2) +
-                            pow(($test_intention_commitment - $wa_intention_commitment),  2) +
-                            pow(($test_attitude_consistency - $wa_attitude_consistency),  2) +
-                            pow(($test_attitude_spontaneity - $wa_attitude_spontaneity),  2) +
-                            pow(($test_norm_significantperson - $wa_norm_significantperson),  2) +
-                            pow(($test_norm_fulfillment - $wa_norm_fulfillment),  2) +
-                            pow(($test_perception_vulnerability - $wa_perception_vulnerability),  2) +
-                            pow(($test_perception_severity - $wa_perception_severity),  2) +
-                            pow(($test_motivation_strength - $wa_motivation_strength),  2) +
-                            pow(($test_motivation_willingness - $wa_motivation_willingness),  2) +
-                            pow(($test_socialsupport_emotionality - $wa_socialsupport_emotionality),  2) +
-                            pow(($test_socialsupport_appreciation - $wa_socialsupport_appreciation) , 2) + 
-                            pow(($test_socialsupport_instrumental - $wa_socialsupport_instrumental),  2) +
-                            pow(($test_empowerment_knowledge - $wa_empowerment_knowledge),  2) +
-                            pow(($test_empowerment_abilities - $wa_empowerment_abilities),  2) +
-                            pow(($test_empowerment_desires - $wa_empowerment_desires),  2));
+                pow(($test_behaviour_sexualrisk - $wa_behaviour_sexualrisk), 2) +
+                    pow(($test_behavior_eating - $wa_behavior_eating),  2) +
+                    pow(($test_behavior_personalhygine - $wa_behavior_personalhygine),  2) +
+                    pow(($test_intention_aggregation - $wa_behavior_eating),  2) +
+                    pow(($test_intention_commitment - $wa_intention_commitment),  2) +
+                    pow(($test_attitude_consistency - $wa_attitude_consistency),  2) +
+                    pow(($test_attitude_spontaneity - $wa_attitude_spontaneity),  2) +
+                    pow(($test_norm_significantperson - $wa_norm_significantperson),  2) +
+                    pow(($test_norm_fulfillment - $wa_norm_fulfillment),  2) +
+                    pow(($test_perception_vulnerability - $wa_perception_vulnerability),  2) +
+                    pow(($test_perception_severity - $wa_perception_severity),  2) +
+                    pow(($test_motivation_strength - $wa_motivation_strength),  2) +
+                    pow(($test_motivation_willingness - $wa_motivation_willingness),  2) +
+                    pow(($test_socialsupport_emotionality - $wa_socialsupport_emotionality),  2) +
+                    pow(($test_socialsupport_appreciation - $wa_socialsupport_appreciation), 2) +
+                    pow(($test_socialsupport_instrumental - $wa_socialsupport_instrumental),  2) +
+                    pow(($test_empowerment_knowledge - $wa_empowerment_knowledge),  2) +
+                    pow(($test_empowerment_abilities - $wa_empowerment_abilities),  2) +
+                    pow(($test_empowerment_desires - $wa_empowerment_desires),  2)
+            );
 
             $result_b = sqrt(
-                            pow(($test_behaviour_sexualrisk - $wb_behaviour_sexualrisk) ,2) + 
-                            pow(($test_behavior_eating - $wb_behavior_eating), 2) +
-                            pow(($test_behavior_personalhygine - $wb_behavior_personalhygine), 2) +
-                            pow(($test_intention_aggregation - $wb_behavior_eating), 2) +
-                            pow(($test_intention_commitment - $wb_intention_commitment), 2) +
-                            pow(($test_attitude_consistency - $wb_attitude_consistency), 2) +
-                            pow(($test_attitude_spontaneity - $wb_attitude_spontaneity), 2) +
-                            pow(($test_norm_significantperson - $wb_norm_significantperson), 2) +
-                            pow(($test_norm_fulfillment - $wb_norm_fulfillment), 2) +
-                            pow(($test_perception_vulnerability - $wb_perception_vulnerability), 2) +
-                            pow(($test_perception_severity - $wb_perception_severity), 2) +
-                            pow(($test_motivation_strength - $wb_motivation_strength), 2) +
-                            pow(($test_motivation_willingness - $wb_motivation_willingness), 2) +
-                            pow(($test_socialsupport_emotionality - $wb_socialsupport_emotionality), 2) +
-                            pow(($test_socialsupport_appreciation - $wb_socialsupport_appreciation) ,2) + 
-                            pow(($test_socialsupport_instrumental - $wb_socialsupport_instrumental), 2) +
-                            pow(($test_empowerment_knowledge - $wb_empowerment_knowledge), 2) +
-                            pow(($test_empowerment_abilities - $wb_empowerment_abilities), 2) +
-                            pow(($test_empowerment_desires - $wb_empowerment_desires), 2));
-            
+                pow(($test_behaviour_sexualrisk - $wb_behaviour_sexualrisk), 2) +
+                    pow(($test_behavior_eating - $wb_behavior_eating), 2) +
+                    pow(($test_behavior_personalhygine - $wb_behavior_personalhygine), 2) +
+                    pow(($test_intention_aggregation - $wb_behavior_eating), 2) +
+                    pow(($test_intention_commitment - $wb_intention_commitment), 2) +
+                    pow(($test_attitude_consistency - $wb_attitude_consistency), 2) +
+                    pow(($test_attitude_spontaneity - $wb_attitude_spontaneity), 2) +
+                    pow(($test_norm_significantperson - $wb_norm_significantperson), 2) +
+                    pow(($test_norm_fulfillment - $wb_norm_fulfillment), 2) +
+                    pow(($test_perception_vulnerability - $wb_perception_vulnerability), 2) +
+                    pow(($test_perception_severity - $wb_perception_severity), 2) +
+                    pow(($test_motivation_strength - $wb_motivation_strength), 2) +
+                    pow(($test_motivation_willingness - $wb_motivation_willingness), 2) +
+                    pow(($test_socialsupport_emotionality - $wb_socialsupport_emotionality), 2) +
+                    pow(($test_socialsupport_appreciation - $wb_socialsupport_appreciation), 2) +
+                    pow(($test_socialsupport_instrumental - $wb_socialsupport_instrumental), 2) +
+                    pow(($test_empowerment_knowledge - $wb_empowerment_knowledge), 2) +
+                    pow(($test_empowerment_abilities - $wb_empowerment_abilities), 2) +
+                    pow(($test_empowerment_desires - $wb_empowerment_desires), 2)
+            );
+
             echo $result_a;
             echo '<br>';
             echo $result_b;
             echo '<br>';
-            
+
             if ($result_a < $result_b) {
                 $class = $this->classModel->where('code_class', 1)->findAll();
                 $class = $class[0]['id_class'];
-            }else{
+            } else {
                 $class = $this->classModel->where('code_class', 0)->findAll();
                 $class = $class[0]['id_class'];
             }
 
             // exit;
-            
+
             $insert = [
                 'id_class' => $class,
                 'id_weight' => $weight[0]['id_weight'],
@@ -274,9 +277,9 @@ class Testing extends BaseController
             // dd($insert);
             $this->testingModel->insert($insert);
             $id = $this->testingModel->getInsertID();
-            return redirect()->to("/testing/done/$id"); 
+            return redirect()->to("/testing/done/$id");
         }
-		
+
         // tampilkan form klasifikasi kembali
         $data = [
             'title'     => 'Form diagnosis kanker serviks',
