@@ -95,21 +95,29 @@
                         <div class="col-md-12">
                             <div class="form-group form-group-default">
                                 <label>Nama</label>
-                                <input id="nama" type="text" name="nama" placeholder="Masukkan Nama" class="form-control" required>
+                                <input id="nama" type="text" name="nama" placeholder="Masukkan Nama" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : '' ?>" value="<?= old('nama'); ?>">
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('nama'); ?>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group form-group-default mx-0">
                                 <label>Kata Sandi</label>
-                                <input id="password" type="text" name="password" class="form-control" placeholder="Masukkan Kata Sandi" required>
-                                <?= session()->getFlashdata('password'); ?>
+                                <input id="password" type="text" name="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : '' ?>" placeholder="Masukkan Kata Sandi">
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('password'); ?>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group form-group-default mx-0">
                                 <label>Konfirmasi Kata Sandi</label>
-                                <input id="passconf" type="text" name="passconf" class="form-control" placeholder="Ulangi Kata Sandi" required>
-                                <?= session()->getFlashdata('passconf'); ?>
+                                <input id="passconf" type="text" name="passconf" class="form-control <?= ($validation->hasError('passconf')) ? 'is-invalid' : '' ?>" placeholder="Ulangi Kata Sandi">
+
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('passconf'); ?>
+                                </div>
                             </div>
                         </div>
                     </div>

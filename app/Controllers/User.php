@@ -37,47 +37,57 @@ class User extends BaseController
     public function create()
     {
         // lakukan validasi
-            $validation =  \Config\Services::validation();
-            $validation->setRules([
-                'nama' => 'required',
-                'password' => 'required',
-                'passconf' => 'required|matches[password]',
-                'passconf' => [
-                    'rules' => 'required|matches[password]',
-                    'errors' => [
-                        'matches' => 'salah bodo'
-                    ]
+        $validation =  \Config\Services::validation();
+        $validation->setRules([
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Harap isi kolom ini'
                 ]
-            ]);
-            $isDataValid = $validation->withRequest($this->request)->run();
+            ],
+            'password' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Harap isi kolom ini'
+                ]
+            ],
+            'passconf' => [
+                'rules' => 'required|matches[password]',
+                'errors' => [
+                    'required' => 'Harap isi kolom ini',
+                    'matches' => 'Kata sandi tidak sama'
+                ]
+            ]
+        ]);
+        $isDataValid = $validation->withRequest($this->request)->run();
 
-            // Jika data valid
-            if ($isDataValid) {
-                // menyimpan data yang diinputkan
-                $nama = $this->request->getPost('nama');
-                $password = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
-                $insert = [
-                    'nama_user' => $nama,
-                    'password' => $password
-                ];
+        // Jika data valid
+        if ($isDataValid) {
+            // menyimpan data yang diinputkan
+            $nama = $this->request->getPost('nama');
+            $password = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
+            $insert = [
+                'nama_user' => $nama,
+                'password' => $password
+            ];
 
-                // dd($insert);
-                $this->UserModel->insert($insert);
-                session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil menambah data.', 'success', 'success'));
-                return redirect()->back();
-            } else {
-                return redirect()->back();
-            }
+            // dd($insert);
+            $this->UserModel->insert($insert);
+            session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil menambah data.', 'success', 'success'));
+            return redirect()->back();
+        } else {
+            session()->setFlashdata('pesan', $this->notify('Perhatian!', 'Gagal menambah data. Harap cek kembali masukkan Anda', 'danger', 'error'));
+            return redirect()->to("/user")->withInput()->with('validation', $validation);
+        }
     }
 
     public function delete($id_user)
     {
         $data = [
-            'title' => 'Data Latih',
-            'train' => $this->TrainingModel->findAll(),
-            'class' => $this->classModel->findAll()
+            'title' => 'Manajemen User',
+            'user' => $this->UserModel->findAll(),
         ];
-        $hapus = $this->TrainingModel->deleteData($id_user);
+        $hapus = $this->UserModel->deleteData($id_user);
         // mengirim pesan berhasil dihapus
         if ($hapus) {
             session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil menghapus data.', 'success', 'success'));
