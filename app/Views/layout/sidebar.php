@@ -40,6 +40,18 @@
 						<span class="sidebar-mini-icon">
 							<i class="fa fa-ellipsis-h"></i>
 						</span>
+						<h4 class="text-section">Admin</h4>
+					</li>
+					<li class="nav-item <?= ($request->uri->getSegment(1) == 'user') ? 'active' : '' ?>">
+						<a href="<?= base_url('user'); ?>">
+							<i class="fas fa-user-cog"></i>
+							<p>Manajemen Admin</p>
+						</a>
+					</li>
+					<li class="nav-section">
+						<span class="sidebar-mini-icon">
+							<i class="fa fa-ellipsis-h"></i>
+						</span>
 						<h4 class="text-section">Klasifikasi</h4>
 					</li>
 					<li class="nav-item <?= ($request->uri->getSegment(1) == 'training') ? 'active' : '' ?>">

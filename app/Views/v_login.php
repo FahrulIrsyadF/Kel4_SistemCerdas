@@ -5,7 +5,9 @@
         <form action="<?= base_url('auth/login') ?>" method="post">
             <?= csrf_field(); ?>
             <div class="card-body">
-                <a href="<?=base_url('/')?>"><h1 class="card-title font-weight-bold text-center">KLASIFIKASI KANKER</h1></a>
+                <a href="<?= base_url('/') ?>">
+                    <h1 class="card-title font-weight-bold text-center">KLASIFIKASI KANKER</h1>
+                </a>
                 <hr>
                 <div class="card-title font-weight-bold text-center">Login Admin</div>
                 <div class="form-group">
@@ -16,6 +18,9 @@
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password" required placeholder="Password">
+                    <div id="show-password" onclick="showPW()">
+                        <i class="icon-eye"></i>
+                    </div>
                     <?= session()->getFlashdata('password'); ?>
                 </div>
                 <div class="form-group" align="right">
@@ -28,9 +33,13 @@
 <?= $this->endSection(); ?>
 <?= $this->section('script'); ?>
 <script>
-    $(document).ready(function() {
-        var action = '<td> <div class="form-button-action"> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit"> <i class="fa fa-edit"></i> </button> <button type="button" data-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Delete"> <i class="fa fa-times"></i> </button> </div> </td>';
-        <?= session()->getFlashdata('pesan'); ?>
-    });
+    function showPW() {
+        const inputPassword = document.getElementById('password');
+        if (inputPassword.getAttribute('type') == 'password') {
+            inputPassword.setAttribute('type', 'text');
+        } else {
+            inputPassword.setAttribute('type', 'password');
+        }
+    }
 </script>
 <?= $this->endSection(); ?>

@@ -41,7 +41,7 @@
                             <h5>
                                 <strong>Informasi :</strong>
                             </h5>
-                            <p class="mx-3 text-muted">1. Di bawah ini merupakan kumpulan data latih klasifikasi kanker serviks. Ada 19 parameter atau atribut peneliian yang digunakan.</p>
+                            <p class="mx-3 text-muted">1. Di bawah ini merupakan kumpulan data latih klasifikasi kanker serviks. Ada 19 parameter atau atribut penelitian yang digunakan.</p>
                             <p class="mx-3 text-muted">2. <strong>6 atribut yang ditampilkan di bawah ini hanyalah atribut acak yang ditampilkan dan tidak ada perlakuan khusus terhadap atribut tersebut.</strong> </p>
                             <p class="mx-3 text-muted">3. Tekan tombol &nbsp;&nbsp; <button type="button" data-tooltip="tooltip" title="Detail Data" class="btn btn-info btn-sm"><i class="fa fa-info"></i></button>&nbsp;&nbsp;
                                 pada kolom Aksi untuk melihat detail semua data atribut selain 6 atribut yang ditampilkan.</p>
@@ -236,7 +236,7 @@ foreach ($train as $data) { ?>
                     <li>Klik tombol "Unggah File Excel" untuk unggah <i>File Excel</i> yang telah berisi data latih</li>
                 </ol><br>
                 <div class="float-right">
-                    <a href="/assets/excel/template_data.xlsx" class="btn btn-success"><i class="fas fa-download"></i>&nbsp;&nbsp;Download Template Excel</a>
+                    <a href="/assets/excel/template_data.xlsx" class="btn btn-success"><i class="fas fa-download"></i>&nbsp;&nbsp;Unduh Template Excel</a>
                 </div>
             </div>
         </div>
