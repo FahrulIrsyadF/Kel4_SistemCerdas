@@ -36,7 +36,7 @@ class User extends BaseController
 
     public function create()
     {
-        // lakukan validasi
+        // konfigurasi validasi (membuat rules)
         $validation =  \Config\Services::validation();
         $validation->setRules([
             'nama' => [
@@ -61,7 +61,7 @@ class User extends BaseController
         ]);
         $isDataValid = $validation->withRequest($this->request)->run();
 
-        // Jika data valid
+        // Jika data tidak lolos validasi
         if ($isDataValid) {
             // menyimpan data yang diinputkan
             $nama = $this->request->getPost('nama');
@@ -76,6 +76,7 @@ class User extends BaseController
             session()->setFlashdata('pesan', $this->notify('Selamat!', 'Berhasil menambah data.', 'success', 'success'));
             return redirect()->back();
         } else {
+            //Jika data tidak lolos validasi
             session()->setFlashdata('pesan', $this->notify('Perhatian!', 'Gagal menambah data. Harap cek kembali masukkan Anda', 'danger', 'error'));
             return redirect()->to("/user")->withInput()->with('validation', $validation);
         }
@@ -83,10 +84,6 @@ class User extends BaseController
 
     public function delete($id_user)
     {
-        $data = [
-            'title' => 'Manajemen User',
-            'user' => $this->UserModel->findAll(),
-        ];
         $hapus = $this->UserModel->deleteData($id_user);
         // mengirim pesan berhasil dihapus
         if ($hapus) {

@@ -3514,6 +3514,16 @@ label.error {
     margin-top: 15px !important;
     border: 1px solid #eee !important; }
 
+/*     Show Password    */
+.wrapper #show-password {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  cursor: pointer;
+}
+
 /*     Table    */
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
   vertical-align: middle; }

@@ -11,14 +11,14 @@
                 <hr>
                 <div class="card-title font-weight-bold text-center">Login Admin</div>
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" required placeholder="Enter Username" autofocus autocomplete="off">
+                    <label for="username">Nama Pengguna</label>
+                    <input type="text" class="form-control" id="username" name="username" required placeholder="Masukkan Nama Pengguna" autofocus autocomplete="off">
                     <?= session()->getFlashdata('username'); ?>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required placeholder="Password">
-                    <div id="show-password" onclick="showPW()">
+                    <label for="password">Kata Sandi</label>
+                    <input type="password" class="form-control" id="password" name="password" required placeholder="Masukkan Kata Sandi">
+                    <div id="show-password" onclick="showPW()" style="position: absolute; right: 40px; top: 70%; transform: translateY(-50%); font-size: 20px; cursor: pointer;">
                         <i class="icon-eye"></i>
                     </div>
                     <?= session()->getFlashdata('password'); ?>

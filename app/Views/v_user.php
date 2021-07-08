@@ -94,7 +94,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group form-group-default">
-                                <label>Nama</label>
+                                <label>Nama Pengguna</label>
                                 <input id="nama" type="text" name="nama" placeholder="Masukkan Nama" class="form-control <?= ($validation->hasError('nama')) ? 'is-invalid' : '' ?>" value="<?= old('nama'); ?>">
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('nama'); ?>
@@ -104,7 +104,7 @@
                         <div class="col-md-12">
                             <div class="form-group form-group-default mx-0">
                                 <label>Kata Sandi</label>
-                                <input id="password" type="text" name="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : '' ?>" placeholder="Masukkan Kata Sandi">
+                                <input id="password" type="password" name="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : '' ?>" placeholder="Masukkan Kata Sandi">
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('password'); ?>
                                 </div>
@@ -113,7 +113,7 @@
                         <div class="col-md-12">
                             <div class="form-group form-group-default mx-0">
                                 <label>Konfirmasi Kata Sandi</label>
-                                <input id="passconf" type="text" name="passconf" class="form-control <?= ($validation->hasError('passconf')) ? 'is-invalid' : '' ?>" placeholder="Ulangi Kata Sandi">
+                                <input id="passconf" type="password" name="passconf" class="form-control <?= ($validation->hasError('passconf')) ? 'is-invalid' : '' ?>" placeholder="Ulangi Kata Sandi">
 
                                 <div class="invalid-feedback">
                                     <?= $validation->getError('passconf'); ?>
