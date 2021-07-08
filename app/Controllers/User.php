@@ -61,7 +61,7 @@ class User extends BaseController
         ]);
         $isDataValid = $validation->withRequest($this->request)->run();
 
-        // Jika data tidak lolos validasi
+        // Jika data lolos validasi
         if ($isDataValid) {
             // menyimpan data yang diinputkan
             $nama = $this->request->getPost('nama');

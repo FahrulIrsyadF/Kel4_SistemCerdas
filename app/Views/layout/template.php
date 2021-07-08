@@ -196,6 +196,12 @@
 
     <script>
         $(document).ready(function() {
+            $('table.display').DataTable();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
             $('[data-tooltip="tooltip"]').tooltip();
         });
     </script>
