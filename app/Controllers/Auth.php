@@ -56,6 +56,7 @@ class Auth extends BaseController
                 session()->setFlashdata('password', '<small class="form-text text-danger">
                 Password salah
                 </small>');
+                session()->setFlashdata('pesan', $this->notify('Perhatian!', 'Kata sandi salah. Harap cek kembali masukkan Anda', 'danger', 'error'));
                 return redirect()->to('/auth');
             }
         } else {

@@ -17,11 +17,10 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Kata Sandi</label>
-                    <input type="password" class="form-control" id="password" name="password" required placeholder="Masukkan Kata Sandi">
-                    <div id="show-password" onclick="showPW()" style="position: absolute; right: 40px; top: 70%; transform: translateY(-50%); font-size: 20px; cursor: pointer;">
+                    <input type="password" class="form-control <?= (session()->getFlashdata('password')) ? 'is-invalid' : '' ?>" id="password" name="password" required placeholder="Masukkan Kata Sandi">
+                    <div id="show-password" onclick="showPW()" style="position: relative; left: 90%; top: -35px; font-size: 20px; cursor: pointer;">
                         <i class="icon-eye"></i>
                     </div>
-                    <?= session()->getFlashdata('password'); ?>
                 </div>
                 <div class="form-group" align="right">
                     <button type="submit" class="btn btn-primary">Login</button>
@@ -41,5 +40,6 @@
             inputPassword.setAttribute('type', 'password');
         }
     }
+    <?= session()->getFlashdata('pesan'); ?>
 </script>
 <?= $this->endSection(); ?>
