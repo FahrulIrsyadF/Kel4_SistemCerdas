@@ -11,7 +11,6 @@ class Auth extends BaseController
     public function __construct()
     {
         $this->loginModel = new LoginModel;
-        
     }
 
     public function index()
@@ -20,7 +19,7 @@ class Auth extends BaseController
             session()->setFlashdata('pesan', $this->notify('Peringatan!', 'Anda sudah login!', 'warning', 'error'));
             return redirect()->to("/dashboard");
         }
-        
+
         $data = [
             'title' => 'Login Admin',
         ];
@@ -60,9 +59,7 @@ class Auth extends BaseController
                 return redirect()->to('/auth');
             }
         } else {
-            session()->setFlashdata('username', '<small class="form-text text-danger">
-            Username belum terdaftar
-            </small>');
+            session()->setFlashdata('pesan', $this->notify('Perhatian!', 'Nama pengguna belum terdaftar', 'danger', 'error'));
             return redirect()->to('/auth');
         }
     }

@@ -12,7 +12,7 @@
                 <div class="card-title font-weight-bold text-center">Login Admin</div>
                 <div class="form-group">
                     <label for="username">Nama Pengguna</label>
-                    <input type="text" class="form-control" id="username" name="username" required placeholder="Masukkan Nama Pengguna" autofocus autocomplete="off">
+                    <input type="text" class="form-control <?= (session()->getFlashdata('username')) ? 'is-invalid' : '' ?>" id="username" name="username" required placeholder="Masukkan Nama Pengguna" autofocus autocomplete="off">
                     <?= session()->getFlashdata('username'); ?>
                 </div>
                 <div class="form-group">
