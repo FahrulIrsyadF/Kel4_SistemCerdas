@@ -22,6 +22,8 @@ class Testing extends BaseController
         $data = [
             'title' => 'Form diagnosis kanker serviks',
             'weight' => $this->weightModel->where('status_weight', 1)->find(),
+            'validation' => [],
+            'old' => [],
         ];
 
         echo view('v_testing', $data);
@@ -43,58 +45,57 @@ class Testing extends BaseController
     {
         // lakukan validasi
         $validation =  \Config\Services::validation();
-        $validation->setRules(['name' => 'required']);
-        $validation->setRules(['age' => 'required']);
+        $validation->setRule('name','Nama','required');
+        $validation->setRule('age','Umur','required');
 
-        $validation->setRules(['behavior_sexualrisk' => 'required']);
-        $validation->setRules(['behavior_eating' => 'required']);
-        $validation->setRules(['behavior_personalHygine' => 'required']);
-        $validation->setRules(['intention_aggregation' => 'required']);
-        $validation->setRules(['intention_commitment' => 'required']);
-        $validation->setRules(['attitude_consistency' => 'required']);
-        $validation->setRules(['attitude_spontaneity' => 'required']);
-        $validation->setRules(['norm_significantPerson' => 'required']);
-        $validation->setRules(['norm_fulfillment' => 'required']);
-        $validation->setRules(['perception_vulnerability' => 'required']);
-        $validation->setRules(['perception_severity' => 'required']);
-        $validation->setRules(['motivation_strength' => 'required']);
-        $validation->setRules(['motivation_willingness' => 'required']);
-        $validation->setRules(['socialSupport_emotionality' => 'required']);
-        $validation->setRules(['socialSupport_appreciation' => 'required']);
-        $validation->setRules(['socialSupport_instrumental' => 'required']);
-        $validation->setRules(['empowerment_knowledge' => 'required']);
-        $validation->setRules(['empowerment_abilities' => 'required']);
-        $validation->setRules(['empowerment_desires' => 'required']);
+        $validation->setRule('behavior_sexualrisk','column or','required');
+        $validation->setRule('behavior_eating','column or','required');
+        $validation->setRule('behavior_personalHygine','column or','required');
+        $validation->setRule('intention_aggregation','column or','required');
+        $validation->setRule('intention_commitment','column or','required');
+        $validation->setRule('attitude_consistency','column or','required');
+        $validation->setRule('attitude_spontaneity','column or','required');
+        $validation->setRule('norm_significantPerson','column or','required');
+        $validation->setRule('norm_fulfillment','column or','required');
+        $validation->setRule('perception_vulnerability','column or','required');
+        $validation->setRule('perception_severity','column or','required');
+        $validation->setRule('motivation_strength','column or','required');
+        $validation->setRule('motivation_willingness','column or','required');
+        $validation->setRule('socialSupport_emotionality','column or','required');
+        $validation->setRule('socialSupport_appreciation','column or','required');
+        $validation->setRule('socialSupport_instrumental','column or','required');
+        $validation->setRule('empowerment_knowledge','column or','required');
+        $validation->setRule('empowerment_abilities','column or','required');
+        $validation->setRule('empowerment_desires','column or','required');
         $isDataValid = $validation->withRequest($this->request)->run();
+
+        // menyimpan variabel testing
+        $test_name = $this->request->getPost('name');
+        $test_age = $this->request->getPost('age');
+
+        $test_behaviour_sexualrisk = $this->request->getPost('behavior_sexualrisk');
+        $test_behavior_eating = $this->request->getPost('behavior_eating');
+        $test_behavior_personalhygine = $this->request->getPost('behavior_personalHygine');
+        $test_intention_aggregation = $this->request->getPost('intention_aggregation');
+        $test_intention_commitment = $this->request->getPost('intention_commitment');
+        $test_attitude_consistency = $this->request->getPost('attitude_consistency');
+        $test_attitude_spontaneity = $this->request->getPost('attitude_spontaneity');
+        $test_norm_significantperson = $this->request->getPost('norm_significantPerson');
+        $test_norm_fulfillment = $this->request->getPost('norm_fulfillment');
+        $test_perception_vulnerability = $this->request->getPost('perception_vulnerability');
+        $test_perception_severity = $this->request->getPost('perception_severity');
+        $test_motivation_strength = $this->request->getPost('motivation_strength');
+        $test_motivation_willingness = $this->request->getPost('motivation_willingness');
+        $test_socialsupport_emotionality = $this->request->getPost('socialSupport_emotionality');
+        $test_socialsupport_appreciation = $this->request->getPost('socialSupport_appreciation');
+        $test_socialsupport_instrumental = $this->request->getPost('socialSupport_instrumental');
+        $test_empowerment_knowledge = $this->request->getPost('empowerment_knowledge');
+        $test_empowerment_abilities = $this->request->getPost('empowerment_abilities');
+        $test_empowerment_desires = $this->request->getPost('empowerment_desires');
+        // dd($validation->getErrors());
 
         // jika data valid, lakukan perhitungan
         if ($isDataValid) {
-            echo '<pre>';
-            print_r($_POST);
-
-            // menyimpan variabel testing
-            $test_name = $this->request->getPost('name');
-            $test_age = $this->request->getPost('age');
-
-            $test_behaviour_sexualrisk = $this->request->getPost('behavior_sexualrisk');
-            $test_behavior_eating = $this->request->getPost('behavior_eating');
-            $test_behavior_personalhygine = $this->request->getPost('behavior_personalHygine');
-            $test_intention_aggregation = $this->request->getPost('intention_aggregation');
-            $test_intention_commitment = $this->request->getPost('intention_commitment');
-            $test_attitude_consistency = $this->request->getPost('attitude_consistency');
-            $test_attitude_spontaneity = $this->request->getPost('attitude_spontaneity');
-            $test_norm_significantperson = $this->request->getPost('norm_significantPerson');
-            $test_norm_fulfillment = $this->request->getPost('norm_fulfillment');
-            $test_perception_vulnerability = $this->request->getPost('perception_vulnerability');
-            $test_perception_severity = $this->request->getPost('perception_severity');
-            $test_motivation_strength = $this->request->getPost('motivation_strength');
-            $test_motivation_willingness = $this->request->getPost('motivation_willingness');
-            $test_socialsupport_emotionality = $this->request->getPost('socialSupport_emotionality');
-            $test_socialsupport_appreciation = $this->request->getPost('socialSupport_appreciation');
-            $test_socialsupport_instrumental = $this->request->getPost('socialSupport_instrumental');
-            $test_empowerment_knowledge = $this->request->getPost('empowerment_knowledge');
-            $test_empowerment_abilities = $this->request->getPost('empowerment_abilities');
-            $test_empowerment_desires = $this->request->getPost('empowerment_desires');
 
             // mengambil weight terpilih
             $weight = $this->weightModel->where('status_weight', 1)->find();
@@ -279,12 +280,44 @@ class Testing extends BaseController
             $id = $this->testingModel->getInsertID();
             return redirect()->to("/testing/done/$id");
         }
+        // else{
+        //     session()->setFlashdata('pesan', $this->notify('Perhatian!', 'Gagal menambah data. Harap cek kembali masukkan Anda', 'danger', 'error'));
+        //     return redirect()->to("/testing")->withInput()->with('validation', $validation);
+        // }
+
+        $input = [
+            'name' => $test_name,
+            'age' => $test_age,
+            'behaviour_sexualrisk' => $test_behaviour_sexualrisk,
+            'behavior_eating' => $test_behavior_eating,
+            'behavior_personalhygine' => $test_behavior_personalhygine,
+            'intention_aggregation' => $test_intention_aggregation,
+            'intention_commitment' => $test_intention_commitment,
+            'attitude_consistency' => $test_attitude_consistency,
+            'attitude_spontaneity' => $test_attitude_spontaneity,
+            'norm_significantperson' => $test_norm_significantperson,
+            'norm_fulfillment' => $test_norm_fulfillment,
+            'perception_vulnerability' => $test_perception_vulnerability,
+            'perception_severity' => $test_perception_severity,
+            'motivation_strength' => $test_motivation_strength,
+            'motivation_willingness' => $test_motivation_willingness,
+            'socialsupport_emotionality' => $test_socialsupport_emotionality,
+            'socialsupport_appreciation' => $test_socialsupport_appreciation,
+            'socialsupport_instrumental' => $test_socialsupport_instrumental,
+            'empowerment_knowledge' => $test_empowerment_knowledge,
+            'empowerment_abilities' => $test_empowerment_abilities,
+            'empowerment_desires' => $test_empowerment_desires,
+        ];
 
         // tampilkan form klasifikasi kembali
         $data = [
             'title'     => 'Form diagnosis kanker serviks',
+            'weight' => $this->weightModel->where('status_weight', 1)->find(),
+            'validation' => $validation->getErrors(),
+            'old' => $input,
         ];
 
+        // dd($input);
         echo view('v_testing', $data);
     }
 }

@@ -16,11 +16,13 @@
                         <form action="<?= base_url('testing/create'); ?>" method="post">
                             <div class="form-group">
                                 <label for="name">Nama Anda:</label>
-                                <input required type="text" name="name" id="name" class="form-control" placeholder="Masukkan nama lengkap anda">
+                                <input required type="text" name="name" id="name" value="<?= isset($old['name']) ? $old['name'] : '' ?>" class="form-control <?= isset($validation['name']) ? 'is-invalid' : '' ?>" placeholder="Masukkan nama lengkap anda">
+                                <span class="badge badge-danger mt-2"><?= isset($validation['name']) ? $validation['name'] : ''; ?></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group  w-50">
                                 <label for="age">Usia Anda:</label>
-                                <input required type="number" name="age" id="age" class="form-control w-50" placeholder="Masukkan usia anda">
+                                <input required type="number" name="age" id="age" value="<?= isset($old['age']) ? $old['age'] : '' ?>" class="form-control <?= isset($validation['age']) ? 'is-invalid' : '' ?>" placeholder="Masukkan usia anda">
+                                <span class="badge badge-danger mt-2"><?= isset($validation['age']) ? $validation['age'] : '' ?></span>
                             </div>
                             <div class="form-group">
                                 <div>
@@ -30,7 +32,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="behavior_sexualrisk" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['behaviour_sexualrisk']) && $old['behaviour_sexualrisk'] == $i){echo 'checked';} ?> name="behavior_sexualrisk" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -38,6 +40,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat jarang hingga ke sangat sering"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['behavior_sexualrisk']) ? $validation['behavior_sexualrisk'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -46,7 +49,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="behavior_eating" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['behavior_eating']) && $old['behavior_eating'] == $i){echo 'checked';} ?> name="behavior_eating" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -54,6 +57,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['behavior_eating']) ? $validation['behavior_eating'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -62,7 +66,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="behavior_personalHygine" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['behavior_personalhygine']) && $old['behavior_personalhygine'] == $i){echo 'checked';} ?> name="behavior_personalHygine" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -70,6 +74,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['behavior_personalHygine']) ? $validation['behavior_personalHygine'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -78,7 +83,7 @@
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="intention_aggregation" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['intention_aggregation']) && $old['intention_aggregation'] == $i){echo 'checked';} ?> name="intention_aggregation" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -86,6 +91,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['intention_aggregation']) ? $validation['intention_aggregation'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -94,7 +100,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="intention_commitment" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['intention_commitment']) && $old['intention_commitment'] == $i){echo 'checked';} ?> name="intention_commitment" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -102,6 +108,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['intention_commitment']) ? $validation['intention_commitment'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -110,7 +117,7 @@
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="attitude_consistency" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['attitude_consistency']) && $old['attitude_consistency'] == $i){echo 'checked';} ?> name="attitude_consistency" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -118,6 +125,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['attitude_consistency']) ? $validation['attitude_consistency'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -126,7 +134,7 @@
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="attitude_spontaneity" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['attitude_spontaneity']) && $old['attitude_spontaneity'] == $i){echo 'checked';} ?> name="attitude_spontaneity" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -134,6 +142,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['attitude_spontaneity']) ? $validation['attitude_spontaneity'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -142,7 +151,7 @@
                                         <?php
                                         for ($i = 1; $i <= 5; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="norm_significantPerson" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['norm_significantperson']) && $old['norm_significantperson'] == $i){echo 'checked';} ?> name="norm_significantPerson" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -150,6 +159,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['norm_significantPerson']) ? $validation['norm_significantPerson'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -158,7 +168,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="norm_fulfillment" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['norm_fulfillment']) && $old['norm_fulfillment'] == $i){echo 'checked';} ?> name="norm_fulfillment" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -166,6 +176,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['norm_fulfillment']) ? $validation['norm_fulfillment'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -174,7 +185,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="perception_vulnerability" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['perception_vulnerability']) && $old['perception_vulnerability'] == $i){echo 'checked';} ?> name="perception_vulnerability" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -182,6 +193,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat tidak yakin hingga ke sangat yakin"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['perception_vulnerability']) ? $validation['perception_vulnerability'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -190,7 +202,7 @@
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="perception_severity" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['perception_severity']) && $old['perception_severity'] == $i){echo 'checked';} ?> name="perception_severity" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -198,6 +210,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat tidak yakin hingga ke sangat yakin"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['perception_severity']) ? $validation['perception_severity'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -206,7 +219,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="motivation_strength" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['motivation_strength']) && $old['motivation_strength'] == $i){echo 'checked';} ?> name="motivation_strength" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -214,6 +227,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['motivation_strength']) ? $validation['motivation_strength'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -222,7 +236,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="motivation_willingness" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['motivation_willingness']) && $old['motivation_willingness'] == $i){echo 'checked';} ?> name="motivation_willingness" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -230,6 +244,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['motivation_willingness']) ? $validation['motivation_willingness'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -238,7 +253,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="socialSupport_emotionality" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['socialsupport_emotionality']) && $old['socialsupport_emotionality'] == $i){echo 'checked';} ?> name="socialSupport_emotionality" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -246,6 +261,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['socialSupport_emotionality']) ? $validation['socialSupport_emotionality'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -254,7 +270,7 @@
                                         <?php
                                         for ($i = 1; $i <= 10; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="socialSupport_appreciation" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['socialsupport_appreciation']) && $old['socialsupport_appreciation'] == $i){echo 'checked';} ?> name="socialSupport_appreciation" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -262,6 +278,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['socialSupport_appreciation']) ? $validation['socialSupport_appreciation'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -270,7 +287,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="socialSupport_instrumental" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['socialsupport_instrumental']) && $old['socialsupport_instrumental'] == $i){echo 'checked';} ?> name="socialSupport_instrumental" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -278,6 +295,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['socialSupport_instrumental']) ? $validation['socialSupport_instrumental'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -286,7 +304,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="empowerment_knowledge" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['empowerment_knowledge']) && $old['empowerment_knowledge'] == $i){echo 'checked';} ?> name="empowerment_knowledge" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -294,6 +312,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['empowerment_knowledge']) ? $validation['empowerment_knowledge'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -302,7 +321,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="empowerment_abilities" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['empowerment_abilities']) && $old['empowerment_abilities'] == $i){echo 'checked';} ?> name="empowerment_abilities" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -310,6 +329,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['empowerment_abilities']) ? $validation['empowerment_abilities'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div>
@@ -318,7 +338,7 @@
                                         <?php
                                         for ($i = 1; $i <= 15; $i++) { ?>
                                             <label class="form-radio-label mx-0">
-                                                <input class="form-radio-input" type="radio" required name="empowerment_desires" value="<?= $i; ?>">
+                                                <input required class="form-radio-input" type="radio" <?php if(isset($old['empowerment_desires']) && $old['empowerment_desires'] == $i){echo 'checked';} ?> name="empowerment_desires" value="<?= $i; ?>">
                                                 <span class="form-radio-sign mr-4"><?= $i; ?></span>
                                             </label>
                                         <?php } ?>
@@ -326,6 +346,7 @@
                                     <div class="text-small text-muted">
                                         <small>Rentang nilai terkecil hingga terbesar = "sangat buruk hingga ke sangat baik"</small>
                                     </div>
+                                    <div><span class="badge badge-danger mt-2"><?= isset($validation['empowerment_desires']) ? $validation['empowerment_desires'] : ''; ?></span></div>
                                 </div>
                                 <br>
                                 <div class="text-right">
