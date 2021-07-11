@@ -40,10 +40,11 @@ class User extends BaseController
         $validation =  \Config\Services::validation();
         $validation->setRules([
             'nama' => [
-                'rules' => 'required|is_unique[user.nama_user]',
+                'rules' => 'trim|required|is_unique[user.nama_user]|regex_match[/^[A-Za-z0-9_]*$/]',
                 'errors' => [
-                    'required' => 'Harap isi kolom ini',
-                    'is_unique' => 'Nama telah terdaftar' 
+                    'required'      => 'Harap isi kolom ini',
+                    'is_unique'     => 'Nama telah terdaftar',
+                    'regex_match'   => 'Terdapat karakter spesial yang tidak diperbolehkan'
                 ]
             ],
             'password' => [

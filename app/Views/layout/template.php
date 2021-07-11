@@ -196,7 +196,13 @@
 
     <script>
         $(document).ready(function() {
-            $('table.display').DataTable();
+            $('#datatable2').DataTable();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#datatable3').DataTable();
         });
     </script>
 

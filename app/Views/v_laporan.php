@@ -100,7 +100,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="datatable" class="display table table-striped table-hover">
+                            <table id="datatable2" class="display table table-striped table-hover">
                                 <thead>
                                     <th>No</th>
                                     <th>Umur</th>
@@ -127,7 +127,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="datatable" class="display table table-striped table-hover">
+                            <table id="datatable3" class="display table table-striped table-hover">
                                 <thead>
                                     <th>No</th>
                                     <th>Kelas</th>
