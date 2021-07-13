@@ -5,7 +5,7 @@
 <div class="content">
     <div class="page-inner">
         <div class="page-header">
-            <h4 class="page-title">Data Admin</h4>
+            <h4 class="page-title">Manajemen Admin</h4>
             <ul class="breadcrumbs">
                 <li class="nav-home">
                     <a href="/dashboard">
@@ -16,7 +16,7 @@
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="#">Data Admin</a>
+                    <a href="#">Manajemen Admin</a>
                 </li>
             </ul>
         </div>
