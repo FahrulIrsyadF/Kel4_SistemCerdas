@@ -45,8 +45,8 @@ class Testing extends BaseController
     {
         // lakukan validasi
         $validation =  \Config\Services::validation();
-        $validation->setRule('name','Nama','required');
-        $validation->setRule('age','Umur','required');
+        $validation->setRule('name','Nama','required|min_length[2]|max_length[100]');
+        $validation->setRule('age','Umur','required|numeric|greater_than[0]');
 
         $validation->setRule('behavior_sexualrisk','column or','required');
         $validation->setRule('behavior_eating','column or','required');

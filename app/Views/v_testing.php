@@ -16,12 +16,12 @@
                         <form action="<?= base_url('testing/create'); ?>" method="post">
                             <div class="form-group">
                                 <label for="name">Nama Anda:</label>
-                                <input required type="text" name="name" id="name" value="<?= isset($old['name']) ? $old['name'] : '' ?>" class="form-control <?= isset($validation['name']) ? 'is-invalid' : '' ?>" placeholder="Masukkan nama lengkap anda">
+                                <input required type="text"  pattern="[a-zA-Z-_ ]{2,100}" title="Masukkan karakter minimal 2, maksimum 100, hanya alphabet, spasi, dash dan underscore" name="name" id="name" value="<?= isset($old['name']) ? $old['name'] : '' ?>" class="form-control <?= isset($validation['name']) ? 'is-invalid' : '' ?>" placeholder="Masukkan nama lengkap anda">
                                 <span class="badge badge-danger mt-2"><?= isset($validation['name']) ? $validation['name'] : ''; ?></span>
                             </div>
                             <div class="form-group  w-50">
                                 <label for="age">Usia Anda:</label>
-                                <input required type="number" name="age" id="age" value="<?= isset($old['age']) ? $old['age'] : '' ?>" class="form-control <?= isset($validation['age']) ? 'is-invalid' : '' ?>" placeholder="Masukkan usia anda">
+                                <input required type="number" min="1" pattern="[0-9]" title="Masukkan hanya angka, lebih besar daripada 0" name="age" id="age" value="<?= isset($old['age']) ? $old['age'] : '' ?>" class="form-control <?= isset($validation['age']) ? 'is-invalid' : '' ?>" placeholder="Masukkan usia anda">
                                 <span class="badge badge-danger mt-2"><?= isset($validation['age']) ? $validation['age'] : '' ?></span>
                             </div>
                             <div class="form-group">
