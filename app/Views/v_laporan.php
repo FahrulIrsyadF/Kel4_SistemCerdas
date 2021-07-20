@@ -96,7 +96,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                 </div> <br>
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title text-bold">Jumlah User Testing Berdasarkan Umur</h4>
+                        <h4 class="card-title text-bold">Jumlah Penguji Berdasarkan Umur</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -123,7 +123,7 @@ $test = $db->query("SELECT * FROM test, class WHERE test.id_class = class.id_cla
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title text-bold">Klasifikasi Berdasarkan Jumlah User Testing</h4>
+                        <h4 class="card-title text-bold">Jumlah Penguji Berdasarkan Kelas</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
