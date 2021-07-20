@@ -21,7 +21,7 @@ class User extends BaseController
     {
         $username = $this->loginModel->where(['nama_user' => session()->get('username')])->first();
         if ($username == NULL) {
-            session()->setFlashdata('pesan', $this->notify('Peringatan!', 'Untuk mengakses halaman data training, login terlebih dahulu!', 'warning', 'error'));
+            session()->setFlashdata('pesan', $this->notify('Peringatan!', 'Untuk mengakses halaman manajemen admin, login terlebih dahulu!', 'warning', 'error'));
             return redirect()->to("/auth");
         }
 
@@ -40,17 +40,19 @@ class User extends BaseController
         $validation =  \Config\Services::validation();
         $validation->setRules([
             'nama' => [
-                'rules' => 'trim|required|is_unique[user.nama_user]|regex_match[/^[A-Za-z0-9_]*$/]',
+                'rules' => 'trim|required|min_length[5]|is_unique[user.nama_user]|regex_match[/^[A-Za-z0-9_]*$/]',
                 'errors' => [
                     'required'      => 'Harap isi kolom ini',
+                    'min_length' => 'Nama Pengguna minimal 5 karakter',
                     'is_unique'     => 'Nama telah terdaftar',
                     'regex_match'   => 'Terdapat karakter spesial yang tidak diperbolehkan'
                 ]
             ],
             'password' => [
-                'rules' => 'required',
+                'rules' => 'required|min_length[8]',
                 'errors' => [
-                    'required' => 'Harap isi kolom ini'
+                    'required' => 'Harap isi kolom ini',
+                    'min_length' => 'Kata sandi minimal 8 karakter'
                 ]
             ],
             'passconf' => [

@@ -104,11 +104,11 @@
                 data: {
                     labels: [
                         <?php foreach ($umur->getResultArray() as $um) {
-                            echo '"' . $um['age_test'] . '",';
+                            echo '"Umur ' . $um['age_test'] . '",';
                         } ?>
                     ],
                     datasets: [{
-                        label: "Umur",
+                        label: "Jumlah",
                         backgroundColor: 'rgb(23, 125, 255)',
                         borderColor: 'rgb(23, 125, 255)',
                         data: [

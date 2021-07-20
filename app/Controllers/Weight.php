@@ -23,7 +23,7 @@ class Weight extends BaseController
     {
         $username = $this->loginModel->where(['nama_user' => session()->get('username')])->first();
         if ($username == NULL) {
-            session()->setFlashdata('pesan', $this->notify('Peringatan!', 'Untuk mengakses halaman training, login terlebih dahulu!', 'warning', 'error'));
+            session()->setFlashdata('pesan', $this->notify('Peringatan!', 'Untuk mengakses halaman data bobot, login terlebih dahulu!', 'warning', 'error'));
             return redirect()->to("/auth");
         }
 

@@ -4,7 +4,7 @@
 <div class="content">
     <div class="page-inner">
         <div class="page-header">
-            <h4 class="page-title">Tentang LVQ</h4>
+            <h4 class="page-title">Tentang</h4>
             <ul class="breadcrumbs">
                 <li class="nav-home">
                     <a href="/dashboard">
@@ -15,7 +15,7 @@
                     <i class="flaticon-right-arrow"></i>
                 </li>
                 <li class="nav-item">
-                    <a href="#">Tentang LVQ</a>
+                    <a href="#">Tentang</a>
                 </li>
             </ul>
         </div>

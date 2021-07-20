@@ -7,7 +7,7 @@
 			<div class="col-md-6">
 				<div class="card">
 					<div class="card-header">
-						<div class="card-title font-weight-bold text-center">Bagan Jumlah User yang Testing berdasar Umur</div>
+						<div class="card-title font-weight-bold text-center">Jumlah Penguji Berdasarkan Umur</div>
 					</div>
 					<div class="card-body">
 						<div class="chart-container">
@@ -19,7 +19,7 @@
 			<div class="col-md-6">
 				<div class="card">
 					<div class="card-header">
-						<div class="card-title font-weight-bold text-center">Bagan Presentase Kasus dari User</div>
+						<div class="card-title font-weight-bold text-center">Presentase Kasus Dari User</div>
 					</div>
 					<div class="card-body">
 						<div class="chart-container">
