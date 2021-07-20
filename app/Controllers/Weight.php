@@ -75,11 +75,13 @@ class Weight extends BaseController
     {
         d($this->request->getPost());
 
+        // Menerima input dari form modal
         $alpha = $this->request->getPost('alpha');
         $max_epoch = $this->request->getPost('max_epoch');
         $classPerhitungan = 0;
 
-        set_time_limit(600);
+        set_time_limit(600); // Untuk mengatur batas waktu perhitungan bobot
+        
         // Perulangan iterasi sesuai nilai max epoch
         for ($i = 1; $i <= $max_epoch; $i++) :
             $train = $this->TrainingModel->findAll();
@@ -403,6 +405,7 @@ class Weight extends BaseController
                         'prosentase' => $prosentase,
                         // 'akurasi' => $akurasi,
                         // 'numrow' => $numrow,
+                        // Menyimpan bobot terbaik yang sudah dihitung
                         'wa_behaviour_sexualrisk' => $wa_behaviour_sexualrisk,
                         'wa_behavior_eating' => $wa_behavior_eating,
                         'wa_behavior_personalhygine' => $wa_behavior_personalhygine,
@@ -461,6 +464,7 @@ class Weight extends BaseController
         endfor;
     }
 
+    // Function untuk rumus update bobot
     public function hitungWeight($ClassPerhitunganSebelumnya, $ClassDatasetSebelumnya, $weightSebelumnya, $weightDataset, $alpha)
     {
         if ($ClassDatasetSebelumnya == $ClassPerhitunganSebelumnya) {

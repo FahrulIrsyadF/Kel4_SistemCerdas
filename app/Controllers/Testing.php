@@ -142,7 +142,7 @@ class Testing extends BaseController
             $wb_empowerment_desires = doubleval($weight[0]['wb_empowerment_desires']);
 
             // =============================
-
+            // Untuk keperluan monitoring pemanggilan variabel weight dari database
             $weight_arr = [
                 'wa_behaviour_sexualrisk' => $wa_behaviour_sexualrisk,
                 'wa_behavior_eating' => $wa_behavior_eating,
@@ -187,6 +187,7 @@ class Testing extends BaseController
 
             d($weight_arr);
 
+            // Perhitungan bobot untuk kelas positif
             $result_a = sqrt(
                 pow(($test_behaviour_sexualrisk - $wa_behaviour_sexualrisk), 2) +
                     pow(($test_behavior_eating - $wa_behavior_eating),  2) +
@@ -209,6 +210,7 @@ class Testing extends BaseController
                     pow(($test_empowerment_desires - $wa_empowerment_desires),  2)
             );
 
+            // Perhitungan bobot untuk kelas negatif
             $result_b = sqrt(
                 pow(($test_behaviour_sexualrisk - $wb_behaviour_sexualrisk), 2) +
                     pow(($test_behavior_eating - $wb_behavior_eating), 2) +
@@ -236,6 +238,7 @@ class Testing extends BaseController
             echo $result_b;
             echo '<br>';
 
+            // pengecekan hasil perhitungan lebih dekat kepada bobot positif atau negatif
             if ($result_a < $result_b) {
                 $class = $this->classModel->where('code_class', 1)->findAll();
                 $class = $class[0]['id_class'];
