@@ -28,7 +28,7 @@
                         </div>
                         <div class="col-lg-8 col-md-8 d-flex">
                             <h1 class="d-flex align-items-center px-lg-5">
-                                Selamat Datang di Aplikasi Deteksi Dini Kanker Serviks Menggunakan Metode LVQ (Learning Vector Quantization).
+                                Selamat Datang di Aplikasi Klasifikasi Kanker Serviks Berdasarkan Risiko Perilaku Menggunakan Metode LVQ (Learning Vector Quantization).
                             </h1>
                         </div>
                         <div class="col-lg-2 col-md-4 my-auto text-center">

@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h2>Form Diagnosis Kanker Serviks</h2>
-                        <h5>Berikut merupakan form untuk diagnosis dini penyakit Kanker Serviks, dengan akurasi <strong> <?= substr($weight[0]['prosentase'], 0, 5) ?>%.</strong>
+                        <h5>Berikut merupakan form untuk diagnosis penyakit Kanker Serviks berdasarkan risiko perilaku, dengan akurasi <strong> <?= substr($weight[0]['prosentase'], 0, 5) ?>%.</strong>
                             Terdapat rentang <b>NILAI KESEHATAN</b> di setiap pertanyaan, mohon pilih sesuai dengan pola hidup Anda!</h5>
 
                     </div>
